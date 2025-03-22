@@ -68,7 +68,7 @@
       }
       .play-button {
         padding: 15px 30px;
-        background-color: #8a2be2;
+        background-color: #004c97;
         color: white;
         border: none;
         border-radius: 50px;
@@ -81,7 +81,7 @@
         transition: background-color 0.3s;
       }
       .play-button:hover {
-        background-color: #6a1b9a;
+        background-color: #003d7c;
       }
       .play-button svg {
         margin-right: 10px;
@@ -146,21 +146,80 @@
           >
             <path d="M8 5V19L19 12L8 5Z" fill="white" />
           </svg>
-          Play Instructions
+          <span id="button-text">Read Instructions Aloud</span>
         </button>
-        <audio id="audio-player" src="{{ audio_url }}"></audio>
       </div>
     </div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const audioPlayer = document.getElementById("audio-player");
         const playButton = document.getElementById("play-button");
+        const buttonText = document.getElementById("button-text");
+        let speaking = false;
+        let speechSynthesis = window.speechSynthesis;
+        let utterance = null;
+
+        // Function to speak the text
+        function speakText() {
+          if (speaking) {
+            speechSynthesis.cancel();
+            speaking = false;
+            buttonText.textContent = "Read Instructions Aloud";
+            return;
+          }
+
+          // Get the text to speak
+          const medicationName = "{{ medication_name }}";
+          const instructionText = document.getElementById("instruction-text").textContent;
+          const textToSpeak = medicationName ? `For ${medicationName}: ${instructionText}` : instructionText;
+
+          // Create a new utterance
+          utterance = new SpeechSynthesisUtterance(textToSpeak);
+          
+          // Try to find a UK English voice
+          const voices = speechSynthesis.getVoices();
+          const ukVoice = voices.find(voice => voice.lang.includes('en-GB'));
+          const anyEnglishVoice = voices.find(voice => voice.lang.includes('en'));
+          
+          if (ukVoice) {
+            utterance.voice = ukVoice;
+          } else if (anyEnglishVoice) {
+            utterance.voice = anyEnglishVoice;
+          }
+          
+          utterance.lang = 'en-GB';
+          utterance.rate = 0.9; // Slightly slower for better comprehension
+          
+          // Add event listeners
+          utterance.onstart = function() {
+            speaking = true;
+            buttonText.textContent = "Stop Reading";
+          };
+          
+          utterance.onend = function() {
+            speaking = false;
+            buttonText.textContent = "Read Instructions Aloud";
+          };
+          
+          utterance.onerror = function() {
+            speaking = false;
+            buttonText.textContent = "Read Instructions Aloud";
+            console.error("Speech synthesis error");
+          };
+          
+          // Speak the text
+          speechSynthesis.speak(utterance);
+        }
+
+        // Handle voices loading (can be async in some browsers)
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = function() {
+            // Voices are now loaded
+          };
+        }
 
         // Play audio when button is clicked
-        playButton.addEventListener("click", function () {
-          audioPlayer.play();
-        });
+        playButton.addEventListener("click", speakText);
 
         // Check for autoplay parameter in URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -168,12 +227,10 @@
         
         // Auto-play when the page loads if autoplay is set to true
         if (autoplay === 'true') {
-          audioPlayer.addEventListener("canplaythrough", function () {
-            // Small delay to ensure everything is loaded
-            setTimeout(() => {
-              audioPlayer.play();
-            }, 500);
-          });
+          // Small delay to ensure everything is loaded
+          setTimeout(() => {
+            speakText();
+          }, 1000);
         }
       });
     </script>

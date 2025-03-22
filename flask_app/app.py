@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory, request, jsonify, redirect, url_for, send_file
+from flask import Flask, render_template, send_from_directory, request, jsonify, redirect, url_for, send_file, Response
 import os
 import re
 import io
@@ -15,19 +15,21 @@ from PIL import Image, ImageDraw, ImageFont
 
 app = Flask(__name__)
 
-# Directory for storing QR codes and audio files
+# Directory for storing QR codes
 QR_DIR = os.path.join(app.static_folder, 'qrcodes')
-AUDIO_DIR = os.path.join(app.static_folder, 'audio')
 
 # Create directories if they don't exist
 os.makedirs(QR_DIR, exist_ok=True)
-os.makedirs(AUDIO_DIR, exist_ok=True)
 
 # Dictionary to store instruction texts
 instruction_texts = {}
 
 # Path to store instruction data
 INSTRUCTION_DATA_FILE = os.path.join(app.static_folder, 'data', 'instructions.json')
+
+# Directory for backup files
+BACKUP_DIR = os.path.join(app.static_folder, 'backups')
+os.makedirs(BACKUP_DIR, exist_ok=True)
 
 # Create data directory if it doesn't exist
 data_dir = os.path.join(app.static_folder, 'data')
@@ -132,6 +134,11 @@ def original():
     except FileNotFoundError:
         # If the file is not found, return a simple message
         return f"Original HTML file not found at: {ORIGINAL_HTML_PATH}"
+        
+@app.route('/admin')
+def admin():
+    # Serve the admin page for medication data management
+    return render_template('admin.html')
 
 # Normalize medication form terms
 def normalize_form(form_term):
@@ -1110,12 +1117,8 @@ def instruction_page(instruction_id):
         if instruction_info:
             print(f"Instruction info found: {instruction_info}")
         
-        # If we still don't have the instruction text, check if there's an audio file
-        # that might have been created previously
-        audio_filename = f"{instruction_id}.mp3"
-        audio_path = os.path.join(AUDIO_DIR, audio_filename)
-        
-        if not instruction_info and not os.path.exists(audio_path):
+        # If we don't have the instruction info, return an error
+        if not instruction_info:
             print(f"Instruction not found: {instruction_id}")
             print(f"Available instructions: {list(instruction_texts.keys())}")
             return render_template('error.html', message="Instruction not found. This QR code may be invalid or not yet generated."), 404
@@ -1128,18 +1131,7 @@ def instruction_page(instruction_id):
         if instruction_info and 'medication_name' not in instruction_info:
             instruction_info['medication_name'] = ''
         
-        # If we have instruction text but no audio file, create it
-        if instruction_info and not os.path.exists(audio_path):
-            medication_name = instruction_info.get('medication_name', '')
-            instruction_text = instruction_info.get('text', '')
-            
-            # Create the audio file with gTTS
-            spoken_text = f"For {medication_name}: {instruction_text}" if medication_name else instruction_text
-            tts = gTTS(text=spoken_text, lang='en-gb')  # Use UK English voice
-            tts.save(audio_path)
-        
-        # Get the audio URL for the template
-        audio_url = url_for('static', filename=f'audio/{audio_filename}')
+        # No need to create audio files anymore as we're using Web Speech API
         
         # Get instruction text for display
         instruction_text = ""
@@ -1162,11 +1154,9 @@ def instruction_page(instruction_id):
         print(f"  - dosage: {dosage}")
         print(f"  - timing: {timing}")
         print(f"  - route: {route}")
-        print(f"  - audio_url: {audio_url}")
         
         return render_template('instruction.html', 
                                instruction_id=instruction_id,
-                               audio_url=audio_url,
                                instruction_text=instruction_text,
                                medication_name=medication_name,
                                dosage=dosage,
@@ -1214,16 +1204,7 @@ def create_instruction_page():
         # Save to file
         save_instruction_data()
         
-        # Create the audio file
-        audio_filename = f"{instruction_id}.mp3"
-        audio_path = os.path.join(AUDIO_DIR, audio_filename)
-        
-        # Only create the audio file if it doesn't exist
-        if not os.path.exists(audio_path):
-            # Create the audio file with gTTS
-            spoken_text = f"For {medication_name}: {instructions}" if medication_name else instructions
-            tts = gTTS(text=spoken_text, lang='en-gb')  # Use UK English voice
-            tts.save(audio_path)
+        # No need to create audio files anymore as we're using Web Speech API
         
         return jsonify({
             'status': 'success', 
@@ -1463,6 +1444,101 @@ def generate_qr_stickers():
         
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)})
+
+# Export all medication data as a downloadable JSON file
+@app.route('/export_medication_data')
+def export_medication_data():
+    try:
+        # Create a timestamp for the filename
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f"medication_data_{timestamp}.json"
+        
+        # Create a backup file in the backups directory
+        backup_path = os.path.join(BACKUP_DIR, filename)
+        
+        # Save the current data to the backup file
+        with open(backup_path, 'w') as f:
+            json.dump(instruction_texts, f, indent=2)
+        
+        # Send the file as a download
+        return send_file(backup_path, as_attachment=True, download_name=filename)
+    
+    except Exception as e:
+        print(f"Error exporting medication data: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+# Import medication data from a JSON file
+@app.route('/import_medication_data', methods=['POST'])
+def import_medication_data():
+    try:
+        # Check if a file was uploaded
+        if 'file' not in request.files:
+            return jsonify({'status': 'error', 'message': 'No file part'}), 400
+        
+        file = request.files['file']
+        
+        # Check if the file is empty
+        if file.filename == '':
+            return jsonify({'status': 'error', 'message': 'No selected file'}), 400
+        
+        # Check if the file is a JSON file
+        if not file.filename.endswith('.json'):
+            return jsonify({'status': 'error', 'message': 'File must be a JSON file'}), 400
+        
+        # Read the file
+        data = json.load(file)
+        
+        # Validate the data format
+        if not isinstance(data, dict):
+            return jsonify({'status': 'error', 'message': 'Invalid data format'}), 400
+        
+        # Create a backup of the current data before importing
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        backup_filename = f"pre_import_backup_{timestamp}.json"
+        backup_path = os.path.join(BACKUP_DIR, backup_filename)
+        
+        with open(backup_path, 'w') as f:
+            json.dump(instruction_texts, f, indent=2)
+        
+        # Update the instruction_texts dictionary with the imported data
+        instruction_texts.update(data)
+        
+        # Save the updated data
+        save_instruction_data()
+        
+        return jsonify({
+            'status': 'success', 
+            'message': f'Successfully imported {len(data)} medication records',
+            'backup_file': backup_filename
+        })
+    
+    except Exception as e:
+        print(f"Error importing medication data: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+# Get a list of all available medication data
+@app.route('/list_medication_data')
+def list_medication_data():
+    try:
+        # Create a list of medication data with basic info
+        medications = []
+        for instruction_id, data in instruction_texts.items():
+            medications.append({
+                'id': instruction_id,
+                'medication_name': data.get('medication_name', ''),
+                'instructions': data.get('instructions', '') or data.get('text', ''),
+                'url': f"/instruction/{instruction_id}"
+            })
+        
+        return jsonify({
+            'status': 'success',
+            'count': len(medications),
+            'medications': medications
+        })
+    
+    except Exception as e:
+        print(f"Error listing medication data: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
 
 if __name__ == '__main__':
     import os

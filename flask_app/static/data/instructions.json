@@ -182,5 +182,21 @@
     "dosage": "Salbutamol 100 mcg/Dose Inhaler",
     "timing": "",
     "route": ""
+  },
+  "223814d5b2159dbcc1062d784b92ef7e": {
+    "text": "ONE  tablet once a day at 6pm",
+    "instructions": "ONE  tablet once a day at 6pm",
+    "medication_name": "metformin [Metformin 500 MG M/R Tablet]",
+    "dosage": "Metformin 500 MG M/R Tablet",
+    "timing": "",
+    "route": ""
+  },
+  "1bfffea13fecd44f1e0a7661d7aa64b0": {
+    "text": "TWO  tablets as required up to FOUR times dailyg",
+    "instructions": "TWO  tablets as required up to FOUR times dailyg",
+    "medication_name": "Paracetamol [Paracetamol 500 MG Tablet (100 PK)]",
+    "dosage": "Paracetamol 500 MG Tablet (100 PK)",
+    "timing": "",
+    "route": ""
   }
 }

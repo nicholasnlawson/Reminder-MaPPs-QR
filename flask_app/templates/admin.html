@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Data Management</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .medication-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="/static/images/nhs_trust_logo.png" alt="NHS Trust Logo" class="logo">
+                <img src="/static/images/mapps_logo.png" alt="MaPPs Logo" class="logo">
+            </div>
+            <h1>Medication Data Management</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Data Management</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6>Export Data</h6>
+                        <p>Download all medication data as a JSON file for backup or migration.</p>
+                        <a href="/export_medication_data" class="btn btn-primary">Export All Data</a>
+                        
+                        <hr>
+                        
+                        <h6>Import Data</h6>
+                        <p>Import medication data from a previously exported JSON file.</p>
+                        <form action="/import_medication_data" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <input type="file" class="form-control" name="file" accept=".json" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">Import Data</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Navigation</h5>
+                    </div>
+                    <div class="card-body">
+                        <a href="/" class="btn btn-secondary w-100 mb-2">Home</a>
+                        <a href="/original" class="btn btn-secondary w-100">Chart Generator</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Medication Data</h5>
+                        <small id="medication-count" class="text-muted"></small>
+                    </div>
+                    <div class="card-body medication-list" id="medication-list">
+                        <div class="text-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p>Loading medication data...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch medication data
+            fetch('/list_medication_data')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const medicationList = document.getElementById('medication-list');
+                        const medicationCount = document.getElementById('medication-count');
+                        
+                        // Update count
+                        medicationCount.textContent = `(${data.count} records)`;
+                        
+                        // Clear loading indicator
+                        medicationList.innerHTML = '';
+                        
+                        if (data.medications.length === 0) {
+                            medicationList.innerHTML = '<div class="alert alert-info">No medication data found.</div>';
+                            return;
+                        }
+                        
+                        // Create table
+                        const table = document.createElement('table');
+                        table.className = 'table table-striped table-hover';
+                        
+                        // Create table header
+                        const thead = document.createElement('thead');
+                        thead.innerHTML = `
+                            <tr>
+                                <th>Medication Name</th>
+                                <th>Instructions</th>
+                                <th>Actions</th>
+                            </tr>
+                        `;
+                        table.appendChild(thead);
+                        
+                        // Create table body
+                        const tbody = document.createElement('tbody');
+                        data.medications.forEach(med => {
+                            const tr = document.createElement('tr');
+                            
+                            // Medication name cell
+                            const nameCell = document.createElement('td');
+                            nameCell.textContent = med.medication_name || 'Unknown';
+                            tr.appendChild(nameCell);
+                            
+                            // Instructions cell
+                            const instructionsCell = document.createElement('td');
+                            instructionsCell.textContent = med.instructions || 'No instructions';
+                            tr.appendChild(instructionsCell);
+                            
+                            // Actions cell
+                            const actionsCell = document.createElement('td');
+                            actionsCell.innerHTML = `
+                                <div class="actions">
+                                    <a href="${med.url}" class="btn btn-sm btn-info" target="_blank">View</a>
+                                </div>
+                            `;
+                            tr.appendChild(actionsCell);
+                            
+                            tbody.appendChild(tr);
+                        });
+                        table.appendChild(tbody);
+                        
+                        medicationList.appendChild(table);
+                    } else {
+                        document.getElementById('medication-list').innerHTML = 
+                            `<div class="alert alert-danger">Error: ${data.message}</div>`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('medication-list').innerHTML = 
+                        `<div class="alert alert-danger">Error loading data: ${error.message}</div>`;
+                });
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
