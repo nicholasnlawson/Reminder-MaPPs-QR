@@ -18,8 +18,12 @@ app = Flask(__name__)
 # Directory for storing QR codes
 QR_DIR = os.path.join(app.static_folder, 'qrcodes')
 
+# Directory for storing audio files
+AUDIO_DIR = os.path.join(app.static_folder, 'audio')
+
 # Create directories if they don't exist
 os.makedirs(QR_DIR, exist_ok=True)
+os.makedirs(AUDIO_DIR, exist_ok=True)
 
 # Dictionary to store instruction texts
 instruction_texts = {}
@@ -69,6 +73,8 @@ ORIGINAL_HTML_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspat
 def index():
     # Clean up old temp files on startup
     cleanup_temp_files(hours=24)
+    # Clean up old audio files
+    cleanup_audio_files(hours=1)
     # Render the Flask UI template
     return render_template('flask_ui_updated.html')
 
@@ -119,6 +125,31 @@ def cleanup_temp_files(hours=1):
             try:
                 os.remove(file_path)
                 count += 1
+            except Exception as e:
+                print(f"Error deleting {file_path}: {e}")
+                
+    return count
+
+def cleanup_audio_files(hours=1):
+    """Delete audio files older than the specified number of hours"""
+    if not os.path.exists(AUDIO_DIR):
+        return 0
+        
+    # Get current time
+    now = datetime.now()
+    count = 0
+    
+    # Check all files in the audio directory
+    for file_path in glob.glob(os.path.join(AUDIO_DIR, '*.mp3')):
+        # Get file modification time
+        file_mod_time = datetime.fromtimestamp(os.path.getmtime(file_path))
+        
+        # If file is older than specified hours, delete it
+        if now - file_mod_time > timedelta(hours=hours):
+            try:
+                os.remove(file_path)
+                count += 1
+                print(f"Deleted old audio file: {file_path}")
             except Exception as e:
                 print(f"Error deleting {file_path}: {e}")
                 
@@ -1131,7 +1162,53 @@ def instruction_page(instruction_id):
         if instruction_info and 'medication_name' not in instruction_info:
             instruction_info['medication_name'] = ''
         
-        # No need to create audio files anymore as we're using Web Speech API
+        # Generate audio file if it doesn't exist or is older than 1 hour
+        audio_filename = f"{instruction_id}.mp3"
+        audio_path = os.path.join(AUDIO_DIR, audio_filename)
+        audio_url = f"/static/audio/{audio_filename}"
+        
+        # Check if file exists and when it was created
+        should_generate_audio = True
+        if os.path.exists(audio_path):
+            file_mod_time = datetime.fromtimestamp(os.path.getmtime(audio_path))
+            if datetime.now() - file_mod_time < timedelta(hours=1):
+                # File is fresh (less than 1 hour old), use it
+                should_generate_audio = False
+                print(f"Using existing audio file: {audio_path}")
+        
+        # Generate audio file if needed
+        if should_generate_audio:
+            try:
+                # Generate spoken text
+                if instruction_info.get('medication_name'):
+                    spoken_text = f"For {instruction_info.get('medication_name')}, {instruction_info.get('text', '')}"
+                else:
+                    spoken_text = instruction_info.get('text', '')
+                
+                print(f"Generating audio for text: '{spoken_text}'")
+                    
+                # Create high-quality UK English audio
+                tts = gTTS(text=spoken_text, lang='en-gb', slow=False)
+                print(f"Saving audio to: {audio_path}")
+                tts.save(audio_path)
+                
+                print(f"Generated new audio file: {audio_path}")
+                # Verify file was created
+                if os.path.exists(audio_path):
+                    file_size = os.path.getsize(audio_path)
+                    print(f"Audio file created successfully. Size: {file_size} bytes")
+                else:
+                    print(f"WARNING: Audio file was not created at {audio_path}")
+                    audio_url = None
+            except Exception as e:
+                print(f"Error generating audio file: {e}")
+                # If there's an error generating the audio, we'll fall back to Web Speech API
+                audio_url = None
+        
+        # Verify the audio file exists
+        if not os.path.exists(audio_path):
+            print(f"Audio file does not exist: {audio_path}")
+            audio_url = None
         
         # Get instruction text for display
         instruction_text = ""
@@ -1154,6 +1231,7 @@ def instruction_page(instruction_id):
         print(f"  - dosage: {dosage}")
         print(f"  - timing: {timing}")
         print(f"  - route: {route}")
+        print(f"  - audio_url: {audio_url}")
         
         return render_template('instruction.html', 
                                instruction_id=instruction_id,
@@ -1161,7 +1239,8 @@ def instruction_page(instruction_id):
                                medication_name=medication_name,
                                dosage=dosage,
                                timing=timing,
-                               route=route)
+                               route=route,
+                               audio_url=audio_url)
     
     except Exception as e:
         print(f"Error in instruction_page: {e}")

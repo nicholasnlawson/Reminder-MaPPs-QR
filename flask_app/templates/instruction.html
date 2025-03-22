@@ -158,56 +158,184 @@
         let speaking = false;
         let speechSynthesis = window.speechSynthesis;
         let utterance = null;
+        
+        // Detect browser type
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        const isIOSSafari = isIOS && isSafari;
+        let timeoutId;
+        
+        // Create audio element for MP3 playback
+        const audioUrl = "{{ audio_url }}";
+        const audioElement = audioUrl && audioUrl !== "None" ? new Audio(audioUrl) : null;
+        console.log("Audio URL:", audioUrl, "Audio Element:", audioElement);
+        
+        // Function to handle audio playback for Safari using MP3
+        function toggleAudio() {
+          if (!audioElement) {
+            // Fall back to Web Speech API if audio file is not available
+            speakText();
+            return;
+          }
+          
+          if (speaking) {
+            // Stop playing
+            audioElement.pause();
+            audioElement.currentTime = 0;
+            speaking = false;
+            buttonText.textContent = "Read Instructions Aloud";
+          } else {
+            // Start playing
+            audioElement.play()
+              .then(() => {
+                speaking = true;
+                buttonText.textContent = "Stop Reading";
+              })
+              .catch(error => {
+                console.error("Audio playback error:", error);
+                // Fall back to Web Speech API if audio file fails to play
+                speakText();
+              });
+          }
+        }
+        
+        // Set up event handlers for audio element
+        if (audioElement) {
+          audioElement.onended = function() {
+            speaking = false;
+            buttonText.textContent = "Read Instructions Aloud";
+          };
+          
+          audioElement.onerror = function() {
+            speaking = false;
+            buttonText.textContent = "Read Instructions Aloud";
+            console.error("Audio playback error");
+            // Fall back to Web Speech API if audio file fails to load
+            speakText();
+          };
+        }
 
-        // Function to speak the text
+        // iOS Safari requires this workaround to prevent speech from cutting off
+        function iosSpeechWorkaround() {
+          if (speaking) {
+            speechSynthesis.pause();
+            speechSynthesis.resume();
+            timeoutId = setTimeout(iosSpeechWorkaround, 5000); // More frequent refresh
+          }
+        }
+
+        // Function to speak the text using Web Speech API
         function speakText() {
           if (speaking) {
             speechSynthesis.cancel();
             speaking = false;
             buttonText.textContent = "Read Instructions Aloud";
+            if (timeoutId) {
+              clearTimeout(timeoutId);
+            }
             return;
           }
 
           // Get the text to speak
           const medicationName = "{{ medication_name }}";
           const instructionText = document.getElementById("instruction-text").textContent;
-          const textToSpeak = medicationName ? `For ${medicationName}: ${instructionText}` : instructionText;
+          
+          // Format the text with pauses for better clarity
+          let textToSpeak;
+          if (medicationName) {
+            // Add commas to create slight pauses between parts
+            textToSpeak = `For, ${medicationName}, ${instructionText}`;
+          } else {
+            textToSpeak = instructionText;
+          }
 
           // Create a new utterance
           utterance = new SpeechSynthesisUtterance(textToSpeak);
           
-          // Try to find a UK English voice
+          // Load voices and find the best one for the device
           const voices = speechSynthesis.getVoices();
-          const ukVoice = voices.find(voice => voice.lang.includes('en-GB'));
-          const anyEnglishVoice = voices.find(voice => voice.lang.includes('en'));
           
-          if (ukVoice) {
-            utterance.voice = ukVoice;
-          } else if (anyEnglishVoice) {
-            utterance.voice = anyEnglishVoice;
+          // Different voice selection strategy based on device
+          if (isIOSSafari) {
+            // For iOS Safari, prioritize these voices
+            const preferredVoices = [
+              'Samantha', // Standard US voice (often clearer on iOS)
+              'Karen', // Australian voice (often clearer than UK on iOS)
+              'Moira', // Irish voice (good alternative to UK)
+              'Daniel', // Standard UK voice
+              'Samantha (Enhanced)', // Enhanced US voice
+              'Daniel (Enhanced)' // Enhanced UK voice
+            ];
+            
+            for (const preferredVoice of preferredVoices) {
+              const voice = voices.find(v => v.name === preferredVoice);
+              if (voice) {
+                utterance.voice = voice;
+                break;
+              }
+            }
+            
+            // If no preferred voice found, try to find any English voice
+            if (!utterance.voice) {
+              const ukVoice = voices.find(voice => voice.lang.includes('en-GB'));
+              const anyEnglishVoice = voices.find(voice => voice.lang.includes('en'));
+              
+              if (ukVoice) {
+                utterance.voice = ukVoice;
+              } else if (anyEnglishVoice) {
+                utterance.voice = anyEnglishVoice;
+              }
+            }
+            
+            // iOS Safari specific settings - more aggressive optimization
+            utterance.rate = 1.2; // Much faster on iOS
+            utterance.pitch = 1.1; // Slightly higher pitch
+            utterance.volume = 1.0;
+          } else {
+            // For other browsers (Chrome, Firefox, etc.)
+            const ukVoice = voices.find(voice => voice.lang.includes('en-GB'));
+            const anyEnglishVoice = voices.find(voice => voice.lang.includes('en'));
+            
+            if (ukVoice) {
+              utterance.voice = ukVoice;
+            } else if (anyEnglishVoice) {
+              utterance.voice = anyEnglishVoice;
+            }
+            
+            utterance.lang = 'en-GB';
+            utterance.rate = 0.9; // Slightly slower for better comprehension
           }
-          
-          utterance.lang = 'en-GB';
-          utterance.rate = 0.9; // Slightly slower for better comprehension
           
           // Add event listeners
           utterance.onstart = function() {
             speaking = true;
             buttonText.textContent = "Stop Reading";
+            
+            // Start the iOS workaround if needed
+            if (isIOSSafari) {
+              timeoutId = setTimeout(iosSpeechWorkaround, 5000);
+            }
           };
           
           utterance.onend = function() {
             speaking = false;
             buttonText.textContent = "Read Instructions Aloud";
+            if (timeoutId) {
+              clearTimeout(timeoutId);
+            }
           };
           
           utterance.onerror = function() {
             speaking = false;
             buttonText.textContent = "Read Instructions Aloud";
             console.error("Speech synthesis error");
+            if (timeoutId) {
+              clearTimeout(timeoutId);
+            }
           };
           
           // Speak the text
+          speechSynthesis.cancel(); // Cancel any ongoing speech
           speechSynthesis.speak(utterance);
         }
 
@@ -218,8 +346,16 @@
           };
         }
 
-        // Play audio when button is clicked
-        playButton.addEventListener("click", speakText);
+        // Use appropriate method based on browser
+        if (audioElement) {
+          // Use MP3 audio for all browsers when available
+          console.log("Using MP3 audio playback");
+          playButton.addEventListener("click", toggleAudio);
+        } else {
+          // Fall back to Web Speech API if no audio file
+          console.log("Using Web Speech API fallback");
+          playButton.addEventListener("click", speakText);
+        }
 
         // Check for autoplay parameter in URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -229,7 +365,11 @@
         if (autoplay === 'true') {
           // Small delay to ensure everything is loaded
           setTimeout(() => {
-            speakText();
+            if (audioElement) {
+              toggleAudio();
+            } else {
+              speakText();
+            }
           }, 1000);
         }
       });
