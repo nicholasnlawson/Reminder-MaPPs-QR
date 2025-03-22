@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if medication_name %}{{ medication_name }} - {% endif %}Medication Instructions</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px 10px 0 0;
+      }
+      .logo-left {
+        max-height: 60px;
+        width: auto;
+        object-fit: contain;
+      }
+      .logo-right {
+        max-height: 60px;
+        width: auto;
+        object-fit: contain;
+      }
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+      #medication-details {
+        font-size: 18px;
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #e6f7ff;
+        border-radius: 5px;
+        text-align: left;
+      }
+      .instruction-text {
+        font-size: 24px;
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+      }
+      .audio-controls {
+        margin: 20px 0;
+      }
+      .play-button {
+        padding: 15px 30px;
+        background-color: #8a2be2;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        transition: background-color 0.3s;
+      }
+      .play-button:hover {
+        background-color: #6a1b9a;
+      }
+      .play-button svg {
+        margin-right: 10px;
+      }
+      .warning-banner {
+        color: red;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin: 0 0 20px 0;
+        padding: 10px;
+        border: 2px solid red;
+        background-color: #ffeeee;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="warning-banner">
+        ***TEST PROGRAM - NOT YET APPROVED FOR USE IN STSFT***
+      </div>
+      <div class="header">
+        <img
+          src="/static/images/nhs_trust_logo.png"
+          alt="NHS Trust Logo"
+          class="logo-left"
+        />
+        <img
+          src="/static/images/mapps_logo.png"
+          alt="MaPPs Logo"
+          class="logo-right"
+        />
+      </div>
+
+      <h1>{{ medication_name }}</h1>
+
+      <div id="medication-details">
+        {% if dosage %}
+        <p><strong>Dosage:</strong> {{ dosage }}</p>
+        {% endif %}
+        {% if timing %}
+        <p><strong>Timing:</strong> {{ timing }}</p>
+        {% endif %}
+        {% if route %}
+        <p><strong>Route:</strong> {{ route }}</p>
+        {% endif %}
+      </div>
+
+      <div id="instruction-container" class="instruction-text">
+        <p id="instruction-text">{{ instruction_text }}</p>
+      </div>
+
+      <div class="audio-controls">
+        <button id="play-button" class="play-button">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M8 5V19L19 12L8 5Z" fill="white" />
+          </svg>
+          Play Instructions
+        </button>
+        <audio id="audio-player" src="{{ audio_url }}"></audio>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const audioPlayer = document.getElementById("audio-player");
+        const playButton = document.getElementById("play-button");
+
+        // Play audio when button is clicked
+        playButton.addEventListener("click", function () {
+          audioPlayer.play();
+        });
+
+        // Check for autoplay parameter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const autoplay = urlParams.get('autoplay');
+        
+        // Auto-play when the page loads if autoplay is set to true
+        if (autoplay === 'true') {
+          audioPlayer.addEventListener("canplaythrough", function () {
+            // Small delay to ensure everything is loaded
+            setTimeout(() => {
+              audioPlayer.play();
+            }, 500);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

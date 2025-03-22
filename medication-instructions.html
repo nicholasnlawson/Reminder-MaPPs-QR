@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medication Instructions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #333;
+    }
+    .container {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+    .medication-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2980b9;
+      margin-bottom: 5px;
+    }
+    .medication-details {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    .instructions {
+      background-color: #eaf2f8;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .back-button {
+      background-color: #7f8c8d;
+    }
+    .back-button:hover {
+      background-color: #636e72;
+    }
+    .read-button {
+      background-color: #27ae60;
+    }
+    .read-button:hover {
+      background-color: #219653;
+    }
+    .pause-button {
+      background-color: #e74c3c;
+      display: none;
+    }
+    .pause-button:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Medication Instructions</h1>
+    
+    <div id="medication-info">
+      <div class="medication-name" id="medication-name"></div>
+      <div class="medication-details" id="medication-details"></div>
+    </div>
+    
+    <div class="instructions" id="instructions"></div>
+    
+    <div class="controls">
+      <button class="read-button" id="read-aloud">Read Instructions Aloud</button>
+      <button class="pause-button" id="pause-reading">Stop Reading</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the medication ID from the URL query parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const medicationId = urlParams.get('id');
+      
+      if (!medicationId) {
+        document.getElementById('medication-info').innerHTML = '<p>No medication information found.</p>';
+        return;
+      }
+      
+      // Retrieve the medication data from localStorage
+      const medicationData = JSON.parse(localStorage.getItem('medication_' + medicationId));
+      
+      if (!medicationData) {
+        document.getElementById('medication-info').innerHTML = `
+          <p>Medication information not found. This could be because:</p>
+          <ul>
+            <li>The QR code was scanned on a different device than it was created on</li>
+            <li>The browser's localStorage has been cleared</li>
+            <li>The QR code was generated a long time ago</li>
+          </ul>
+          <p>Please return to the chart generator and regenerate the QR code.</p>
+        `;
+        return;
+      }
+      
+      // Display the medication information
+      document.getElementById('medication-name').textContent = medicationData.medicationName;
+      
+      let detailsText = '';
+      if (medicationData.dosage) {
+        detailsText += medicationData.dosage + ' ';
+      }
+      if (medicationData.timing) {
+        detailsText += medicationData.timing + ' ';
+      }
+      if (medicationData.route) {
+        detailsText += 'via ' + medicationData.route;
+      }
+      
+      document.getElementById('medication-details').textContent = detailsText;
+      document.getElementById('instructions').textContent = medicationData.instructions;
+      
+      // Set page title to medication name
+      document.title = medicationData.medicationName + ' - Medication Instructions';
+      
+      // Set up the text-to-speech functionality
+      const readButton = document.getElementById('read-aloud');
+      const pauseButton = document.getElementById('pause-reading');
+      let speechSynthesis = window.speechSynthesis;
+      let speechUtterance;
+      
+      // Function to get UK English voice
+      function getUKVoice() {
+        const voices = speechSynthesis.getVoices();
+        // First try to find a UK English voice
+        let ukVoice = voices.find(voice => voice.lang === 'en-GB');
+        
+        // If no exact match, try to find any voice that includes en-GB
+        if (!ukVoice) {
+          ukVoice = voices.find(voice => voice.lang.includes('en-GB'));
+        }
+        
+        // If still no match, fall back to any English voice
+        if (!ukVoice) {
+          ukVoice = voices.find(voice => voice.lang.includes('en'));
+        }
+        
+        return ukVoice;
+      }
+      
+      readButton.addEventListener('click', function() {
+        // Create a new utterance with the medication instructions
+        speechUtterance = new SpeechSynthesisUtterance(medicationData.instructions);
+        
+        // Set the voice to UK English if available
+        const ukVoice = getUKVoice();
+        if (ukVoice) {
+          speechUtterance.voice = ukVoice;
+        }
+        
+        // Set other properties
+        speechUtterance.rate = 0.9; // Slightly slower than normal
+        speechUtterance.pitch = 1.0;
+        speechUtterance.volume = 1.0;
+        
+        // Start speaking
+        speechSynthesis.speak(speechUtterance);
+        
+        // Show pause button, hide read button
+        readButton.style.display = 'none';
+        pauseButton.style.display = 'inline-block';
+        
+        // When speech ends, swap buttons back
+        speechUtterance.onend = function() {
+          readButton.style.display = 'inline-block';
+          pauseButton.style.display = 'none';
+        };
+      });
+      
+      pauseButton.addEventListener('click', function() {
+        // Stop speaking
+        speechSynthesis.cancel();
+        
+        // Show read button, hide pause button
+        readButton.style.display = 'inline-block';
+        pauseButton.style.display = 'none';
+      });
+      
+      // Try to read instructions automatically when page loads
+      // But only after a short delay to ensure voices are loaded
+      setTimeout(function() {
+        // Only auto-read if the URL has an 'autoread=true' parameter
+        if (urlParams.get('autoread') === 'true') {
+          readButton.click();
+        }
+      }, 1000);
+      
+      // Load voices when they're available (needed for Chrome)
+      speechSynthesis.onvoiceschanged = function() {
+        const voices = speechSynthesis.getVoices();
+        console.log('Available voices:', voices.map(v => v.name + ' (' + v.lang + ')').join(', '));
+      };
+      
+      // Call getVoices once to trigger the onvoiceschanged event in Chrome
+      speechSynthesis.getVoices();
+    });
+  </script>
+</body>
+</html>
