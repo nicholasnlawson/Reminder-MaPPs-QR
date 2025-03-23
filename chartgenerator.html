@@ -619,8 +619,7 @@
       <div class="modal-content">
         <span class="close" id="close-qr-code">&times;</span>
         <h2>Medication QR Codes</h2>
-        <div class="button-container" style="display: flex; gap: 10px;">
-          <button id="remove-html-tags-btn" class="btn btn-secondary">Remove HTML Tags</button>
+        <div class="button-container">
           <button onclick="printQRCodes()" class="btn btn-primary">Print QR Codes</button>
         </div>
         <div id="qr-code-container"></div>
@@ -6215,6 +6214,9 @@
           // Remove "See Dosing Information Below" from the combined instructions
           combinedInstructions =
             removeSeeDosingInformation(combinedInstructions);
+            
+          // Automatically clean HTML tags from instructions
+          combinedInstructions = cleanHtmlFromInstructions(combinedInstructions);
 
           // Store medication data for QR code generation
           window.qrCodeMedications.push({
@@ -6266,10 +6268,7 @@
           updateQRCode(index, combinedInstructions);
         });
 
-        // Add event listener for remove HTML tags button after the modal is shown
-        document
-          .getElementById("remove-html-tags-btn")
-          .addEventListener("click", removeHtmlTagsFromInstructions);
+        // HTML tags are now automatically cleaned, so no need for the manual button
 
         // Show the modal
         const modal = document.getElementById("qr-code-modal");
@@ -6285,6 +6284,14 @@
       function updateQRCode(index, newInstructions) {
         // Clean HTML tags from instructions
         let cleanedInstructions = cleanHtmlFromInstructions(newInstructions);
+        
+        // Update the textarea with cleaned instructions if it differs from input
+        if (newInstructions !== cleanedInstructions) {
+          const textarea = document.getElementById(`qr-instructions-${index}`);
+          if (textarea && textarea.value !== cleanedInstructions) {
+            textarea.value = cleanedInstructions;
+          }
+        }
         
         // Update the stored instructions with clean version
         window.qrCodeMedications[index].editedInstructions = cleanedInstructions;
