@@ -1179,11 +1179,22 @@ def instruction_page(instruction_id):
         # Generate audio file if needed
         if should_generate_audio:
             try:
-                # Generate spoken text
+                # Generate spoken text - replace HTML tags with periods
+                instruction_text = instruction_info.get('text', '')
+                # Replace <br> tags with periods
+                clean_text = re.sub(r'<br\s*/?>', '. ', instruction_text, flags=re.IGNORECASE)
+                # Replace <strong> and </strong> tags with periods
+                clean_text = re.sub(r'</?strong>', '. ', clean_text, flags=re.IGNORECASE)
+                # Replace any other HTML tags with periods
+                clean_text = re.sub(r'<[^>]*>', '. ', clean_text)
+                # Clean up multiple periods and spaces
+                clean_text = re.sub(r'\.\s*\.', '.', clean_text)
+                clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+                
                 if instruction_info.get('medication_name'):
-                    spoken_text = f"For {instruction_info.get('medication_name')}, {instruction_info.get('text', '')}"
+                    spoken_text = f"For {instruction_info.get('medication_name')}, {clean_text}"
                 else:
-                    spoken_text = instruction_info.get('text', '')
+                    spoken_text = clean_text
                 
                 print(f"Generating audio for text: '{spoken_text}'")
                     
@@ -1267,10 +1278,21 @@ def create_instruction_page():
         timing = data.get('timing', '')
         route = data.get('route', '')
         
+        # Replace HTML tags with periods
+        # Replace <br> tags with periods
+        clean_instructions = re.sub(r'<br\s*/?>', '. ', instructions, flags=re.IGNORECASE)
+        # Replace <strong> and </strong> tags with periods
+        clean_instructions = re.sub(r'</?strong>', '. ', clean_instructions, flags=re.IGNORECASE)
+        # Replace any other HTML tags with periods
+        clean_instructions = re.sub(r'<[^>]*>', '. ', clean_instructions)
+        # Clean up multiple periods and spaces
+        clean_instructions = re.sub(r'\.\s*\.', '.', clean_instructions)
+        clean_instructions = re.sub(r'\s+', ' ', clean_instructions).strip()
+        
         # Create the instruction data
         instruction_data = {
-            'text': instructions,
-            'instructions': instructions,  # Keep both for compatibility
+            'text': clean_instructions,
+            'instructions': clean_instructions,  # Keep both for compatibility
             'medication_name': medication_name,
             'dosage': dosage,
             'timing': timing,

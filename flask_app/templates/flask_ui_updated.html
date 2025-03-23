@@ -98,6 +98,18 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         width: 200px;
       }
+      
+      /* Toggle switch styles for QR codes */
+      .qr-toggle-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+      
+      .qr-toggle-label {
+        font-size: 0.8em;
+        margin-left: 5px;
+      }
       .qr-code-image {
         max-width: 100%;
         height: auto;
@@ -784,6 +796,36 @@
               data.results.forEach((result) => {
                 const qrCodeItem = document.createElement("div");
                 qrCodeItem.className = "qr-code-item";
+                qrCodeItem.dataset.instructionId = result.instruction_id;
+
+                // Create toggle switch container
+                const toggleContainer = document.createElement("div");
+                toggleContainer.className = "qr-toggle-container";
+                
+                // Create toggle switch
+                const toggleLabel = document.createElement("label");
+                toggleLabel.className = "switch";
+                
+                const toggleInput = document.createElement("input");
+                toggleInput.type = "checkbox";
+                toggleInput.checked = true; // Default to checked
+                toggleInput.dataset.medicationName = result.medication_name;
+                toggleInput.dataset.instructionId = result.instruction_id;
+                
+                const toggleSlider = document.createElement("span");
+                toggleSlider.className = "slider";
+                
+                toggleLabel.appendChild(toggleInput);
+                toggleLabel.appendChild(toggleSlider);
+                
+                // Add label for toggle
+                const toggleText = document.createElement("span");
+                toggleText.className = "qr-toggle-label";
+                toggleText.textContent = "Include";
+                
+                // Add toggle elements to container
+                toggleContainer.appendChild(toggleLabel);
+                toggleContainer.appendChild(toggleText);
 
                 // Create QR code image
                 const qrCodeImage = document.createElement("img");
@@ -797,6 +839,7 @@
                 instructionText.textContent = result.instruction;
 
                 // Add to item
+                qrCodeItem.appendChild(toggleContainer);
                 qrCodeItem.appendChild(qrCodeImage);
                 qrCodeItem.appendChild(instructionText);
 
@@ -1148,21 +1191,30 @@
         .addEventListener("click", function () {
           const qrCodeContainer = document.getElementById("qr-code-container");
           if (qrCodeContainer.children.length > 0) {
-            // First, ensure all instruction subpages are created
+            // Get all QR code items
             const qrItems = qrCodeContainer.querySelectorAll('.qr-code-item');
             const instructionIds = [];
+            const selectedItems = [];
             
-            // Extract all instruction IDs from the QR code images
+            // Extract instruction IDs from selected QR code items only
             qrItems.forEach(item => {
-              const qrImage = item.querySelector('.qr-code-image');
-              if (qrImage && qrImage.src) {
-                // Extract instruction ID from the URL
-                const urlParts = qrImage.src.split('/');
-                const filename = urlParts[urlParts.length - 1];
-                const instructionId = filename.split('.')[0]; // Remove file extension
-                instructionIds.push(instructionId);
+              const toggleInput = item.querySelector('input[type="checkbox"]');
+              
+              // Only include selected items
+              if (toggleInput && toggleInput.checked) {
+                selectedItems.push(item);
+                const instructionId = item.dataset.instructionId;
+                if (instructionId) {
+                  instructionIds.push(instructionId);
+                }
               }
             });
+            
+            // Check if any QR codes are selected
+            if (selectedItems.length === 0) {
+              alert("Please select at least one QR code to print.");
+              return;
+            }
             
             // Ensure all instruction subpages are created
             if (instructionIds.length > 0) {
@@ -1176,8 +1228,8 @@
                 .then((response) => response.json())
                 .then((data) => {
                   if (data.status === "success") {
-                    // Now create the print window
-                    createPrintWindow(qrCodeContainer);
+                    // Now create the print window with only selected items
+                    createPrintWindow(selectedItems);
                   } else {
                     alert("Error ensuring instruction pages: " + data.message);
                   }
@@ -1185,10 +1237,10 @@
                 .catch((error) => {
                   console.error("Error:", error);
                   alert("Error ensuring instruction pages. Proceeding with print anyway.");
-                  createPrintWindow(qrCodeContainer);
+                  createPrintWindow(selectedItems);
                 });
             } else {
-              createPrintWindow(qrCodeContainer);
+              createPrintWindow(selectedItems);
             }
           } else {
             alert("No QR codes to print.");
@@ -1196,7 +1248,7 @@
         });
         
       // Function to create print window
-      function createPrintWindow(qrCodeContainer) {
+      function createPrintWindow(selectedItems) {
         // Create a new window for printing
         const printWindow = window.open("", "_blank");
         printWindow.document.write(
@@ -1224,7 +1276,41 @@
           '<h2 style="text-align: center;">QR Codes for Medication Instructions</h2>'
         );
         printWindow.document.write('<div class="qr-code-container">');
-        printWindow.document.write(qrCodeContainer.innerHTML);
+        
+        // Create a container for the selected items
+        const container = document.createElement('div');
+        
+        // If selectedItems is an array of DOM elements
+        if (Array.isArray(selectedItems)) {
+          selectedItems.forEach(item => {
+            // Create a clone of the item without the toggle switch
+            const itemClone = item.cloneNode(true);
+            const toggleContainer = itemClone.querySelector('.qr-toggle-container');
+            if (toggleContainer) {
+              toggleContainer.remove();
+            }
+            container.appendChild(itemClone);
+          });
+        } 
+        // If selectedItems is a DOM element containing all QR codes
+        else {
+          // Get all selected items
+          const items = selectedItems.querySelectorAll('.qr-code-item');
+          items.forEach(item => {
+            const toggleInput = item.querySelector('input[type="checkbox"]');
+            if (toggleInput && toggleInput.checked) {
+              // Create a clone of the item without the toggle switch
+              const itemClone = item.cloneNode(true);
+              const toggleContainer = itemClone.querySelector('.qr-toggle-container');
+              if (toggleContainer) {
+                toggleContainer.remove();
+              }
+              container.appendChild(itemClone);
+            }
+          });
+        }
+        
+        printWindow.document.write(container.innerHTML);
         printWindow.document.write("</div>");
         printWindow.document.write("</body></html>");
         printWindow.document.close();

@@ -40,6 +40,52 @@
         height: 150px;
       }
 
+      /* Toggle switch styles */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 20px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: #2196f3;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(20px);
+      }
+
       button {
         padding: 10px 20px;
         background-color: #004c97;
@@ -573,8 +619,9 @@
       <div class="modal-content">
         <span class="close" id="close-qr-code">&times;</span>
         <h2>Medication QR Codes</h2>
-        <div class="button-container">
-          <button onclick="printQRCodes()">Print QR Codes</button>
+        <div class="button-container" style="display: flex; gap: 10px;">
+          <button id="remove-html-tags-btn" class="btn btn-secondary">Remove HTML Tags</button>
+          <button onclick="printQRCodes()" class="btn btn-primary">Print QR Codes</button>
         </div>
         <div id="qr-code-container"></div>
       </div>
@@ -5900,8 +5947,11 @@
         // We'll use a simple implementation since we can't directly use crypto in all browsers
         // This is a basic MD5 implementation for client-side use
         function md5cycle(x, k) {
-          let a = x[0], b = x[1], c = x[2], d = x[3];
-          
+          let a = x[0],
+            b = x[1],
+            c = x[2],
+            d = x[3];
+
           a = ff(a, b, c, d, k[0], 7, -680876936);
           d = ff(d, a, b, c, k[1], 12, -389564586);
           c = ff(c, d, a, b, k[2], 17, 606105819);
@@ -5918,7 +5968,7 @@
           d = ff(d, a, b, c, k[13], 12, -40341101);
           c = ff(c, d, a, b, k[14], 17, -1502002290);
           b = ff(b, c, d, a, k[15], 22, 1236535329);
-          
+
           a = gg(a, b, c, d, k[1], 5, -165796510);
           d = gg(d, a, b, c, k[6], 9, -1069501632);
           c = gg(c, d, a, b, k[11], 14, 643717713);
@@ -5935,7 +5985,7 @@
           d = gg(d, a, b, c, k[2], 9, -51403784);
           c = gg(c, d, a, b, k[7], 14, 1735328473);
           b = gg(b, c, d, a, k[12], 20, -1926607734);
-          
+
           a = hh(a, b, c, d, k[5], 4, -378558);
           d = hh(d, a, b, c, k[8], 11, -2022574463);
           c = hh(c, d, a, b, k[11], 16, 1839030562);
@@ -5952,7 +6002,7 @@
           d = hh(d, a, b, c, k[12], 11, -421815835);
           c = hh(c, d, a, b, k[15], 16, 530742520);
           b = hh(b, c, d, a, k[2], 23, -995338651);
-          
+
           a = ii(a, b, c, d, k[0], 6, -198630844);
           d = ii(d, a, b, c, k[7], 10, 1126891415);
           c = ii(c, d, a, b, k[14], 15, -1416354905);
@@ -5969,86 +6019,92 @@
           d = ii(d, a, b, c, k[11], 10, -1120210379);
           c = ii(c, d, a, b, k[2], 15, 718787259);
           b = ii(b, c, d, a, k[9], 21, -343485551);
-          
+
           x[0] = add32(a, x[0]);
           x[1] = add32(b, x[1]);
           x[2] = add32(c, x[2]);
           x[3] = add32(d, x[3]);
         }
-        
+
         function cmn(q, a, b, x, s, t) {
           a = add32(add32(a, q), add32(x, t));
           return add32((a << s) | (a >>> (32 - s)), b);
         }
-        
+
         function ff(a, b, c, d, x, s, t) {
-          return cmn((b & c) | ((~b) & d), a, b, x, s, t);
+          return cmn((b & c) | (~b & d), a, b, x, s, t);
         }
-        
+
         function gg(a, b, c, d, x, s, t) {
-          return cmn((b & d) | (c & (~d)), a, b, x, s, t);
+          return cmn((b & d) | (c & ~d), a, b, x, s, t);
         }
-        
+
         function hh(a, b, c, d, x, s, t) {
           return cmn(b ^ c ^ d, a, b, x, s, t);
         }
-        
+
         function ii(a, b, c, d, x, s, t) {
-          return cmn(c ^ (b | (~d)), a, b, x, s, t);
+          return cmn(c ^ (b | ~d), a, b, x, s, t);
         }
-        
+
         function md51(s) {
           const n = s.length;
           const state = [1732584193, -271733879, -1732584194, 271733878];
           let i;
-          
+
           for (i = 64; i <= s.length; i += 64) {
             md5cycle(state, md5blk(s.substring(i - 64, i)));
           }
-          
+
           s = s.substring(i - 64);
           const tail = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-          
+
           for (i = 0; i < s.length; i++) {
-            tail[i >> 2] |= s.charCodeAt(i) << ((i % 4) << 3);
+            tail[i >> 2] |= s.charCodeAt(i) << (i % 4 << 3);
           }
-          
-          tail[i >> 2] |= 0x80 << ((i % 4) << 3);
-          
+
+          tail[i >> 2] |= 0x80 << (i % 4 << 3);
+
           if (i > 55) {
             md5cycle(state, tail);
             for (i = 0; i < 16; i++) tail[i] = 0;
           }
-          
+
           tail[14] = n * 8;
           md5cycle(state, tail);
           return state;
         }
-        
+
         function md5blk(s) {
           const md5blks = [];
           for (let i = 0; i < 64; i += 4) {
-            md5blks[i >> 2] = s.charCodeAt(i) + (s.charCodeAt(i + 1) << 8) + (s.charCodeAt(i + 2) << 16) + (s.charCodeAt(i + 3) << 24);
+            md5blks[i >> 2] =
+              s.charCodeAt(i) +
+              (s.charCodeAt(i + 1) << 8) +
+              (s.charCodeAt(i + 2) << 16) +
+              (s.charCodeAt(i + 3) << 24);
           }
           return md5blks;
         }
-        
+
         function add32(a, b) {
-          return (a + b) & 0xFFFFFFFF;
+          return (a + b) & 0xffffffff;
         }
-        
+
         function hex(x) {
-          let result = '';
+          let result = "";
           for (let i = 0; i < 4; i++) {
-            const n = (x >>> (i * 8)) & 0xFF;
-            result += ('0' + n.toString(16)).slice(-2);
+            const n = (x >>> (i * 8)) & 0xff;
+            result += ("0" + n.toString(16)).slice(-2);
           }
           return result;
         }
-        
+
         // Main function to calculate MD5
         const result = md51(text);
-        return hex(result[0]) + hex(result[1]) + hex(result[2]) + hex(result[3]);
+        return (
+          hex(result[0]) + hex(result[1]) + hex(result[2]) + hex(result[3])
+        );
       }
 
       function generateQRCodes() {
@@ -6088,6 +6144,11 @@
 
           // Remove the checkmark if present
           formattedDose = formattedDose.replace("&check; ", "");
+
+          // Remove "See Dosing Information Below" if present
+          if (formattedDose === "See Dosing Information Below") {
+            formattedDose = "";
+          }
 
           // Get patient-friendly instructions
           let patientFriendlyInstructions = "";
@@ -6147,9 +6208,13 @@
           }
 
           // Combine dose and instructions
-          const combinedInstructions = formattedDose
+          let combinedInstructions = formattedDose
             ? `${formattedDose} ${patientFriendlyInstructions}`
             : patientFriendlyInstructions;
+
+          // Remove "See Dosing Information Below" from the combined instructions
+          combinedInstructions =
+            removeSeeDosingInformation(combinedInstructions);
 
           // Store medication data for QR code generation
           window.qrCodeMedications.push({
@@ -6171,7 +6236,13 @@
           medicationCard.className = "qr-code-edit-card";
           medicationCard.innerHTML = `
             <div class="medication-header">
-              <strong>${medication.name}</strong>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <strong>${medication.name}</strong>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="qr-toggle-${index}" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
             </div>
             <div class="medication-instructions">
               <textarea id="qr-instructions-${index}" rows="3" style="width: 100%">${combinedInstructions}</textarea>
@@ -6195,34 +6266,35 @@
           updateQRCode(index, combinedInstructions);
         });
 
-        // Add print button at the bottom
-        const printButtonContainer = document.createElement("div");
-        printButtonContainer.className = "qr-print-container";
-        printButtonContainer.innerHTML = `
-          <button id="print-qr-codes-btn" class="btn btn-primary">Print QR Codes</button>
-        `;
-        qrCodeContainer.appendChild(printButtonContainer);
-
-        // Add event listener for print button
+        // Add event listener for remove HTML tags button after the modal is shown
         document
-          .getElementById("print-qr-codes-btn")
-          .addEventListener("click", printQRCodes);
+          .getElementById("remove-html-tags-btn")
+          .addEventListener("click", removeHtmlTagsFromInstructions);
 
         // Show the modal
         const modal = document.getElementById("qr-code-modal");
         modal.style.display = "block";
       }
 
+      // Function to remove "See Dosing Information Below" from instructions
+      function removeSeeDosingInformation(instructions) {
+        // Remove the phrase if it appears at the beginning of the instructions
+        return instructions.replace(/^See Dosing Information Below\s*/i, "");
+      }
+
       function updateQRCode(index, newInstructions) {
-        // Update the stored instructions
-        window.qrCodeMedications[index].editedInstructions = newInstructions;
+        // Clean HTML tags from instructions
+        let cleanedInstructions = cleanHtmlFromInstructions(newInstructions);
+        
+        // Update the stored instructions with clean version
+        window.qrCodeMedications[index].editedInstructions = cleanedInstructions;
 
         // Get the medication data
         const medication = window.qrCodeMedications[index];
 
         // First, generate a unique ID for this instruction using MD5 hash
-        const instructionId = generateMD5Hash(newInstructions);
-        
+        const instructionId = generateMD5Hash(cleanedInstructions);
+
         // Create a URL that points to the instruction page on the server
         const instructionUrl = `/instruction/${instructionId}`;
 
@@ -6236,14 +6308,19 @@
         // Update the QR code in the preview
         const previewElement = document.getElementById(`qr-preview-${index}`);
         previewElement.innerHTML = qrImg;
-        
+
         // Add a small note below the QR code to indicate it links to an instruction page
         previewElement.innerHTML += `<div style="font-size: 10px; margin-top: 5px;">Scan to view and hear instructions</div>`;
-        
+
         // Send the medication data to the server to create the instruction page
-        createServerInstructionPage(instructionId, medication.name, medication.dosage, 
-                          medication.timing || medication.frequency || "", 
-                          medication.route || "", newInstructions);
+        createServerInstructionPage(
+          instructionId,
+          medication.name,
+          medication.dosage,
+          medication.timing || medication.frequency || "",
+          medication.route || "",
+          cleanedInstructions
+        );
       }
 
       function printQRCodes() {
@@ -6256,50 +6333,148 @@
           return;
         }
 
+        // Get selected medications
+        const selectedMedications = window.qrCodeMedications.filter(
+          (medication, index) => {
+            const toggleElement = document.getElementById(`qr-toggle-${index}`);
+            return toggleElement && toggleElement.checked;
+          }
+        );
+
+        // Check if any medications are selected
+        if (selectedMedications.length === 0) {
+          alert("Please select at least one medication to print.");
+          return;
+        }
+
         // Create a print-friendly version of the QR codes
         const printWindow = window.open("", "_blank");
+
+        // Get all the QR code images from the preview
+        const qrCodeData = [];
+
+        selectedMedications.forEach((medication, index) => {
+          // Find the original QR code in the preview
+          const previewElement = document.getElementById(
+            `qr-preview-${medication.id}`
+          );
+          if (previewElement) {
+            const qrImg = previewElement.querySelector("img");
+            if (qrImg) {
+              // Store the QR code image source and medication data
+              qrCodeData.push({
+                medication: medication,
+                imgSrc: qrImg.src,
+              });
+            }
+          }
+
+          // Clean instructions again to ensure no HTML tags
+          const cleanedInstructions = cleanHtmlFromInstructions(medication.editedInstructions);
+          
+          // Generate a unique ID for this instruction using MD5 hash
+          const instructionId = generateMD5Hash(cleanedInstructions);
+
+          // Send the medication data to the server to create the instruction page
+          createServerInstructionPage(
+            instructionId,
+            medication.name,
+            medication.dosage,
+            medication.timing || medication.frequency || "",
+            medication.route || "",
+            cleanedInstructions
+          );
+        });
+
+        // Write the HTML content to the print window
         printWindow.document.write(`
           <html>
           <head>
             <title>Medication QR Codes</title>
             <style>
+              /* A4 print settings */
+              @page {
+                size: A4;
+                margin: 1cm;
+              }
               body { 
                 font-family: Arial, sans-serif; 
-                padding: 20px;
+                margin: 0;
+                padding: 0;
               }
               h1 {
                 text-align: center;
-                margin-bottom: 30px;
-              }
-              .qr-code-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
+                margin-bottom: 20px;
+                font-size: 18px;
               }
               .qr-code-item { 
                 border: 1px solid #ddd;
-                padding: 15px;
-                border-radius: 5px;
-                width: 45%; 
-                margin-bottom: 20px; 
-                text-align: center; 
-                page-break-inside: avoid;
+                padding: 5px;
+                width: 7.5cm; 
+                height: 3.5cm; 
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
                 background-color: white;
               }
+              .qr-code-img {
+                width: 2.5cm;
+                height: 2.5cm;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+              .qr-code-img img {
+                max-width: 100%;
+                max-height: 100%;
+              }
               .qr-code-info { 
-                font-size: 14px; 
-                margin-top: 10px;
+                font-size: 11px; 
+                margin-left: 5px;
                 text-align: left;
+                width: 4.5cm;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 7;
+                -webkit-box-orient: vertical;
+                max-height: 2.8cm; /* Ensure text stays within the box */
               }
               .qr-note {
-                font-size: 10px;
+                font-size: 9px;
                 color: #666;
-                margin-top: 5px;
+                margin-top: 3px;
+              }
+              @media screen {
+                body {
+                  padding: 20px;
+                }
+                .qr-code-container {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: flex-start;
+                  gap: 10px;
+                  max-width: 21cm; /* A4 width */
+                  margin: 0 auto;
+                }
+                .qr-code-item {
+                  margin: 5px;
+                }
               }
               @media print {
+                body { margin: 0; padding: 0; }
+                h1 { display: none; }
+                .qr-code-container {
+                  display: grid;
+                  grid-template-columns: repeat(2, 7.5cm);
+                  grid-auto-rows: 3.5cm;
+                  gap: 0.5cm;
+                  width: 19cm; /* A4 width minus margins */
+                  margin: 0 auto;
+                }
                 .qr-code-item {
-                  break-inside: avoid;
+                  page-break-inside: avoid;
+                  margin: 0;
+                  border: 1px solid #ddd;
                 }
               }
             </style>
@@ -6309,36 +6484,19 @@
             <div class="qr-code-container">
         `);
 
-        // Add each medication with its edited instructions
-        window.qrCodeMedications.forEach((medication) => {
-          // Generate a unique ID for this instruction using MD5 hash
-          const instructionId = generateMD5Hash(medication.editedInstructions);
-          
-          // Create a URL that points to the instruction page on the server
-          const instructionUrl = `/instruction/${instructionId}`;
-
-          // Generate QR code with the URL to the instruction page
-          const qr = qrcode(0, "L");
-          qr.addData(window.location.origin + instructionUrl);
-          qr.make();
-          const qrImg = qr.createImgTag(4);
-
-          // Add QR code and medication info to the print window
+        // Add each selected medication with its QR code
+        qrCodeData.forEach((item) => {
           printWindow.document.write(`
             <div class="qr-code-item">
-              ${qrImg}
+              <div class="qr-code-img">
+                <img src="${item.imgSrc}" alt="QR Code">
+              </div>
               <div class="qr-code-info">
-                <strong>${medication.name}</strong><br>
-                ${medication.editedInstructions}
-                <div class="qr-note">Scan to view and hear verbal instructions</div>
+                <strong>${item.medication.name}</strong>
+                <div class="qr-note">Scan for instructions</div>
               </div>
             </div>
           `);
-          
-          // Send the medication data to the server to create the instruction page
-          createServerInstructionPage(instructionId, medication.name, medication.dosage, 
-                          medication.timing || medication.frequency || "", 
-                          medication.route || "", medication.editedInstructions);
         });
 
         // Close the HTML document
@@ -6349,10 +6507,12 @@
         `);
 
         printWindow.document.close();
-        printWindow.focus();
+
+        // Wait for images to load before printing
         setTimeout(() => {
+          printWindow.focus();
           printWindow.print();
-        }, 1000); // Slightly longer delay to ensure content is processed
+        }, 1000);
       }
 
       // Add event listener for close button
@@ -6370,33 +6530,95 @@
         }
       });
 
+      // Function to clean HTML tags from instructions
+      function cleanHtmlFromInstructions(instructions) {
+        let cleaned = instructions;
+        
+        // Replace <br> tags with periods
+        cleaned = cleaned.replace(/<br\s*\/?>/gi, ". ");
+        
+        // Replace <strong> tags
+        cleaned = cleaned.replace(/<strong>(.*?)<\/strong>/gi, "$1");
+        
+        // Remove any other HTML tags
+        cleaned = cleaned.replace(/<[^>]*>/g, "");
+        
+        // Clean up multiple periods and spaces
+        cleaned = cleaned.replace(/\.{2,}/g, ".");
+        cleaned = cleaned.replace(/\.\s+\./g, ".");
+        cleaned = cleaned.replace(/\s+/g, " ");
+        
+        return cleaned.trim();
+      }
+
       // Function to send medication data to the server to create an instruction page
-      function createServerInstructionPage(instructionId, medicationName, dosage, timing, route, instructions) {
+      function createServerInstructionPage(
+        instructionId,
+        medicationName,
+        dosage,
+        timing,
+        route,
+        instructions
+      ) {
+        // Use the cleanHtmlFromInstructions function
+        const cleanInstructions = cleanHtmlFromInstructions(instructions);
+
         // Create the data object to send to the server
         const instructionData = {
           instruction_id: instructionId,
           medication_name: medicationName,
-          instructions: instructions,
+          instructions: cleanInstructions,
           dosage: dosage,
           timing: timing,
-          route: route
+          route: route,
         };
-        
+
         // Send the data to the server using fetch API
-        fetch('/create_instruction_page', {
-          method: 'POST',
+        fetch("/create_instruction_page", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(instructionData),
         })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Instruction page created:', data);
-        })
-        .catch((error) => {
-          console.error('Error creating instruction page:', error);
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Instruction page created:", data);
+          })
+          .catch((error) => {
+            console.error("Error creating instruction page:", error);
+          });
+      }
+
+      // Function to remove HTML tags from all medication instructions in the QR code editor
+      function removeHtmlTagsFromInstructions() {
+        // Check if QR codes have been generated
+        if (!window.qrCodeMedications || window.qrCodeMedications.length === 0) {
+          alert("Please generate QR codes first.");
+          return;
+        }
+
+        // Loop through all medications and clean their instructions
+        window.qrCodeMedications.forEach((medication, index) => {
+          if (medication.editedInstructions) {
+            // Clean HTML tags from instructions
+            const cleanedInstructions = cleanHtmlFromInstructions(medication.editedInstructions);
+            
+            // Update the stored instructions with clean version
+            medication.editedInstructions = cleanedInstructions;
+            
+            // Update the textarea with cleaned instructions
+            const textarea = document.getElementById(`qr-instructions-${index}`);
+            if (textarea) {
+              textarea.value = cleanedInstructions;
+            }
+            
+            // Update the QR code with cleaned instructions
+            updateQRCode(index, cleanedInstructions);
+          }
         });
+        
+        alert("HTML tags have been removed from all medication instructions.");
       }
 
       window.addEventListener("resize", handlePageBreaks);

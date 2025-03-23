@@ -1,12 +1,4 @@
 {
-  "74e73ffaa79ad222e8fa02f5c5a760cf": {
-    "text": "TWO  tablets as required up to FOUR times daily",
-    "instructions": "TWO  tablets as required up to FOUR times daily",
-    "medication_name": "Paracetamol [Paracetamol 500 MG Tablet (100 PK)]",
-    "dosage": "Paracetamol 500 MG Tablet (100 PK)",
-    "timing": "",
-    "route": ""
-  },
   "f5348635be9afb419163dbc9cb1833d8": {
     "text": "TWO puffs when required",
     "instructions": "TWO puffs when required",
@@ -15,187 +7,267 @@
     "timing": "",
     "route": ""
   },
-  "38c39f47ab962f7ed6d4ba38c7cf54d1": {
-    "text": "10 ml four times a day",
-    "instructions": "10 ml four times a day",
-    "medication_name": "alginate raft-forming [Peptac Suspension]",
-    "dosage": "Peptac Suspension",
+  "dec07492c962d4c2416093072a38ef49": {
+    "text": "ONE tablet THREE times a week on Monday, Wednesday and Friday at 8am",
+    "instructions": "ONE tablet THREE times a week on Monday, Wednesday and Friday at 8am",
+    "medication_name": "ferrous fumarate [Ferrous Fumarate 210 MG Tablets]",
+    "dosage": "Ferrous Fumarate 210 MG Tablets",
     "timing": "",
     "route": ""
   },
-  "b525becedf29681468d84b0c54b08444": {
-    "text": "ONE  tablet twice a day (8am and 8pm)",
-    "instructions": "ONE  tablet twice a day (8am and 8pm)",
+  "475b7cd171d042bac8b59f1d5762ebfd": {
+    "text": "ONE unit when required",
+    "instructions": "ONE unit when required",
+    "medication_name": "Stationery [Steroid Emergency Card]",
+    "dosage": "Steroid Emergency Card",
+    "timing": "",
+    "route": ""
+  },
+  "8a8466246d78d6cac9a9cec17dbfd449": {
+    "text": "ONE spray LEFT EAR three times a day (8am,2pm,10pm)",
+    "instructions": "ONE spray LEFT EAR three times a day (8am,2pm,10pm)",
+    "medication_name": "acetic acid [Acetic Acid 2% Ear Spray]",
+    "dosage": "Acetic Acid 2% Ear Spray",
+    "timing": "",
+    "route": ""
+  },
+  "cd2ac1290a0f1c5885c93b8487840fd6": {
+    "text": "ONE tablet twice a day (8am and 8pm)",
+    "instructions": "ONE tablet twice a day (8am and 8pm)",
     "medication_name": "apixaban [Apixaban 5 MG Tablet]",
     "dosage": "Apixaban 5 MG Tablet",
     "timing": "",
     "route": ""
   },
-  "fcb466053ea75cf6e526c9959cbfa2f8": {
-    "text": "ONE  tablet once a day at 8am",
-    "instructions": "ONE  tablet once a day at 8am",
-    "medication_name": "furosemide [Furosemide 20 MG Tablet]",
-    "dosage": "Furosemide 20 MG Tablet",
+  "b7fcd8abf56d64a85b5347a0d18dc379": {
+    "text": "TWO puffs twice a day (8am and 6pm)",
+    "instructions": "TWO puffs twice a day (8am and 6pm)",
+    "medication_name": "budesonide, formoterol fumarat [Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg]",
+    "dosage": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg",
     "timing": "",
     "route": ""
   },
-  "881195f59ad4e223e11043b5a0efa9c9": {
-    "text": "ONE  tablet once a day at 10pm",
-    "instructions": "ONE  tablet once a day at 10pm",
-    "medication_name": "mirtazapine [Mirtazapine 15 MG Tablet]",
-    "dosage": "Mirtazapine 15 MG Tablet",
+  "890e18efa9cb9e27356fca57cf15a8d4": {
+    "text": "ONE patch once a week (Saturday) 8am",
+    "instructions": "ONE patch once a week (Saturday) 8am",
+    "medication_name": "buprenorphine [Buprenorphine 10 mcg/hr (7 Day) Patch]",
+    "dosage": "Buprenorphine 10 mcg/hr (7 Day) Patch",
+    "timing": "",
+    "route": ""
+  },
+  "4d680db76b35c020835009336445ada5": {
+    "text": "1 ml twice a week on Monday and Friday",
+    "instructions": "1 ml twice a week on Monday and Friday",
+    "medication_name": "colecalciferol [Colecalciferol 25,000 IU/ML S/F Oral Soln.]",
+    "dosage": "Colecalciferol 25,000 IU/ML S/F Oral Soln.",
+    "timing": "",
+    "route": ""
+  },
+  "5ddb2b79910a5dc7e8850ec299a0d81c": {
+    "text": "Take TWO capsules FOUR times a day for 5 days beginning at 12pm on 08/02/25, then. Take ONE capsule THREE times a day for 3 days beginning at 2pm on 13/02/25, then. Take ONE capsule TWICE a day for 3 days beginning at 6pm on 16/02/25, then. Take ONE capsule at TEATIME for 3 days beginning on 19/02/25, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "instructions": "Take TWO capsules FOUR times a day for 5 days beginning at 12pm on 08/02/25, then. Take ONE capsule THREE times a day for 3 days beginning at 2pm on 13/02/25, then. Take ONE capsule TWICE a day for 3 days beginning at 6pm on 16/02/25, then. Take ONE capsule at TEATIME for 3 days beginning on 19/02/25, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "medication_name": "gabapentin [Gabapentin 100 MG Capsule]",
+    "dosage": "Gabapentin 100 MG Capsule",
+    "timing": "",
+    "route": ""
+  },
+  "3dd853e8f4ad65a5e37bb82c47c1a0a9": {
+    "text": "Inhale FOUR puffs FOUR times a day for 7 days beginning at 10pm on 26/02/25, then. Inhale TWO puffs as required THEREAFTER beginning at 8am on 06/03/25. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "instructions": "Inhale FOUR puffs FOUR times a day for 7 days beginning at 10pm on 26/02/25, then. Inhale TWO puffs as required THEREAFTER beginning at 8am on 06/03/25. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "medication_name": "Salbutamol [Salbutamol 100 mcg/Dose Inhaler]",
+    "dosage": "Salbutamol 100 mcg/Dose Inhaler",
+    "timing": "",
+    "route": ""
+  },
+  "0768b1a02bc8d814c1ae9c7d7ae51aef": {
+    "text": "TWO nebule Use ONE nebule FOUR times a day for 7 days beginning at 10pm on 26/02/25, then. Use ONE nebule TWICE a day for 7 days beginning at 8pm on 05/03/25, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "instructions": "TWO nebule Use ONE nebule FOUR times a day for 7 days beginning at 10pm on 26/02/25, then. Use ONE nebule TWICE a day for 7 days beginning at 8pm on 05/03/25, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "medication_name": "Salbutamol [Salbutamol 2.5 MG Nebule (PK 30)]",
+    "dosage": "Salbutamol 2.5 MG Nebule (PK 30)",
+    "timing": "",
+    "route": ""
+  },
+  "26a22d251fdb42ca5d8ae76aa33d9954": {
+    "text": "TWO doses FOUR times a day for 7 days beginning at 8am on 27/02/25, then. TWO doses TWICE a day for 7 days beginning at 8am on 06/03/25, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "instructions": "TWO doses FOUR times a day for 7 days beginning at 8am on 27/02/25, then. TWO doses TWICE a day for 7 days beginning at 8am on 06/03/25, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "medication_name": "fostair [Fostair 100/6 Nexthaler]",
+    "dosage": "Fostair 100/6 Nexthaler",
     "timing": "",
     "route": ""
   },
   "26964a1c54ce1f748183c22f24099836": {
     "text": "ONE drop BOTH EYES when required",
     "instructions": "ONE drop BOTH EYES when required",
-    "medication_name": "carbomer 980 [Carbomer 0.2% 980 Liquid Gel]",
-    "dosage": "Carbomer 0.2% 980 Liquid Gel",
+    "medication_name": "sodium hyaluronate [Sodium Hyaluronate 0.2% P/F Eye\u00a0Drops]",
+    "dosage": "Sodium Hyaluronate 0.2% P/F Eye\u00a0Drops",
     "timing": "",
     "route": ""
   },
-  "de1bf7571d39ec4c968a269f7370389a": {
-    "text": "TWO puffs twice a day (8am and 8pm)",
-    "instructions": "TWO puffs twice a day (8am and 8pm)",
-    "medication_name": "beclometasone extrafine parti3 [Trimbow 87mcg/5mcg/9mcg Inhaler]",
-    "dosage": "Trimbow 87mcg/5mcg/9mcg Inhaler",
+  "a6175e1acc5108cc4f80882581cf875f": {
+    "text": "TWO doses in BOTH EYES FOUR times a day for 7 days beginning at 8am on 27/02/25, then. ONE dose in BOTH EYES TWICE a day for 7 days beginning at 8am on 06/03/25, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "instructions": "TWO doses in BOTH EYES FOUR times a day for 7 days beginning at 8am on 27/02/25, then. ONE dose in BOTH EYES TWICE a day for 7 days beginning at 8am on 06/03/25, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "medication_name": "sodium hyaluronate [Sodium Hyaluronate 0.2% P/F Eye\u00a0Drops]",
+    "dosage": "Sodium Hyaluronate 0.2% P/F Eye\u00a0Drops",
     "timing": "",
     "route": ""
   },
-  "89db1ac7fbfd490b4c791440e1698150": {
-    "text": "ONE  capsule once a day at 8am",
-    "instructions": "ONE  capsule once a day at 8am",
-    "medication_name": "doxycycline [Doxycycline 100 MG Capsule]",
-    "dosage": "Doxycycline 100 MG Capsule",
+  "3ca027ea307d21407520e6a925e5b8ae": {
+    "text": "ONE tablet SIX days of the Week (every day except Monday)",
+    "instructions": "ONE tablet SIX days of the Week (every day except Monday)",
+    "medication_name": "folic acid [Folic Acid 5 MG Tablet]",
+    "dosage": "Folic Acid 5 MG Tablet",
     "timing": "",
     "route": ""
   },
-  "6e7700a3cf7e14f3b5e7f27eff98917e": {
-    "text": "HALF a  tablet once a day at 8am",
-    "instructions": "HALF a  tablet once a day at 8am",
-    "medication_name": "fludrocortisone [Fludrocortisone 100 mcg Tablet]",
-    "dosage": "Fludrocortisone 100 mcg Tablet",
+  "3073ce60f530988c8f228715ce7ecf8a": {
+    "text": "0.1 ml three times a day (8am,2pm,10pm)",
+    "instructions": "0.1 ml three times a day (8am,2pm,10pm)",
+    "medication_name": "iodine [Iodine Aqueous 130 MG/ML Solution (Lugols)]",
+    "dosage": "Iodine Aqueous 130 MG/ML Solution (Lugols)",
     "timing": "",
     "route": ""
   },
-  "da46f5348fbd3b811136daf5cc1c2279": {
-    "text": "TWO sprays when required",
-    "instructions": "TWO sprays when required",
-    "medication_name": "gtn [Glyceryl Trinitrate (GTN) 400 mcg Spray]",
-    "dosage": "Glyceryl Trinitrate (GTN) 400 mcg Spray",
+  "bbe37f2838e250ac2598aebbd04bedb0": {
+    "text": "0.1 ml every other evening at 6pm",
+    "instructions": "0.1 ml every other evening at 6pm",
+    "medication_name": "iodine [Iodine Aqueous 130 MG/ML Solution (Lugols)]",
+    "dosage": "Iodine Aqueous 130 MG/ML Solution (Lugols)",
     "timing": "",
     "route": ""
   },
-  "edfb24e8c9519b18b9790157411628f3": {
-    "text": "FOUR  tablets once a day at 8am",
-    "instructions": "FOUR  tablets once a day at 8am",
-    "medication_name": "lisinopril [Lisinopril 20 MG Tablet]",
-    "dosage": "Lisinopril 20 MG Tablet",
+  "9c429de54c343921e794ce4583dc9f9e": {
+    "text": "twice a day (8am & 5pm)",
+    "instructions": "twice a day (8am & 5pm)",
+    "medication_name": "insulin biphasic aspart [Insulin Mix 30/70 (NovoMIX 30) Flexpen]",
+    "dosage": "Insulin Mix 30/70 (NovoMIX 30) Flexpen",
     "timing": "",
     "route": ""
   },
-  "5505fa80ec7d6c99ec86f736ed4c5277": {
-    "text": "TWO  capsules as required up to FOUR times daily",
-    "instructions": "TWO  capsules as required up to FOUR times daily",
+  "544626f37d9d346af4c0c4e063825c0c": {
+    "text": "ONE tablet FOUR times a day at 8am, 12pm, 4pm and 8pm",
+    "instructions": "ONE tablet FOUR times a day at 8am, 12pm, 4pm and 8pm",
+    "medication_name": "levodopa with carbidopa [Co-careldopa 12.5/50 Tablet]",
+    "dosage": "Co-careldopa 12.5/50 Tablet",
+    "timing": "",
+    "route": ""
+  },
+  "33e1ca8ceb5fc4ad4afb1e3929e3f265": {
+    "text": "ONE capsule as required up to every THREE hours",
+    "instructions": "ONE capsule as required up to every THREE hours",
     "medication_name": "loperamide [Loperamide 2 MG Capsule/Tablet]",
     "dosage": "Loperamide 2 MG Capsule/Tablet",
     "timing": "",
     "route": ""
   },
-  "fd958aa2b558911b528ce5089f56c8b9": {
-    "text": "ONE  tablet once a day at 6pm\n\u2002\u2002\u2002\u2002\u2002\u2002New Med - GP to continue",
-    "instructions": "ONE  tablet once a day at 6pm\n\u2002\u2002\u2002\u2002\u2002\u2002New Med - GP to continue",
-    "medication_name": "metformin 500mg m/r Tablet",
-    "dosage": "metformin 500mg m/r Tablet",
+  "5937157cfbf5982c65c064bd20c64897": {
+    "text": "HALF a tablet to ONE whole tablet as required up to twice a day",
+    "instructions": "HALF a tablet to ONE whole tablet as required up to twice a day",
+    "medication_name": "lorazepam [Lorazepam 1 MG Tablet]",
+    "dosage": "Lorazepam 1 MG Tablet",
     "timing": "",
     "route": ""
   },
-  "4c8a2fe8c660ef9409446cd0aae189e4": {
-    "text": "SIX  tablets once a day at 8am",
-    "instructions": "SIX  tablets once a day at 8am",
+  "a77e92d0361f9ec52960456a0c724880": {
+    "text": "SIX tablets once a week (Friday) 8am",
+    "instructions": "SIX tablets once a week (Friday) 8am",
+    "medication_name": "methotrexate [Methotrexate 2.5 MG Tablet]",
+    "dosage": "Methotrexate 2.5 MG Tablet",
+    "timing": "",
+    "route": ""
+  },
+  "40a5a7273525e773796bc9e861c2e884": {
+    "text": "2.5 to 5 ml as required up to FOUR times daily",
+    "instructions": "2.5 to 5 ml as required up to FOUR times daily",
+    "medication_name": "morphine sulphate [Morphine 10 MG/5 ML Oral Solution]",
+    "dosage": "Morphine 10 MG/5 ML Oral Solution",
+    "timing": "",
+    "route": ""
+  },
+  "1035c8677de3fe0dc165533773a77142": {
+    "text": "ONE cartridge when required",
+    "instructions": "ONE cartridge when required",
+    "medication_name": "nicotine [Nicorette 15 MG Inhalator]",
+    "dosage": "Nicorette 15 MG Inhalator",
+    "timing": "",
+    "route": ""
+  },
+  "5f8e5961b5aa3ee97f779f85bf869f6b": {
+    "text": "ONE patch once a day at 8am",
+    "instructions": "ONE patch once a day at 8am",
+    "medication_name": "nicotine [Nicotinell 14 MG Patch]",
+    "dosage": "Nicotinell 14 MG Patch",
+    "timing": "",
+    "route": ""
+  },
+  "47c9af339d7f69690b5f57fa22daf701": {
+    "text": "1 ml four times a day",
+    "instructions": "1 ml four times a day",
+    "medication_name": "nystatin [Nystatin 100,000 Unit/ML 30 ML]",
+    "dosage": "Nystatin 100,000 Unit/ML 30 ML",
+    "timing": "",
+    "route": ""
+  },
+  "67fa29cd93939e8d689156938e4c1b37": {
+    "text": "Take SIX tablets in the MORNING for 5 days beginning on 28/04/24, then. Take FIVE tablets in the MORNING for 3 days beginning on 03/05/24, then. Take FOUR tablets in the MORNING for 3 days beginning on 06/05/24, then. Take THREE tablets in the MORNING for 3 days beginning on 09/05/24, then. Take TWO tablets in the MORNING for 3 days beginning on 12/05/24, then. Take ONE tablet in the MORNING for 3 days beginning on 15/05/24, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "instructions": "Take SIX tablets in the MORNING for 5 days beginning on 28/04/24, then. Take FIVE tablets in the MORNING for 3 days beginning on 03/05/24, then. Take FOUR tablets in the MORNING for 3 days beginning on 06/05/24, then. Take THREE tablets in the MORNING for 3 days beginning on 09/05/24, then. Take TWO tablets in the MORNING for 3 days beginning on 12/05/24, then. Take ONE tablet in the MORNING for 3 days beginning on 15/05/24, then STOP. This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
     "medication_name": "prednisolone [Prednisolone 5 MG Tablet]",
     "dosage": "Prednisolone 5 MG Tablet",
     "timing": "",
     "route": ""
   },
-  "fb7f61b6c768120e79632f9da1f5802e": {
-    "text": "TWO  tablets as required up to FOUR times dailyv",
-    "instructions": "TWO  tablets as required up to FOUR times dailyv",
-    "medication_name": "Paracetamol [Paracetamol 500 MG Tablet (100 PK)]",
-    "dosage": "Paracetamol 500 MG Tablet (100 PK)",
+  "8869d1c8a139bb418c64acb8f36ade84": {
+    "text": "ONE capsule twice a day (8am and 8pm)",
+    "instructions": "ONE capsule twice a day (8am and 8pm)",
+    "medication_name": "pregabalin [Pregabalin \u00a050 MG Capsule]",
+    "dosage": "Pregabalin \u00a050 MG Capsule",
     "timing": "",
     "route": ""
   },
-  "328b1731facc44dc943b18ef27426f30": {
-    "text": "TWO  tablets as required up to FOUR times dailyvr",
-    "instructions": "TWO  tablets as required up to FOUR times dailyvr",
-    "medication_name": "Paracetamol [Paracetamol 500 MG Tablet (100 PK)]",
-    "dosage": "Paracetamol 500 MG Tablet (100 PK)",
+  "b9f638b817aaa3032b602be297b63080": {
+    "text": "ONE tablet once a day at 8am",
+    "instructions": "ONE tablet once a day at 8am",
+    "medication_name": "Pantoprazole 40mg Tablets",
+    "dosage": "Pantoprazole 40mg Tablets",
     "timing": "",
     "route": ""
   },
-  "b058b1266c0c38346098673c52b9d8fb": {
-    "text": "TWO  tablets as required up to FOUR times dailyvrv",
-    "instructions": "TWO  tablets as required up to FOUR times dailyvrv",
-    "medication_name": "Paracetamol [Paracetamol 500 MG Tablet (100 PK)]",
-    "dosage": "Paracetamol 500 MG Tablet (100 PK)",
+  "9922b0fe8d98ce9a65d23c96c6958bfd": {
+    "text": "ONE carton three times a day (8am, 12pm and 6pm)",
+    "instructions": "ONE carton three times a day (8am, 12pm and 6pm)",
+    "medication_name": "Calogen [Calogen Extra Shots]",
+    "dosage": "Calogen Extra Shots",
     "timing": "",
     "route": ""
   },
-  "f8378c05e51e525bea3768606d40ca76": {
-    "text": "TWO  tablets as required up to FOUR times dailyvrvv",
-    "instructions": "TWO  tablets as required up to FOUR times dailyvrvv",
-    "medication_name": "Paracetamol [Paracetamol 500 MG Tablet (100 PK)]",
-    "dosage": "Paracetamol 500 MG Tablet (100 PK)",
+  "a7450b4252952a4e80ffb0a03a4c8e6e": {
+    "text": "ONE carton twice a day (8am and 8pm)",
+    "instructions": "ONE carton twice a day (8am and 8pm)",
+    "medication_name": "Fresubin Thickened Stage 2 [Fresubin Thickened Level 2 - from supplies]",
+    "dosage": "Fresubin Thickened Level 2 - from supplies",
     "timing": "",
     "route": ""
   },
-  "ae41e7ea0d74e87cc948639501841fc6": {
-    "text": "TWO  tablets as required up to FOUR times dailyvrvvr",
-    "instructions": "TWO  tablets as required up to FOUR times dailyvrvvr",
-    "medication_name": "Paracetamol [Paracetamol 500 MG Tablet (100 PK)]",
-    "dosage": "Paracetamol 500 MG Tablet (100 PK)",
+  "984101d2b802bbee1a3b8a25a95b3531": {
+    "text": "200 ml once a day at 8am",
+    "instructions": "200 ml once a day at 8am",
+    "medication_name": "Nutriprem 2 [Nutriprem 2 Sip Feed 200 ML (from supplies)]",
+    "dosage": "Nutriprem 2 Sip Feed 200 ML (from supplies)",
     "timing": "",
     "route": ""
   },
-  "ada3d28ec85ac428eddb374ec316de42": {
-    "text": "TWO  tablets as required up to FOUR times dailyc",
-    "instructions": "TWO  tablets as required up to FOUR times dailyc",
-    "medication_name": "Salbutamol [Salbutamol 100 mcg/Dose Inhaler]",
-    "dosage": "Salbutamol 100 mcg/Dose Inhaler",
+  "83b6e0769707be3adbe60595d686f5a3": {
+    "text": "500 ml once a day at 10pm",
+    "instructions": "500 ml once a day at 10pm",
+    "medication_name": "Peptamen AF [Peptamen AF Feed 500 ML (From supplies)]",
+    "dosage": "Peptamen AF Feed 500 ML (From supplies)",
     "timing": "",
     "route": ""
   },
-  "21e0267c5c54873b81554bb5cad4273f": {
-    "text": "TWO  tablets as required up to FOUR times dailycd",
-    "instructions": "TWO  tablets as required up to FOUR times dailycd",
-    "medication_name": "Salbutamol [Salbutamol 100 mcg/Dose Inhaler]",
-    "dosage": "Salbutamol 100 mcg/Dose Inhaler",
-    "timing": "",
-    "route": ""
-  },
-  "1f0a1ff2cde3508ae4385bc3ae3986e1": {
-    "text": "TWO  tablets as required up to FOUR times dailycdc",
-    "instructions": "TWO  tablets as required up to FOUR times dailycdc",
-    "medication_name": "Salbutamol [Salbutamol 100 mcg/Dose Inhaler]",
-    "dosage": "Salbutamol 100 mcg/Dose Inhaler",
-    "timing": "",
-    "route": ""
-  },
-  "223814d5b2159dbcc1062d784b92ef7e": {
-    "text": "ONE  tablet once a day at 6pm",
-    "instructions": "ONE  tablet once a day at 6pm",
-    "medication_name": "metformin [Metformin 500 MG M/R Tablet]",
-    "dosage": "Metformin 500 MG M/R Tablet",
-    "timing": "",
-    "route": ""
-  },
-  "1bfffea13fecd44f1e0a7661d7aa64b0": {
-    "text": "TWO  tablets as required up to FOUR times dailyg",
-    "instructions": "TWO  tablets as required up to FOUR times dailyg",
-    "medication_name": "Paracetamol [Paracetamol 500 MG Tablet (100 PK)]",
-    "dosage": "Paracetamol 500 MG Tablet (100 PK)",
+  "cbfb8ba865d9854eae379ffc4037619a": {
+    "text": "ONE carton twice a day at lunchtime and teatime",
+    "instructions": "ONE carton twice a day at lunchtime and teatime",
+    "medication_name": "Peptamen [Peptamen Vanilla Liquid 200 ML (from supplies]",
+    "dosage": "Peptamen Vanilla Liquid 200 ML (from supplies",
     "timing": "",
     "route": ""
   }
