@@ -278,5 +278,21 @@
     "dosage": "Salbutamol 100 mcg/Dose Inhaler",
     "timing": "",
     "route": ""
+  },
+  "dc24334c52019161afbb26fd753c5154": {
+    "text": "ONE tablet once a day at 10pm",
+    "instructions": "ONE tablet once a day at 10pm",
+    "medication_name": "atorvastatin [Atorvastatin 20 MG Tablet]",
+    "dosage": "Atorvastatin 20 MG Tablet",
+    "timing": "",
+    "route": ""
+  },
+  "019205cb608301fc6f1823e367dc53e2": {
+    "text": "ONE tablet twice a day (8am & 5pm)",
+    "instructions": "ONE tablet twice a day (8am & 5pm)",
+    "medication_name": "calcium carbonate with colecal [Calcium Carb 1.5G/Vit D3 10mcg Tablet]",
+    "dosage": "Calcium Carb 1.5G/Vit D3 10mcg Tablet",
+    "timing": "",
+    "route": ""
   }
 }
