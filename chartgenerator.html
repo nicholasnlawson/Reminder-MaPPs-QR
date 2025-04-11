@@ -6475,17 +6475,18 @@
               }
               @media print {
   @page {
-    size: 3in 1in;
-    margin: 0;
-  }
+  size: 1in 3in landscape;
+  margin: 0;
+}
   body { margin: 0; padding: 0; }
   h1 { display: none; }
   .qr-code-container {
     display: block;
   }
   .qr-code-item {
-    width: 3in;
-    height: 1in;
+  width: 3in;
+  height: 1in;
+  flex-direction: row;
     page-break-after: always;
     break-after: page;
     break-inside: avoid;
