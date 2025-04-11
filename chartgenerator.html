@@ -620,7 +620,9 @@
         <span class="close" id="close-qr-code">&times;</span>
         <h2>Medication QR Codes</h2>
         <div class="button-container">
-          <button onclick="printQRCodes()" class="btn btn-primary">Print QR Codes</button>
+          <button onclick="printQRCodes()" class="btn btn-primary">
+            Print QR Codes
+          </button>
         </div>
         <div id="qr-code-container"></div>
       </div>
@@ -6214,9 +6216,10 @@
           // Remove "See Dosing Information Below" from the combined instructions
           combinedInstructions =
             removeSeeDosingInformation(combinedInstructions);
-            
+
           // Automatically clean HTML tags from instructions
-          combinedInstructions = cleanHtmlFromInstructions(combinedInstructions);
+          combinedInstructions =
+            cleanHtmlFromInstructions(combinedInstructions);
 
           // Store medication data for QR code generation
           window.qrCodeMedications.push({
@@ -6284,7 +6287,7 @@
       function updateQRCode(index, newInstructions) {
         // Clean HTML tags from instructions
         let cleanedInstructions = cleanHtmlFromInstructions(newInstructions);
-        
+
         // Update the textarea with cleaned instructions if it differs from input
         if (newInstructions !== cleanedInstructions) {
           const textarea = document.getElementById(`qr-instructions-${index}`);
@@ -6292,9 +6295,10 @@
             textarea.value = cleanedInstructions;
           }
         }
-        
+
         // Update the stored instructions with clean version
-        window.qrCodeMedications[index].editedInstructions = cleanedInstructions;
+        window.qrCodeMedications[index].editedInstructions =
+          cleanedInstructions;
 
         // Get the medication data
         const medication = window.qrCodeMedications[index];
@@ -6377,8 +6381,10 @@
           }
 
           // Clean instructions again to ensure no HTML tags
-          const cleanedInstructions = cleanHtmlFromInstructions(medication.editedInstructions);
-          
+          const cleanedInstructions = cleanHtmlFromInstructions(
+            medication.editedInstructions
+          );
+
           // Generate a unique ID for this instruction using MD5 hash
           const instructionId = generateMD5Hash(cleanedInstructions);
 
@@ -6415,15 +6421,15 @@
                 font-size: 18px;
               }
               .qr-code-item { 
-                border: 1px solid #ddd;
-                padding: 5px;
-                width: 7.5cm; 
-                height: 3.5cm; 
-                box-sizing: border-box;
-                display: flex;
-                align-items: center;
-                background-color: white;
-              }
+  border: 1px solid #ddd;
+  padding: 5px;
+  width: 3in; 
+  height: 1in; 
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
               .qr-code-img {
                 width: 2.5cm;
                 height: 2.5cm;
@@ -6468,22 +6474,39 @@
                 }
               }
               @media print {
-                body { margin: 0; padding: 0; }
-                h1 { display: none; }
-                .qr-code-container {
-                  display: grid;
-                  grid-template-columns: repeat(2, 7.5cm);
-                  grid-auto-rows: 3.5cm;
-                  gap: 0.5cm;
-                  width: 19cm; /* A4 width minus margins */
-                  margin: 0 auto;
-                }
-                .qr-code-item {
-                  page-break-inside: avoid;
-                  margin: 0;
-                  border: 1px solid #ddd;
-                }
-              }
+  @page {
+    size: 3in 1in;
+    margin: 0;
+  }
+  body { margin: 0; padding: 0; }
+  h1 { display: none; }
+  .qr-code-container {
+    display: block;
+  }
+  .qr-code-item {
+    width: 3in;
+    height: 1in;
+    page-break-after: always;
+    break-after: page;
+    break-inside: avoid;
+    margin: 0;
+    padding: 0.1in;
+    display: flex;
+    align-items: center;
+    border: none;
+  }
+  .qr-code-img {
+    height: 0.8in;
+    width: 0.8in;
+    margin-right: 0.2in;
+  }
+  .qr-code-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
             </style>
           </head>
           <body>
@@ -6540,21 +6563,21 @@
       // Function to clean HTML tags from instructions
       function cleanHtmlFromInstructions(instructions) {
         let cleaned = instructions;
-        
+
         // Replace <br> tags with periods
         cleaned = cleaned.replace(/<br\s*\/?>/gi, ". ");
-        
+
         // Replace <strong> tags
         cleaned = cleaned.replace(/<strong>(.*?)<\/strong>/gi, "$1");
-        
+
         // Remove any other HTML tags
         cleaned = cleaned.replace(/<[^>]*>/g, "");
-        
+
         // Clean up multiple periods and spaces
         cleaned = cleaned.replace(/\.{2,}/g, ".");
         cleaned = cleaned.replace(/\.\s+\./g, ".");
         cleaned = cleaned.replace(/\s+/g, " ");
-        
+
         return cleaned.trim();
       }
 
@@ -6600,7 +6623,10 @@
       // Function to remove HTML tags from all medication instructions in the QR code editor
       function removeHtmlTagsFromInstructions() {
         // Check if QR codes have been generated
-        if (!window.qrCodeMedications || window.qrCodeMedications.length === 0) {
+        if (
+          !window.qrCodeMedications ||
+          window.qrCodeMedications.length === 0
+        ) {
           alert("Please generate QR codes first.");
           return;
         }
@@ -6609,22 +6635,26 @@
         window.qrCodeMedications.forEach((medication, index) => {
           if (medication.editedInstructions) {
             // Clean HTML tags from instructions
-            const cleanedInstructions = cleanHtmlFromInstructions(medication.editedInstructions);
-            
+            const cleanedInstructions = cleanHtmlFromInstructions(
+              medication.editedInstructions
+            );
+
             // Update the stored instructions with clean version
             medication.editedInstructions = cleanedInstructions;
-            
+
             // Update the textarea with cleaned instructions
-            const textarea = document.getElementById(`qr-instructions-${index}`);
+            const textarea = document.getElementById(
+              `qr-instructions-${index}`
+            );
             if (textarea) {
               textarea.value = cleanedInstructions;
             }
-            
+
             // Update the QR code with cleaned instructions
             updateQRCode(index, cleanedInstructions);
           }
         });
-        
+
         alert("HTML tags have been removed from all medication instructions.");
       }
 

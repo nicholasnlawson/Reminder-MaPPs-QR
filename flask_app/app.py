@@ -13,6 +13,14 @@ from gtts import gTTS
 from datetime import datetime, timedelta
 from PIL import Image, ImageDraw, ImageFont
 
+# Try to import zebra, but continue if not available
+try:
+    import zebra
+    ZEBRA_AVAILABLE = True
+except ImportError:
+    ZEBRA_AVAILABLE = False
+    print("Warning: python-zebra is not installed. Thermal printer support will be disabled.")
+
 app = Flask(__name__)
 
 # Directory for storing QR codes
@@ -1640,6 +1648,113 @@ def list_medication_data():
     except Exception as e:
         print(f"Error listing medication data: {e}")
         return jsonify({'status': 'error', 'message': str(e)}), 500
+
+def generate_zpl_for_qr_code(instruction_id, medication_name, instruction_text, width=2, height=2):
+    """
+    Generate ZPL code for printing a QR code label
+    
+    Args:
+        instruction_id: Unique ID for the instruction
+        medication_name: Name of the medication
+        instruction_text: Brief instruction text
+        width: Width of the label in inches
+        height: Height of the label in inches
+    
+    Returns:
+        ZPL code as a string
+    """
+    # Get the QR code path
+    qr_filename = f"{instruction_id}.png"
+    qr_path = os.path.join(QR_DIR, qr_filename)
+    
+    # Check if QR code exists
+    if not os.path.exists(qr_path):
+        return None
+    
+    # Create a shortened version of the instruction text (max 50 chars)
+    short_instruction = instruction_text[:50]
+    if len(instruction_text) > 50:
+        short_instruction += "..."
+    
+    # Calculate position and scaling based on label dimensions
+    # Values are in dots (203 dpi for most Honeywell printers)
+    label_width_dots = int(width * 203)
+    label_height_dots = int(height * 203)
+    
+    # Position the QR code on the left side
+    qr_size = min(int(label_height_dots * 0.8), int(label_width_dots * 0.45))
+    qr_left = int(label_width_dots * 0.05)
+    qr_top = int((label_height_dots - qr_size) / 2)
+    
+    # Calculate text positions
+    text_left = qr_left + qr_size + int(label_width_dots * 0.05)
+    name_top = int(label_height_dots * 0.2)
+    instruction_top = int(label_height_dots * 0.5)
+    
+    # Generate ZPL code
+    zpl = f"""
+^XA
+^CI28
+^BY2,2.0,100
+^FO{qr_left},{qr_top}^BQN,2,{qr_size/203}
+^FDMA,http://{request.host}/instruction/{instruction_id}^FS
+^FO{text_left},{name_top}^A0N,24,24^FD{medication_name}^FS
+^FO{text_left},{instruction_top}^A0N,18,18^FD{short_instruction}^FS
+^XZ
+"""
+    return zpl
+
+@app.route('/print_qr_labels_thermal', methods=['POST'])
+def print_qr_labels_thermal():
+    try:
+        data = request.json
+        instruction_ids = data.get('instruction_ids', [])
+        printer_name = data.get('printer_name', None)
+        label_width = data.get('label_width', 2)  # inches
+        label_height = data.get('label_height', 2)  # inches
+        
+        if not instruction_ids:
+            return jsonify({'status': 'error', 'message': 'No instruction IDs provided'})
+        
+        if not printer_name:
+            return jsonify({'status': 'error', 'message': 'No printer name provided'})
+        
+        if ZEBRA_AVAILABLE:
+            # Create a Zebra printer instance
+            z = zebra.Zebra(printer_name)
+            
+            # Print each QR code
+            for instruction_id in instruction_ids:
+                # Get medication info
+                if instruction_id in instruction_texts:
+                    medication_name = instruction_texts[instruction_id].get('medication_name', '')
+                    instruction_text = instruction_texts[instruction_id].get('text', '')
+                    
+                    # Generate ZPL code
+                    zpl = generate_zpl_for_qr_code(
+                        instruction_id, 
+                        medication_name, 
+                        instruction_text,
+                        width=label_width,
+                        height=label_height
+                    )
+                    
+                    if zpl:
+                        # Send to printer
+                        z.output(zpl)
+                
+            return jsonify({
+                'status': 'success',
+                'message': f'Sent {len(instruction_ids)} labels to printer {printer_name}'
+            })
+        else:
+            return jsonify({
+                'status': 'error',
+                'message': 'Thermal printer support is not available'
+            })
+        
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
 
 if __name__ == '__main__':
     import os
