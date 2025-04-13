@@ -1208,63 +1208,53 @@ def instruction_page(instruction_id):
                 
                 print(f"Generating audio for text: '{spoken_text}'")
                 
-                # Extract just the dosage and instruction text for language detection
-                # This prevents UI text and labels from affecting language detection
-                language_detection_text = ''
+                # Instead of auto-detecting the language, check if a language is specified in the instruction data
+                tts_lang = 'en-gb'  # Default to British English
                 
-                # First try to use the dosage field if available
-                if instruction_info.get('dosage'):
-                    language_detection_text = instruction_info.get('dosage')
-                    print(f"Using dosage field for language detection: '{language_detection_text}'")
-                # If no dosage field or it's empty, try to extract from the clean text
-                elif clean_text and ':' in clean_text:
-                    # Try to extract the part after the colon (which usually contains the dosage instructions)
-                    try:
-                        language_detection_text = clean_text.split(':', 1)[1].strip()
-                        print(f"Extracted text after colon for language detection: '{language_detection_text}'")
-                    except IndexError:
-                        language_detection_text = clean_text
+                # Try to get the language from the instruction_info
+                if instruction_info.get('language'):
+                    specified_lang = instruction_info.get('language')
+                    print(f"Language specified in instruction data: {specified_lang}")
+                    
+                    # Map the specified language code to gTTS language code
+                    lang_map = {
+                        'en': 'en-gb',  # English -> British English
+                        'fr': 'fr',     # French
+                        'es': 'es',     # Spanish
+                        'de': 'de',     # German
+                        'it': 'it',     # Italian
+                        'pt': 'pt',     # Portuguese
+                        'ru': 'ru',     # Russian
+                        'zh-cn': 'zh-CN', # Chinese (Simplified)
+                        'ja': 'ja',     # Japanese
+                        'ko': 'ko',     # Korean
+                        'ar': 'ar',     # Arabic
+                        'hi': 'hi',     # Hindi
+                        'pl': 'pl',     # Polish
+                        'nl': 'nl',     # Dutch
+                        'tr': 'tr',     # Turkish
+                        # Add more language mappings as needed
+                    }
+                    
+                    # Use the specified language if it's in our map
+                    tts_lang = lang_map.get(specified_lang, 'en-gb')
                 else:
-                    # Fall back to using the entire clean text
-                    language_detection_text = clean_text
+                    # If no language is specified, we can use some simple heuristics to guess
+                    # This is a fallback only
+                    if 'comprimé' in clean_text.lower():
+                        tts_lang = 'fr'  # French
+                    elif 'tableta' in clean_text.lower():
+                        tts_lang = 'es'  # Spanish
+                    elif 'tablette' in clean_text.lower() and 'mal' in clean_text.lower():
+                        tts_lang = 'de'  # German
+                    elif 'таблетка' in clean_text.lower():
+                        tts_lang = 'ru'  # Russian
+                    
+                    print(f"No language specified, using heuristic detection: {tts_lang}")
                 
-                # Detect language from the extracted instruction text (default to English if detection fails)
-                detected_lang = 'en'
-                try:
-                    # Only attempt detection if we have enough text (at least 10 characters)
-                    if len(language_detection_text) >= 10:
-                        detected_lang = detect(language_detection_text)
-                        print(f"Detected language from '{language_detection_text}': {detected_lang}")
-                    else:
-                        print(f"Text too short for reliable language detection: '{language_detection_text}'")
-                except LangDetectException as e:
-                    print(f"Language detection failed: {e}, defaulting to English")
-
-                # Map detected language code to gTTS language code
-                lang_map = {
-                    'en': 'en-gb',  # English -> British English
-                    'fr': 'fr',     # French
-                    'es': 'es',     # Spanish
-                    'de': 'de',     # German
-                    'it': 'it',     # Italian
-                    'pt': 'pt',     # Portuguese
-                    'ru': 'ru',     # Russian
-                    'zh-cn': 'zh-CN',  # Chinese (Simplified)
-                    'ja': 'ja',     # Japanese
-                    'ko': 'ko',     # Korean
-                    'ar': 'ar',     # Arabic
-                    'hi': 'hi',     # Hindi
-                    'pl': 'pl',     # Polish
-                    'nl': 'nl',     # Dutch
-                    'tr': 'tr',     # Turkish
-                    # Add more language mappings as needed
-                }
-
-                # Get appropriate gTTS language code (default to en-gb if not in map)
-                tts_lang = lang_map.get(detected_lang, 'en-gb')
                 print(f"Using TTS language: {tts_lang}")
                     
-                # Create audio with detected language
+                # Create audio with specified/detected language
                 tts = gTTS(text=spoken_text, lang=tts_lang, slow=False)
                 print(f"Saving audio to: {audio_path}")
                 tts.save(audio_path)
