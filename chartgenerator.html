@@ -607,6 +607,12 @@
       <button onclick="printReminderChart()">Print Reminder Chart</button>
       <button onclick="printMARChart()">Print MAR Chart</button>
       <button onclick="generateQRCodes()">Generate QR Codes</button>
+      <label for="language-selector">Language:</label>
+      <select id="language-selector" onchange="translateCharts(this.value)">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+      </select>
     </div>
 
     <div id="prescription-container"></div>
@@ -1222,7 +1228,7 @@
         redoStack = [];
         addTableEventListeners();
 
-        handlePageBreaks();
+        // handlePageBreaks();
       }
 
       function generateMARChart() {
@@ -1763,7 +1769,7 @@
         );
         if (dailyMedications.length > 0) {
           html +=
-            '<tr class="header-row"><td colspan="6"><strong>Medication to be Taken <span class="underline">EVERY DAY</span></strong></td></tr>';
+            '<tr class="header-row"><td colspan="6"><strong>Medication to be taken <span class="underline">EVERY DAY</span></strong></td></tr>';
           dailyMedications.forEach((medication) => {
             html += "<tr>";
             html += `<td>${medication.dosage}`;
@@ -1808,7 +1814,7 @@
         );
         if (someDayMedications.length > 0) {
           html +=
-            '<tr class="header-row"><td colspan="6"><strong>Medications to be Taken on <span class="underline">SOME</span> Days</strong></td></tr>';
+            '<tr class="header-row"><td colspan="6"><strong>Medications to be taken on <span class="underline">SOME</span> Days</strong></td></tr>';
           someDayMedications.forEach((medication) => {
             html += "<tr>";
             html += `<td>${medication.dosage}`;
@@ -1834,7 +1840,7 @@
         );
         if (prnMedications.length > 0) {
           html +=
-            '<tr class="header-row"><td colspan="6"><strong>Medications to be Taken <span class="underline">AS REQUIRED</span></strong></td></tr>';
+            '<tr class="header-row"><td colspan="6"><strong>Medications to be taken <span class="underline">AS REQUIRED</span></strong></td></tr>';
           prnMedications.forEach((medication) => {
             html += "<tr>";
             html += `<td>${medication.dosage}`;
@@ -1860,7 +1866,7 @@
         );
         if (taperMedications.length > 0) {
           html +=
-            '<tr class="header-row"><td colspan="6"><strong>Medication with Tapering Dose</strong></td></tr>';
+            '<tr class="header-row"><td colspan="6"><strong>Medication with a tapering dose</strong></td></tr>';
           taperMedications.forEach((medication) => {
             html += "<tr>";
             html += `<td>${medication.dosage}`;
@@ -1931,7 +1937,7 @@
 
         const additional_info = extract_additional_info(dischargeLetterText);
         if (additional_info) {
-          html += `<tr class="discharge-comments-row"><th colspan="6">Discharge Medication Comments</th></tr>`;
+          html += `<tr class="discharge-comments-row"><th colspan="6">Discharge medication Comments</th></tr>`;
           html += `<tr><td colspan="6">${highlightTriggerPhrases(
             additional_info
           )}</td></tr>`;
@@ -2295,7 +2301,7 @@
         );
         tableHTML += renderMedicationSection(
           dailyMedications,
-          '<strong>Medications to be Taken <span class="underline">EVERY DAY</span>'
+          '<strong>Medications to be taken <span class="underline">EVERY DAY</span>'
         );
 
         const someDayMedications = medications.filter(
@@ -2306,7 +2312,7 @@
         );
         tableHTML += renderMedicationSection(
           someDayMedications,
-          '<strong>Medications to be Taken on <span class="underline">SOME</span> Days',
+          '<strong>Medications to be taken on <span class="underline">SOME</span> Days',
           false,
           true
         );
@@ -2316,7 +2322,7 @@
         );
         tableHTML += renderMedicationSection(
           prnMedications,
-          '<strong>Medications to be Taken <span class="underline">AS REQUIRED</span>',
+          '<strong>Medications to be taken <span class="underline">AS REQUIRED</span>',
           false,
           true
         );
@@ -2738,9 +2744,13 @@
           .replace("(8am,2pm,8pm)", "(8am, 2pm and 8pm)")
           .replace("once a day at 12 noon", "once a day at 12pm (midday)")
           .replace("twice a day(8am and 6pm)", "twice a day (8am and 6pm)")
+          .replace(
+            "twice a day (8am and TWELVE noon)",
+            "twice a day at 8am and 12pm (midday)"
+          )
           .replace(numeralRegex, (match, numeral) => {
             const number = parseInt(numeral, 10);
-            return number >= 1 && number <= 12
+            return number >= 1 && number <= 9
               ? convertNumberToWord(number)
               : numeral;
           })
@@ -2776,7 +2786,7 @@
           .replace(
             /days of week am \(omit (\w+)\)/i,
             (_, day) =>
-              `days of the Week (every day except ${capitalizeDayName(day)})`
+              `days of the week (every day except ${capitalizeDayName(day)})`
           )
           // Handle days in parentheses with times
           .replace(
@@ -3329,7 +3339,7 @@
             checkTimeRange(medication.instructions, startTime, endTime) ||
             (startTime === "" && endTime === "")
           ) {
-            return `&check; See Dosing Information Below`;
+            return `&check; See dosing information below`;
           }
           return "";
         }
@@ -3752,7 +3762,7 @@
               .includes("see dose instructions") ||
             medication.instructions.toLowerCase().includes("see taper")
           ) {
-            return `&check; See Dosing Information Below`;
+            return `&check; See dosing information below`;
           }
           if (
             medication.name.toLowerCase().includes("carbocisteine") &&
@@ -6147,7 +6157,7 @@
           formattedDose = formattedDose.replace("&check; ", "");
 
           // Remove "See Dosing Information Below" if present
-          if (formattedDose === "See Dosing Information Below") {
+          if (formattedDose === "See dosing information below") {
             formattedDose = "";
           }
 
@@ -6281,7 +6291,7 @@
       // Function to remove "See Dosing Information Below" from instructions
       function removeSeeDosingInformation(instructions) {
         // Remove the phrase if it appears at the beginning of the instructions
-        return instructions.replace(/^See Dosing Information Below\s*/i, "");
+        return instructions.replace(/^See dosing information below\s*/i, "");
       }
 
       function updateQRCode(index, newInstructions) {
@@ -6659,7 +6669,438 @@
         alert("HTML tags have been removed from all medication instructions.");
       }
 
-      window.addEventListener("resize", handlePageBreaks);
+      //window.addEventListener("resize", handlePageBreaks);
+      // Function to translate chart content based on selected language
+      async function translateCharts(language) {
+        try {
+          console.log(
+            "%c Starting translation to " + language,
+            "background: #3498db; color: white; padding: 5px; border-radius: 3px;"
+          );
+
+          // Default to English if no language is selected
+          language = language || "en";
+
+          // Fetch the translations from the JSON file
+          const response = await fetch("/static/translations.json");
+          if (!response.ok) {
+            throw new Error(
+              `Failed to load translations: ${response.statusText}`
+            );
+          }
+
+          // Get the translations JSON
+          const translationsData = await response.json();
+
+          // Create a dictionary for the current language
+          const currentTranslations = {};
+          for (const [phrase, translations] of Object.entries(
+            translationsData
+          )) {
+            if (translations[language]) {
+              // Store the key (original phrase/HTML) and its translation
+              currentTranslations[phrase] = translations[language];
+            }
+          }
+
+          if (Object.keys(currentTranslations).length === 0) {
+            console.error("No translations found for language:", language);
+            return; // Don't proceed if no translations loaded
+          }
+
+          console.log(
+            "%c Translation dictionary loaded for '" +
+              language +
+              "' with " +
+              Object.keys(currentTranslations).length +
+              " entries",
+            "background: #2ecc71; color: white; padding: 5px; border-radius: 3px;"
+          );
+
+          // Log some important translations for debugging
+          console.log(
+            "%c Debugging some key translations:",
+            "font-weight: bold; color: #9b59b6;"
+          );
+          const debugPhrases = [
+            "Medication Prescription",
+            "Medications to be taken EVERY DAY",
+            'Medications to be taken <span class="underline">EVERY DAY</span>',
+            '<strong>Medications to be taken on <span class="underline">SOME</span> Days</strong>', // Check HTML key
+            'Medications to be taken on <span class="underline">SOME</span> Days', // Check simpler HTML key
+            "Medications to be taken AS REQUIRED",
+            'Medications to be taken <span class="underline">AS REQUIRED</span>',
+            '<strong>Medications to be taken <span class="underline">AS REQUIRED</span></strong>', // Check HTML key
+            "ONE tablet",
+            "Morning",
+            "Time",
+          ];
+          debugPhrases.forEach((phrase) => {
+            console.log(
+              `  "${phrase}" → "${currentTranslations[phrase] || "NOT FOUND"}"`
+            );
+          });
+
+          // Translate the content of the relevant containers
+          translateFullContent("#prescription-container", currentTranslations);
+          translateFullContent("#chart-container", currentTranslations);
+          translateFullContent("#mar-chart-container", currentTranslations);
+          translateFullContent("#qr-code-container", currentTranslations); // Ensure QR codes are also translated if needed
+
+          // Translate QR code modal if it exists and is visible
+          const qrModal = document.querySelector("#qr-code-modal");
+          if (qrModal && qrModal.style.display !== "none") {
+            console.log("%c Translating QR Code Modal...", "color: #9b59b6;");
+            translateFullContent("#qr-code-modal", currentTranslations); // Translate whole modal
+
+            // Explicitly translate specific elements if needed (might be redundant if translateFullContent works)
+            const qrHeaderElement = qrModal.querySelector("h2");
+            if (qrHeaderElement && currentTranslations["Medication QR Codes"]) {
+              qrHeaderElement.textContent =
+                currentTranslations["Medication QR Codes"];
+            }
+            const qrPrintButton = qrModal.querySelector(
+              ".button-container button:not(#close-qr-code)"
+            );
+            if (qrPrintButton && currentTranslations["Print QR Codes"]) {
+              qrPrintButton.textContent = currentTranslations["Print QR Codes"];
+            }
+            const qrCloseButton = qrModal.querySelector("#close-qr-code");
+            if (qrCloseButton && currentTranslations["Close"]) {
+              // Assuming you have a "Close" translation
+              qrCloseButton.textContent = currentTranslations["Close"];
+            }
+            const qrNotes = qrModal.querySelectorAll(".qr-note");
+            qrNotes.forEach((note) => {
+              if (currentTranslations["Scan for instructions"]) {
+                note.textContent = currentTranslations["Scan for instructions"];
+              }
+            });
+          }
+
+          console.log(
+            `%c Charts translated to ${language} successfully`,
+            "background: #2ecc71; color: white; padding: 5px; border-radius: 3px;"
+          );
+        } catch (error) {
+          console.error(
+            "%c Error translating charts: " + error,
+            "background: #e74c3c; color: white; padding: 5px; border-radius: 3px;"
+          );
+        }
+      }
+
+      // Helper function to translate the entire content of a container
+      function translateFullContent(containerSelector, translations) {
+        const container = document.querySelector(containerSelector);
+        if (!container) {
+          // It's normal for some containers not to exist (e.g., MAR chart before generation)
+          // console.warn(`Container ${containerSelector} not found for translation.`);
+          return;
+        }
+
+        console.log(
+          `%c Translating ${containerSelector}...`,
+          "background: #3498db; color: white; padding: 3px; border-radius: 3px;"
+        );
+
+        // Define trigger phrases that indicate a section should NOT be translated
+        const doNotTranslateTriggers = [
+          "Dose Changes:",
+          "DOSE CHANGES:",
+          "Medications Started in Hospital Comment:",
+          "Medications Stopped in Hospital Comment:",
+          "Take Home Medications Comment:",
+          "Treatment recommendation (For GP):",
+          "Information for the Community Pharmacy:",
+          "TTO Completed by Ward Pharmacist?:",
+          "Medications Authorised by:",
+        ];
+
+        // Create a case-insensitive translation lookup
+        const caseInsensitiveTranslations = {};
+        for (const [key, value] of Object.entries(translations)) {
+          caseInsensitiveTranslations[key.toLowerCase()] = value;
+        }
+
+        // Helper function to check if text contains any of the trigger phrases (case-insensitive)
+        function containsDoNotTranslateTrigger(text) {
+          if (!text) return false;
+          const lowerText = text.toLowerCase();
+          return doNotTranslateTriggers.some((trigger) =>
+            lowerText.includes(trigger.toLowerCase())
+          );
+        }
+
+        // Helper function to find a translation match regardless of case
+        function findTranslation(text) {
+          if (!text) return null;
+          // Try exact match first
+          if (translations[text]) {
+            const translationValue = translations[text];
+            // Check if it's for the current language
+            if (typeof translationValue === "string") {
+              return translationValue;
+            } else if (
+              typeof translationValue === "object" &&
+              translationValue[language]
+            ) {
+              return translationValue[language];
+            }
+          }
+
+          // Try case-insensitive match
+          const lowerText = text.toLowerCase();
+          if (caseInsensitiveTranslations[lowerText]) {
+            const translationValue = caseInsensitiveTranslations[lowerText];
+            // Check if it's for the current language
+            if (typeof translationValue === "string") {
+              return translationValue;
+            } else if (
+              typeof translationValue === "object" &&
+              translationValue[language]
+            ) {
+              return translationValue[language];
+            }
+          }
+
+          // Try variations match - check if the text appears in any array of English variations
+          for (const [key, value] of Object.entries(translations)) {
+            // Check if the English value is an array
+            if (Array.isArray(value.en)) {
+              // Check if any of the English variations match our text (case insensitive)
+              if (
+                value.en.some((variant) => variant.toLowerCase() === lowerText)
+              ) {
+                // Return the translation for the current language
+                return value[language];
+              }
+            }
+          }
+
+          return null;
+        }
+
+        // Create a sorted array of phrases to translate, with longest phrases first
+        // This helps prevent smaller parts of longer phrases being translated incorrectly first
+        const phrasesToTranslate = Object.keys(translations)
+          .filter((phrase) => phrase.length > 1) // Filter out very short/empty keys
+          .sort((a, b) => b.length - a.length); // Sort by length descending
+
+        // --- 1. Translate elements where exact HTML match is critical (like section headers) ---
+        console.log(
+          "%c Translating critical HTML elements (Headers)...",
+          "color: #9b59b6;"
+        );
+        // Target elements likely to contain complex HTML that must match translation keys exactly
+        const criticalElements = container.querySelectorAll(
+          ".header-row td, td strong, h2, h3, h4, th"
+        );
+        criticalElements.forEach((element) => {
+          let htmlContent = element.innerHTML
+            .trim()
+            .replace(/\s{2,}/g, " ")
+            .replace(/>\s+</g, "><"); // Clean whitespace for matching
+          const textContent = element.textContent.trim();
+
+          if (!htmlContent && !textContent) return; // Skip empty elements
+
+          // Check if this element contains any do-not-translate trigger phrases
+          if (containsDoNotTranslateTrigger(textContent)) {
+            console.log(
+              `  Skipping translation for text with trigger phrase: "${textContent.substring(
+                0,
+                50
+              )}..."`
+            );
+            element.dataset.translated = "true"; // Mark as translated to skip further processing
+            return;
+          }
+
+          // Case insensitive match for html content
+          const htmlTranslation = findTranslation(htmlContent);
+          if (htmlContent && htmlTranslation) {
+            console.log(
+              `  HTML Match Found: "${htmlContent}" → "${htmlTranslation}"`
+            );
+            element.innerHTML = htmlTranslation;
+            element.dataset.translated = "true"; // Mark as translated
+          }
+          // Fallback: If no HTML match, try matching plain text content (only if no complex HTML was present)
+          else {
+            const textTranslation = findTranslation(textContent);
+            if (textContent && textTranslation && htmlContent === textContent) {
+              console.log(
+                `  Text Match Found (Simple): "${textContent}" → "${textTranslation}"`
+              );
+              element.textContent = textTranslation;
+              element.dataset.translated = "true"; // Mark as translated
+            }
+          }
+        });
+
+        // --- 2. Translate remaining elements using text content or partial matching ---
+        console.log(
+          "%c Translating remaining elements (TDs, Spans, Labels, etc.)...",
+          "color: #9b59b6;"
+        );
+        // Select elements likely needing translation, excluding those already done or containing inputs
+        const remainingElements = container.querySelectorAll(
+          "td:not([data-translated]):not(:has(input)), p:not([data-translated]), span:not([data-translated]), div:not([data-translated]):not(:has(*)), label:not([data-translated]), button:not([data-translated])"
+        );
+
+        remainingElements.forEach((element) => {
+          // Check if the element or its parent is already marked as translated
+          if (element.closest("[data-translated]")) {
+            return; // Skip this element if it or an ancestor was already translated
+          }
+
+          const textContent = element.textContent.trim();
+          if (!textContent) return; // Skip empty elements
+
+          // Check if this element contains any do-not-translate trigger phrases
+          if (containsDoNotTranslateTrigger(textContent)) {
+            console.log(
+              `  Skipping translation for text with trigger phrase: "${textContent.substring(
+                0,
+                50
+              )}..."`
+            );
+            element.dataset.translated = "true"; // Mark as translated to skip further processing
+            return;
+          }
+
+          // Try exact text match first for remaining elements (case insensitive)
+          const textTranslation = findTranslation(textContent);
+          if (textTranslation) {
+            console.log(
+              `  Text Match Found (Remaining): "${textContent}" → "${textTranslation}"`
+            );
+            // Preserve simple HTML if present
+            if (element.innerHTML !== textContent) {
+              try {
+                // Basic replacement; might need refinement for complex nested HTML
+                element.innerHTML = element.innerHTML.replace(
+                  new RegExp(
+                    textContent.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+                    "gi"
+                  ),
+                  textTranslation
+                );
+              } catch (e) {
+                console.warn(
+                  `Could not replace text in HTML for "${textContent}", using textContent. Error: ${e}`
+                );
+                element.textContent = textTranslation;
+              }
+            } else {
+              element.textContent = textTranslation;
+            }
+            element.dataset.translated = "true";
+          } else {
+            // --- 3. Attempt Partial Translation for Untranslated Elements ---
+            console.log(
+              `  No Exact Match for "${textContent}", trying partial translation...`
+            );
+            let currentHtml = element.innerHTML;
+            let originalHtml = element.innerHTML; // Store original HTML
+            let modified = false;
+
+            // Get translation phrases and sort them by length, descending
+            const phrasesToTranslate = Object.keys(translations).sort(
+              (a, b) => b.length - a.length
+            );
+
+            let replacedInPass;
+            do {
+              // Loop until no more replacements can be made in a full pass
+              replacedInPass = false;
+              for (const phrase of phrasesToTranslate) {
+                // Use case-insensitive check first for performance
+                if (currentHtml.toLowerCase().includes(phrase.toLowerCase())) {
+                  try {
+                    // Escape special regex characters in the phrase
+                    const escapedPhrase = phrase.replace(
+                      /[.*+?^${}()|[\]\\]/g,
+                      "\\$&"
+                    );
+
+                    // Adjust word boundaries based on phrase start/end characters
+                    const startsWithWordChar = /^\w/.test(phrase);
+                    const endsWithWordChar = /\w$/.test(phrase);
+                    const prefixBoundary = startsWithWordChar ? "\\b" : "";
+                    const suffixBoundary = endsWithWordChar ? "\\b" : "";
+
+                    // Regex without global flag 'g', case-insensitive (i)
+                    const regex = new RegExp(
+                      `${prefixBoundary}${escapedPhrase}${suffixBoundary}`,
+                      "i"
+                    );
+
+                    if (regex.test(currentHtml)) {
+                      const translatedPhrase = translations[phrase];
+                      // Check if the translation actually changes the string
+                      let tempHtml = currentHtml.replace(
+                        regex,
+                        translatedPhrase
+                      );
+                      if (tempHtml !== currentHtml) {
+                        console.log(
+                          `    Partial Match (Iterative): Replacing first instance of "${phrase}" with "${translatedPhrase}"`
+                        );
+                        currentHtml = tempHtml;
+                        modified = true;
+                        replacedInPass = true;
+                        // IMPORTANT: Break inner loop to restart search with the modified currentHtml
+                        break;
+                      }
+                    }
+                  } catch (e) {
+                    console.warn(
+                      `Regex error during partial translation for phrase "${phrase}": ${e}`
+                    );
+                    // Continue to the next phrase even if one fails
+                  }
+                }
+              } // End for...of phrasesToTranslate
+            } while (replacedInPass); // Continue passes if a replacement occurred
+
+            if (modified) {
+              // Only update the DOM if the final HTML is different from the original
+              if (currentHtml !== originalHtml) {
+                console.log(`  ✓ Element updated with partial translations.`);
+                element.innerHTML = currentHtml;
+                element.dataset.translated = "true";
+              } else {
+                // Log if changes were made but reverted or resulted in original
+                console.log(
+                  `  ✓ Partial translation attempted, but final result matches original HTML.`
+                );
+              }
+            } else {
+              // Avoid logging failures for empty/whitespace-only elements
+              if (textContent.trim()) {
+                console.log(
+                  `  ✗ No partial translations could be applied to: "${textContent.substring(
+                    0,
+                    100
+                  )}..."` // Log snippet
+                );
+              }
+            }
+          } // End else (partial translation)
+        }); // End forEach element
+
+        // Cleanup: Remove the 'data-translated' attribute afterwards
+        container
+          .querySelectorAll("[data-translated]")
+          .forEach((el) => el.removeAttribute("data-translated"));
+
+        console.log(
+          `%c Finished translating ${containerSelector}`,
+          "color: #3498db;"
+        );
+      } // End translateFullContent function
     </script>
   </body>
 </html>

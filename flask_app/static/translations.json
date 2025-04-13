@@ -1,0 +1,965 @@
+{
+  "// DOCUMENT HEADERS": {},
+  "Discharge Medication Chart": {
+    "en": "Discharge Medication Chart",
+    "es": "Tabla de Medicamentos de Alta",
+    "fr": "Tableau des Médicaments de Sortie"
+  },
+  "Medication Prescription": {
+    "en": "Medication Prescription",
+    "es": "Receta de Medicamento",
+    "fr": "Prescription de Médicaments"
+  },
+  "Medication Administration Record (MAR)": {
+    "en": "Medication Administration Record (MAR)",
+    "es": "Registro de Administración de Medicamentos (MAR)",
+    "fr": "Registre d'Administration des Médicaments (MAR)"
+  },
+  "Medication Reminder Chart": {
+    "en": "Medication Reminder Chart",
+    "es": "Tabla de Recordatorio de Medicamentos",
+    "fr": "Tableau de Rappel de Médicaments"
+  },
+  "Medication QR Codes": {
+    "en": "Medication QR Codes",
+    "es": "Códigos QR de Medicamentos",
+    "fr": "Codes QR des Médicaments"
+  },
+  "Scan for instructions": {
+    "en": "Scan for instructions",
+    "es": "Escanear para instrucciones",
+    "fr": "Scanner pour instructions"
+  },
+
+  "// BASIC MEDICATION TERMS": {},
+  "Medication": {
+    "en": "Medication",
+    "es": "Medicamento",
+    "fr": "Médicament"
+  },
+  "dosage": {
+    "en": "dosage",
+    "es": "dosis",
+    "fr": "dosage"
+  },
+  "Dose": {
+    "en": "Dose",
+    "es": "Dosis",
+    "fr": "Dose"
+  },
+  "doses": {
+    "en": "doses",
+  "es": "dosis",
+  "fr": "doses"
+},
+"apply": {
+  "en": "apply",
+  "es": "aplicar",
+  "fr": "appliquer"
+},
+  "Frequency": {
+    "en": "Frequency",
+    "es": "Frecuencia",
+    "fr": "Fréquence"
+  },
+  "Route": {
+    "en": "Route",
+    "es": "Vía",
+    "fr": "Voie"
+  },
+  "Duration": {
+    "en": "Duration",
+    "es": "Duración",
+    "fr": "Durée"
+  },
+  "start date": {
+    "en": "Start Date",
+    "es": "Fecha de Inicio",
+    "fr": "Date de Début"
+  },
+  "special instructions": {
+    "en": "special instructions",
+    "es": "instrucciones especiales",
+    "fr": "instructions spéciales"
+  },
+  "Discharge medication comments": {
+    "en": "Discharge medication comments",
+    "es": "Comentarios sobre medicamentos de alta (en inglés)",
+    "fr": "Commentaires sur les médicaments de sortie (en anglais)"
+  },
+
+  "// MEDICATION FORMS - TABLETS": {},
+  "tablet": {
+    "en": "tablet",
+    "es": "comprimido",
+    "fr": "comprimé"
+  },
+  "tablets": {
+    "en": "tablets",
+    "es": "comprimidos",
+    "fr": "comprimés"
+  },
+  "whole tablet": {
+    "en": "whole tablet",
+    "es": "comprimido entero",
+    "fr": "comprimé entier"
+  },
+  "a whole tablet": {
+    "en": "a whole tablet",
+    "es": "un comprimido entero",
+    "fr": "un comprimé entier"
+  },
+
+  "// MEDICATION FORMS - CAPLETS": {},
+  "caplet": {
+    "en": "caplet",
+    "es": "capleta",
+    "fr": "comprimé oblong"
+  },
+  "caplets": {
+    "en": "caplets",
+    "es": "capletas",
+    "fr": "comprimés oblongs"
+  },
+  "// MEDICATION FORMS - CAPSULES": {},
+  "capsule": {
+    "en": "capsule",
+    "es": "cápsula",
+    "fr": "gélule"
+  },
+  "capsules": {
+    "en": "capsules",
+    "es": "cápsulas",
+    "fr": "gélules"
+  },
+  "CAPSULE TO BE INHALED VIA BREEZHALER": {
+    "en": "CAPSULE TO BE INHALED VIA BREEZHALER",
+    "es": "CÁPSULA PARA INHALAR A TRAVÉS DE BREEZHALER",
+    "fr": "CAPSULE À INHALER VIA BREEZHALER"
+  },
+  "CAPSULE TO BE INHALED VIA HANDIHALER": {
+    "en": "CAPSULE TO BE INHALED VIA HANDIHALER",
+    "es": "CÁPSULA PARA INHALAR A TRAVÉS DE HANDIHALER",
+    "fr": "CAPSULE À INHALER VIA HANDIHALER"
+  },
+
+  "// MEDICATION FORMS - PATCHES": {},
+  "patch": {
+    "en": "patch",
+    "es": "parche",
+    "fr": "patch"
+  },
+  "patches": {
+    "en": "patches",
+    "es": "parches",
+    "fr": "patchs"
+  },
+  "// MEDICATION FORMS - SACHETS": {},
+  "sachet": {
+    "en": "sachet",
+    "es": "bolsita",
+    "fr": "sachet"
+  },
+  "sachets": {
+    "en": "sachets",
+    "es": "bolsitas",
+    "fr": "sachets"
+  },
+  "oral powder": {
+  "en": "oral powder",
+  "es": "polvo oral",
+  "fr": "poudre orale"
+},
+  "// MEDICATION FORMS - DROPS": {},
+  "drop": {
+    "en": "drop",
+    "es": "gota",
+    "fr": "goutte"
+  },
+  "drops": {
+    "en": "drops",
+    "es": "gotas",
+    "fr": "gouttes"
+  },
+  "// MEDICATION FORMS - SPRAYS": {},
+  "spray": {
+    "en": "spray",
+    "es": "pulverización",
+    "fr": "pulvérisation"
+  },
+  "sprays": {
+    "en": "sprays",
+    "es": "pulverizaciones",
+    "fr": "pulvérisations"
+  },
+  "// MEDICATION FORMS - PUFFS": {},
+  "puff": {
+    "en": "puff",
+    "es": "inhalación",
+    "fr": "bouffée"
+  },
+  "puffs": {
+    "en": "puffs",
+    "es": "inhalaciones",
+    "fr": "bouffées"
+  },
+  "// MEDICATION FORMS - OTHER": {},
+  "carton": {
+    "en": "carton",
+    "es": "cartón",
+    "fr": "carton"
+  },
+  "cartons": {
+    "en": "cartons",
+    "es": "cartones",
+    "fr": "cartons"
+  },
+  "piece": {
+    "en": "piece",
+    "es": "pieza",
+    "fr": "morceau"
+  },
+  "pieces": {
+    "en": "pieces",
+    "es": "piezas",
+    "fr": "morceaux"
+  },
+  "cartridge": {
+    "en": "cartridge",
+    "es": "cartucho",
+    "fr": "cartouche"
+  },
+  "cartridges": {
+    "en": "cartridges",
+    "es": "cartuchos",
+    "fr": "cartouches"
+  },
+"Shake": {
+  "en": "Shake",
+  "es": "batido",
+  "fr": "milk-shake"
+},
+"ointment": {
+  "en": "ointment",
+  "es": "pomada",
+  "fr": "pommade"
+},
+"cream": {
+  "en": "cream",
+  "es": "crema",
+  "fr": "crème"
+},
+"emollient": {
+  "en": "emollient",
+  "es": "emoliente",
+  "fr": "émollient"
+},
+"gel": {
+  "en": "gel",
+  "es": "gel",
+  "fr": "gel"
+},
+"inhaler": {
+  "en": "inhaler",
+  "es": "inhalador",
+  "fr": "inhalateur"
+},
+  "// QUANTITIES AND NUMBERS": {},
+  "ONE": {
+    "en": "ONE",
+    "es": "1",
+    "fr": "1"
+  },
+  "TWO": {
+    "en": "TWO",
+    "es": "2",
+    "fr": "2"
+  },
+  "THREE": {
+    "en": "THREE",
+    "es": "3",
+    "fr": "3"
+  },
+  "FOUR": {
+    "en": "FOUR",
+    "es": "4",
+    "fr": "4"
+  },
+  "FIVE": {
+    "en": "FIVE",
+    "es": "5",
+    "fr": "5"
+  },
+  "six": {
+    "en": "six",
+    "es": "6",
+    "fr": "6"
+  },
+  "seven": {
+    "en": "seven",
+    "es": "7",
+    "fr": "7"
+  },
+  "eight": {
+    "en": "eight",
+    "es": "8",
+    "fr": "8"
+  },
+  "nine": {
+    "en": "nine",
+    "es": "9",
+    "fr": "9"
+  },
+  "ten": {
+    "en": "ten",
+    "es": "10",
+    "fr": "10"
+  },
+  "half a": {
+    "en": "half a",
+    "es": "media",
+    "fr": "un demi"
+  },
+  "A half": {
+    "en": "a half",
+    "es": "un medio",
+    "fr": "un demi"
+  },
+  "and a half": {
+    "en": "and a half",
+    "es": "y medio",
+    "fr": "et demi"
+  },
+  "a quarter": {
+    "en": "a quarter",
+    "es": "un cuarto",
+    "fr": "un quart"
+  },
+  "and a quarter": {
+    "en": "and a quarter",
+    "es": "y cuarto",
+    "fr": "et quart"
+  },
+  "quarter of a": {
+    "en": "quarter of a",
+    "es": "cuarto de",
+    "fr": "quart de"
+  },
+  "a QUARTER of a": {
+    "en": "a QUARTER of a",
+    "es": "un CUARTO de",
+    "fr": "un QUART de"
+  },
+
+  "// FREQUENCY - DAILY": {},
+  "once a day": {
+    "en": "once a day",
+    "es": "1 vez al día",
+    "fr": "1 fois par jour"
+  },
+  "once daily": {
+    "en": "once daily",
+    "es": "1 vez al día",
+    "fr": "1 fois par jour"
+  },
+  "TWICE a day": {
+    "en": "TWICE a day",
+    "es": "2 veces al día",
+    "fr": "2 fois par jour"
+  },
+  "twice daily": {
+    "en": "twice daily",
+    "es": "2 veces al día",
+    "fr": "2 fois par jour"
+  },
+  "two times a day": {
+    "en": "two times a day",
+    "es": "2 veces al día", 
+    "fr": "2 fois par jour"
+  },
+  "times a day": {
+    "en": "times a day",
+    "es": "veces al día",
+    "fr": "fois par jour"
+  },
+  "times daily": {
+    "en": "times daily",
+    "es": "veces al día",
+    "fr": "fois par jour"
+  },
+  "times per day": {
+    "en": "times per day",
+    "es": "veces al día",
+    "fr": "fois par jour"
+  },
+
+  "// FREQUENCY - WEEKLY": {},
+  "times a week": {
+    "en": "times a week",
+    "es": "veces por semana",
+    "fr": "fois par semaine"
+  },
+  "once a week": {
+    "en": "once a week",
+    "es": "1 vez por semana",
+    "fr": "1 fois par semaine"
+  },
+  "ONCE a week": {
+    "en": "ONCE a week",
+    "es": "1 vez por semana",
+    "fr": "1 fois par semaine"
+  },
+  "twice a week": {
+    "en": "twice a week",
+    "es": "2 veces por semana",
+    "fr": "2 fois par semaine"
+  },
+  "TWICE a week": {
+    "en": "TWICE a week",
+    "es": "2 veces por semana",
+    "fr": "2 fois par semaine"
+  },
+  "THREE times a week": {
+    "en": "THREE times a week",
+    "es": "3 veces por semana",
+    "fr": "3 fois par semaine"
+  },
+  "of the week": {
+    "en": "of the week",
+    "es": "de la semana",
+    "fr": "de la semaine"
+  },
+  "days of the week": {
+    "en": "days of the week",
+    "es": "días de la semana",
+    "fr": "jours de la semaine"
+  },
+
+  "// FREQUENCY - OTHER": {},
+  "every other": {
+    "en": "every other",
+    "es": "cada dos",
+    "fr": "un jour sur deux"
+  },
+  "every <span class=\"underline\">OTHER</span> night": {
+    "en": "every <span class=\"underline\">OTHER</span> night",
+    "es": "cada <span class=\"underline\">DOS</span> noches",
+    "fr": "cada <span class=\"underline\">UNE</span> noche"
+  },
+  "every <u>OTHER</u> night": {
+    "en": "every <u>OTHER</u> night",
+    "es": "cada <u>DOS</u> noches",
+    "fr": "<u>UNE</u> nuit sur deux"
+  },
+  "alternate nights": {
+    "en": "alternate nights",
+    "es": "noches alternas",
+    "fr": "nuits alternées"
+  },
+  "every second night": {
+    "en": "every second night",
+    "es": "cada segunda noche",
+    "fr": "une nuit sur deux"
+  },
+  "hour": {
+    "en": "hour",
+    "es": "hora",
+    "fr": "heure"
+  },
+  "hours": {
+    "en": "hours",
+    "es": "horas",
+    "fr": "heures"
+  },
+
+  "// TIME OF DAY": {},
+  "Time": {
+    "en": "Time",
+    "es": "Hora",
+    "fr": "Heure"
+  },
+  "Morning": {
+    "en": "Morning",
+    "es": "Mañana",
+    "fr": "Matin"
+  },
+  "in the MORNING": {
+    "en": "in the MORNING",
+    "es": "en la MAÑANA",
+    "fr": "le MATIN"
+  },
+  "lunchtime": {
+    "en": "lunchtime",
+    "es": "mediodía",
+    "fr": "midi"
+  },
+  "Lunchtime": {
+    "en": "Lunchtime",
+    "es": "Mediodía",
+    "fr": "Midi"
+  },
+  "at noon": {
+  "en": "at noon",
+  "es": "al mediodía",
+  "fr": "à midi"
+},
+  "12 noon": {
+    "en": "12 noon",
+    "es": "12 mediodía",
+    "fr": "12h midi"
+  },
+  "Mid-Afternoon": {
+    "en": "Mid-Afternoon",
+    "es": "Media tarde",
+    "fr": "Milieu d'après-midi"
+  },
+  "Teatime": {
+    "en": "Teatime",
+    "es": "Tarde (17:00-19:00)",
+    "fr": "Fin d'après-midi (17h-19h)"
+  },
+  "Tea time": {
+    "en": "Tea time",
+    "es": "Tarde (17:00-19:00)",
+    "fr": "Fin d'après-midi (17h-19h)"
+  },
+  "Tea-time": {
+    "en": "Tea-time",
+    "es": "Tarde (17:00-19:00)",
+    "fr": "Fin d'après-midi (17h-19h)"
+  },
+  "Bedtime": {
+    "en": "Bedtime",
+    "es": "Hora de acostarse",
+    "fr": "Heure du coucher"
+  },
+  "night": {
+    "en": "night",
+    "es": "noche",
+    "fr": "nuit"
+  },
+  "evening": {
+    "en": "evening",
+    "es": "noche",
+    "fr": "soir"
+  },
+  "at night": {
+    "en": "at night",
+    "es": "por la noche",
+    "fr": "la nuit"
+  },
+  "in the evening": {
+    "en": "in the evening",
+    "es": "por la noche",
+    "fr": "le soir"
+  },
+
+  "// DAYS OF THE WEEK": {},
+  "Monday": {
+    "en": "Monday",
+    "es": "Lunes",
+    "fr": "Lundi"
+  },
+  "Mon": {
+    "en": "Mon",
+    "es": "Lunes", 
+    "fr": "Lundi"
+  },
+  "Tuesday": {
+    "en": "Tuesday",
+    "es": "Martes",
+    "fr": "Mardi"
+  },
+  "Tue": {
+    "en": "Tue",
+    "es": "Martes",
+    "fr": "Mardi"
+  },
+  "Tues": {
+    "en": "Tues",
+    "es": "Martes",
+    "fr": "Mardi"
+  },
+  "Wednesday": {
+    "en": "Wednesday",
+    "es": "Miércoles",
+    "fr": "Mercredi"
+  },
+  "Wed": {
+    "en": "Wed",
+    "es": "Miércoles",
+    "fr": "Mercredi"
+  },
+  "Thursday": {
+    "en": "Thursday",
+    "es": "Jueves",
+    "fr": "Jeudi"
+  },
+  "Thu": {
+    "en": "Thu",
+    "es": "Jueves",
+    "fr": "Jeudi"
+  },
+  "Thur": {
+    "en": "Thur",
+    "es": "Jueves",
+    "fr": "Jeudi"
+  },
+  "Thurs": {
+    "en": "Thurs",
+    "es": "Jueves",
+    "fr": "Jeudi"
+  },
+  "Friday": {
+    "en": "Friday",
+    "es": "Viernes",
+    "fr": "Vendredi"
+  },
+  "Fri": {
+    "en": "Fri",
+    "es": "Viernes",
+    "fr": "Vendredi"
+  },
+  "Saturday": {
+    "en": "Saturday",
+    "es": "Sábado",
+    "fr": "Samedi"
+  },
+  "Sat": {
+    "en": "Sat",
+    "es": "Sábado",
+    "fr": "Samedi"
+  },
+  "Sunday": {
+    "en": "Sunday",
+    "es": "Domingo",
+    "fr": "Dimanche"
+  },
+  "Sun": {
+    "en": "Sun",
+    "es": "Domingo",
+    "fr": "Dimanche"
+  },
+
+  "// MEDICATION SCHEDULE TYPES": {},
+  "Medications to be taken <span class=\"underline\">EVERY DAY</span>": {
+    "en": "Medications to be taken <span class=\"underline\">EVERY DAY</span>",
+    "es": "Medicamentos para tomar <span class=\"underline\">TODOS LOS DÍAS</span>",
+    "fr": "Médicaments à prendre <span class=\"underline\">TOUS LES JOURS</span>"
+  },
+  "Medication to be taken <span class=\"underline\">EVERY DAY</span>": {
+    "en": "Medication to be taken <span class=\"underline\">EVERY DAY</span>",
+    "es": "Medicamento para tomar <span class=\"underline\">TODOS LOS DÍAS</span>",
+    "fr": "Médicament à prendre <span class=\"underline\">TOUS LES JOURS</span>"
+  },
+  "Medication to be taken EVERY DAY": {
+    "en": "Medication to be taken EVERY DAY",
+    "es": "Medicamento para tomar TODOS LOS DÍAS",
+    "fr": "Médicament à prendre TOUS LES JOURS"
+  },
+  "EVERY DAY": {
+    "en": "EVERY DAY",
+    "es": "todos los días",
+    "fr": "tous les jours"
+  },
+  "Medications to be taken on <span class=\"underline\">SOME</span> days": {
+    "en": "Medications to be taken on <span class=\"underline\">SOME</span> days",
+    "es": "Medicamentos para tomar <span class=\"underline\">ALGUNOS</span> días",
+    "fr": "Médicaments à prendre <span class=\"underline\">CERTAINS</span> jours"
+  },
+  "Medication to be taken <span class=\"underline\">on SOME days</span>": {
+    "en": "Medication to be taken <span class=\"underline\">on SOME days</span>",
+    "es": "Medicamento para tomar <span class=\"underline\">ALGUNOS días</span>",
+    "fr": "Médicament à prendre <span class=\"underline\">CERTAINS jours</span>"
+  },
+  "on SOME Days": {
+    "en": "on SOME Days",
+    "es": "en ALGUNOS días",
+    "fr": "en CERTAINS jours"
+  },
+  "SOME": {
+    "en": "SOME",
+    "es": "algunos",
+    "fr": "certains"
+  },
+  "Medications to be taken AS REQUIRED": {
+    "en": "Medications to be taken AS REQUIRED",
+    "es": "Medicamentos que se deben tomar SEGÚN SEA NECESARIO",
+    "fr": "Médicaments à Prendre SELON LES BESOINS"
+  },
+  "Medication to be taken AS REQUIRED": {
+    "en": "Medication to be taken AS REQUIRED",
+    "es": "Medicamento que se Debe Tomar SEGÚN SEA NECESARIO",
+    "fr": "Médicament à Prendre SELON LES BESOINS"
+  },
+  "Medications to be taken <span class=\"underline\">AS REQUIRED</span>": {
+    "en": "Medications to be taken <span class=\"underline\">AS REQUIRED</span>",
+    "es": "Medicamentos para tomar <span class=\"underline\">SEGÚN SEA NECESARIO</span>",
+    "fr": "Médicaments à prendre <span class=\"underline\">SELON LES BESOINS</span>"
+  },
+  "Medication to be taken <span class=\"underline\">AS REQUIRED</span>": {
+    "en": "Medication to be taken <span class=\"underline\">AS REQUIRED</span>",
+    "es": "Medicamento para tomar <span class=\"underline\">SEGÚN SEA NECESARIO</span>",
+    "fr": "Médicament à prendre <span class=\"underline\">SELON LES BESOINS</span>"
+  },
+  "as required": {
+    "en": "as required",
+    "es": "según sea necesario",
+    "fr": "selon les besoins"
+  },
+  "as needed": {
+    "en": "as needed",
+    "es": "según sea necesario",
+    "fr": "selon les besoins"
+  },
+  "when needed": {
+    "en": "when needed",
+    "es": "según sea necesario",
+    "fr": "selon les besoins"
+  },
+  "if required": {
+    "en": "if required",
+    "es": "según sea necesario",
+    "fr": "selon les besoins"
+  },
+  "if needed": {
+    "en": "if needed",
+    "es": "según sea necesario",
+    "fr": "selon les besoins"
+  },
+  "prn": {
+    "en": "prn",
+    "es": "según sea necesario",
+    "fr": "selon les besoins"
+  },
+  "when required": {
+    "en": "when required",
+    "es": "según sea necesario",
+    "fr": "selon les besoins"
+  },
+  "as required up to every": {
+    "en": "as required up to every",
+    "es": "según sea necesario hasta cada",
+    "fr": "selon les besoins jusqu'à chaque"
+  },
+
+  "// MEDICATION INSTRUCTIONS": {},
+  "Medications to be taken": {
+    "en": "Medications to be taken",
+    "es": "Medicamentos que se deben tomar",
+    "fr": "Médicaments à prendre"
+  },
+  "Medication to be taken": {
+    "en": "Medication to be taken",
+    "es": "Medicamento que se debe tomar",
+    "fr": "Médicament à prendre"
+  },
+  "Take": {
+    "en": "Take",
+    "es": "Tomar",
+    "fr": "Prendre"
+  },
+  "Use": {
+    "en": "Use",
+    "es": "Usar",
+    "fr": "Utiliser"
+  },
+  "tapering dose": {
+    "en": "tapering dose",
+    "es": "dosis gradual",
+    "fr": "dose décroissante"
+  },
+  "Medication with a tapering dose": {
+    "en": "Medication with a tapering dose",
+    "es": "Medicamento con una dosis gradual",
+    "fr": "Médicament avec une dose décroissante"
+  },
+  "Taper instructions:": {
+    "en": "Taper instructions:",
+    "es": "Instrucciones de reducción gradual:",
+    "fr": "Instructions de réduction progressive:"
+  },
+  "TO BE USED IN THE NEBULISER": {
+    "en": "TO BE USED IN THE NEBULISER",
+    "es": "PARA SER USADO EN EL NEBULIZADOR",
+    "fr": "À UTILISER DANS LE NÉBULISEUR"
+  },
+  "MANUFACTURER SPECIFIC MEDICATION WHEN USED FOR EPILEPSY": {
+    "en": "MANUFACTURER SPECIFIC MEDICATION WHEN USED FOR EPILEPSY",
+    "es": "MEDICAMENTO ESPECÍFICO DEL FABRICANTE CUANDO SE USA PARA EPILEPSIA",
+    "fr": "MÉDICAMENT SPÉCIFIQUE DU FABRICANT LORSQU'IL EST UTILISÉ POUR L'ÉPILEPSIE"
+  },
+  "See Dosing Information Below": {
+    "en": "see dosing information below",
+    "es": "ver información de dosificación abajo (en inglés)",
+    "fr": "voir les informations de dosage en bas (en anglais)"
+  },
+
+  "// PATIENT INFORMATION": {},
+  "Patient Information": {
+    "en": "Patient Information",
+    "es": "Información del Paciente",
+    "fr": "Informations du Patient"
+  },
+  "Name:": {
+    "en": "Name:",
+    "es": "Nombre:",
+    "fr": "Nom:"
+  },
+  "NHS Number:": {
+    "en": "NHS Number:",
+    "es": "Número NHS:",
+    "fr": "Numéro NHS:"
+  },
+  "Medical Record Number:": {
+    "en": "Medical Record Number:",
+    "es": "Número de Historia Clínica:",
+    "fr": "Numéro de Dossier Médical:"
+  },
+  "Date of Birth:": {
+    "en": "Date of Birth:",
+    "es": "Fecha de Nacimiento:",
+    "fr": "Date de Naissance:"
+  },
+
+  "// EYE AND EAR ROUTES": {},
+  "both eyes": {
+    "en": "both eyes",
+    "es": "ambos ojos",
+    "fr": "les deux yeux"
+  },
+  "each eye": {
+    "en": "each eye",
+    "es": "ambos ojos", 
+    "fr": "les deux yeux"
+  },
+  "left eye": {
+    "en": "left eye",
+    "es": "ojo izquierdo",
+    "fr": "œil gauche"
+  },
+  "right eye": {
+    "en": "right eye",
+    "es": "ojo derecho",
+    "fr": "œil droit"
+  },
+  "both ears": {
+    "en": "both ears",
+    "es": "ambos oídos",
+    "fr": "les deux oreilles"
+  },
+
+  "// GENERAL USAGE TERMS": {},
+  "day": {
+    "en": "day",
+    "es": "día",
+    "fr": "jour"
+  },
+  "days": {
+    "en": "days",
+    "es": "días",
+    "fr": "jours"
+  },
+  "Days": {
+    "en": "Days",
+    "es": "Días",
+    "fr": "Jours"
+  },
+  "beginning": {
+    "en": "beginning",
+    "es": "comenzando",
+    "fr": "commençant"
+  },
+  "then": {
+    "en": "then",
+    "es": "luego",
+    "fr": "puis"
+  },
+  "STOP": {
+    "en": "STOP",
+    "es": "PARAR",
+    "fr": "ARRÊTER"
+  },
+  "for": {
+    "en": "for",
+    "es": "durante",
+    "fr": "pendant"
+  },
+  "on": {
+    "en": "on",
+    "es": "el",
+    "fr": "le"
+  },
+  "at": {
+    "en": "at",
+    "es": "a las",
+    "fr": "à"
+  },
+  "in the": {
+    "en": "in the",
+    "es": "en la",
+    "fr": "dans le"
+  },
+  "and": {
+    "en": "and",
+    "es": "y",
+    "fr": "et"
+  },
+  "to": {
+    "en": "to",
+    "es": "a",
+    "fr": "à"
+  },
+  "up to": {
+    "en": "up to",
+    "es": "hasta",
+    "fr": "jusqu'à"
+  },
+  "maximum of": {
+    "en": "maximum of",
+    "es": "hasta",
+    "fr": "jusqu'à"
+  },
+  "no more than": {
+    "en": "no more than",
+    "es": "hasta",
+    "fr": "jusqu'à"
+  },
+  "every day except": {
+    "en": "every day except",
+    "es": "todos los días excepto",
+    "fr": "tous les jours sauf"
+  },
+  "days of the week (every day except": {
+    "en": "days of the week (every day except",
+    "es": "días de la semana (todos los días excepto",
+    "fr": "jours de la semaine (tous les jours sauf"
+  },
+  "thereafter": {
+    "en": "thereafter",
+    "es": "a partir de entonces",
+    "fr": "par la suite"
+  },
+  "after that": {
+    "en": "after that",
+    "es": "a partir de entonces",
+    "fr": "par la suite"
+  },
+  "subsequently": {
+    "en": "subsequently",
+    "es": "a partir de entonces",
+    "fr": "par la suite"
+  },
+
+  "// INTERFACE ELEMENTS": {},
+  "Language:": {
+    "en": "Language:",
+    "es": "Idioma:",
+    "fr": "Langue:"
+  },
+  "This shows the entire prescribed course, please make sure to check the date and take the appropriate dose": {
+    "en": "This shows the entire prescribed course, please make sure to check the date and take the appropriate dose",
+    "es": "Esto muestra todo el tratamiento prescrito, asegúrese de verificar la fecha y tomar la dosis adecuada",
+    "fr": "Ceci montre l'ensemble du traitement prescrit, veuillez vous assurer de vérifier la date et de prendre la dose appropriée"
+  }
+}

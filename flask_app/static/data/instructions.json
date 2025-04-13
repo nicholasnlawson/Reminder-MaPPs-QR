@@ -34,8 +34,8 @@
   "cd2ac1290a0f1c5885c93b8487840fd6": {
     "text": "ONE tablet twice a day (8am and 8pm)",
     "instructions": "ONE tablet twice a day (8am and 8pm)",
-    "medication_name": "apixaban [Apixaban 5 MG Tablet]",
-    "dosage": "Apixaban 5 MG Tablet",
+    "medication_name": "ranolazine [Ranolazine 375 MG M/R Tablet]",
+    "dosage": "Ranolazine 375 MG M/R Tablet",
     "timing": "",
     "route": ""
   },
@@ -218,16 +218,16 @@
   "8869d1c8a139bb418c64acb8f36ade84": {
     "text": "ONE capsule twice a day (8am and 8pm)",
     "instructions": "ONE capsule twice a day (8am and 8pm)",
-    "medication_name": "pregabalin [Pregabalin \u00a050 MG Capsule]",
-    "dosage": "Pregabalin \u00a050 MG Capsule",
+    "medication_name": "pregabalin [Pregabalin  100 MG Capsule]",
+    "dosage": "Pregabalin  100 MG Capsule",
     "timing": "",
     "route": ""
   },
   "b9f638b817aaa3032b602be297b63080": {
     "text": "ONE tablet once a day at 8am",
     "instructions": "ONE tablet once a day at 8am",
-    "medication_name": "Pantoprazole 40mg Tablets",
-    "dosage": "Pantoprazole 40mg Tablets",
+    "medication_name": "folic acid [Folic Acid 5 MG Tablet]",
+    "dosage": "Folic Acid 5 MG Tablet",
     "timing": "",
     "route": ""
   },
@@ -282,8 +282,8 @@
   "dc24334c52019161afbb26fd753c5154": {
     "text": "ONE tablet once a day at 10pm",
     "instructions": "ONE tablet once a day at 10pm",
-    "medication_name": "atorvastatin [Atorvastatin 20 MG Tablet]",
-    "dosage": "Atorvastatin 20 MG Tablet",
+    "medication_name": "atorvastatin [Atorvastatin 80 MG Tablet]",
+    "dosage": "Atorvastatin 80 MG Tablet",
     "timing": "",
     "route": ""
   },
@@ -292,6 +292,166 @@
     "instructions": "ONE tablet twice a day (8am & 5pm)",
     "medication_name": "calcium carbonate with colecal [Calcium Carb 1.5G/Vit D3 10mcg Tablet]",
     "dosage": "Calcium Carb 1.5G/Vit D3 10mcg Tablet",
+    "timing": "",
+    "route": ""
+  },
+  "30bb06d97d946216d6d28c32b7a2a1b9": {
+    "text": "Apply once a day at 2pm",
+    "instructions": "Apply once a day at 2pm",
+    "medication_name": "Medi Derma-S [Medi Derma-S Cream 90 G]",
+    "dosage": "Medi Derma-S Cream 90 G",
+    "timing": "",
+    "route": ""
+  },
+  "92557202e7d8e9415461ca970cb275ce": {
+    "text": "TWO tablets as required up to FOUR times daily",
+    "instructions": "TWO tablets as required up to FOUR times daily",
+    "medication_name": "Paracetamol [Paracetamol 500 MG Tablet (100 PK)]",
+    "dosage": "Paracetamol 500 MG Tablet (100 PK)",
+    "timing": "",
+    "route": ""
+  },
+  "16fcfe07cdff88e10cc1d51c47fc1ba1": {
+    "text": "ONE nebule as required up to FOUR times daily",
+    "instructions": "ONE nebule as required up to FOUR times daily",
+    "medication_name": "Salbutamol [Salbutamol 2.5 MG Nebule (PK 30)]",
+    "dosage": "Salbutamol 2.5 MG Nebule (PK 30)",
+    "timing": "",
+    "route": ""
+  },
+  "adf32d4e5db3491a8a3a24d968b149b4": {
+    "text": "2.5 ml three times a day (8am, 2pm and 8pm)",
+    "instructions": "2.5 ml three times a day (8am, 2pm and 8pm)",
+    "medication_name": "Sodium Chloride 0.9% [Sodium Chloride 0.9% Amp 5 ML]",
+    "dosage": "Sodium Chloride 0.9% Amp 5 ML",
+    "timing": "",
+    "route": ""
+  },
+  "de1bf7571d39ec4c968a269f7370389a": {
+    "text": "TWO puffs twice a day (8am and 8pm)",
+    "instructions": "TWO puffs twice a day (8am and 8pm)",
+    "medication_name": "beclometasone extrafine parti3 [Trimbow 172mcg/5mcg/9mcg Inhaler]",
+    "dosage": "Trimbow 172mcg/5mcg/9mcg Inhaler",
+    "timing": "",
+    "route": ""
+  },
+  "7f7fcdee16e29f3d603ac4e6609ceb8b": {
+    "text": "TWO caplets twice a day at lunchtime and teatime",
+    "instructions": "TWO caplets twice a day at lunchtime and teatime",
+    "medication_name": "calcium carbonate with colecal [Calcium Carb 750 MG/Vit D3 5mcg Caplet]",
+    "dosage": "Calcium Carb 750 MG/Vit D3 5mcg Caplet",
+    "timing": "",
+    "route": ""
+  },
+  "a07893fc694a83c17b33533e5fa8560e": {
+    "text": "TWO capsules three times a day (8am, 12pm and 5pm)",
+    "instructions": "TWO capsules three times a day (8am, 12pm and 5pm)",
+    "medication_name": "carbocisteine [Carbocisteine 375 MG Capsule]",
+    "dosage": "Carbocisteine 375 MG Capsule",
+    "timing": "",
+    "route": ""
+  },
+  "052ed1f99ce0f4ef43011f1b40394df4": {
+    "text": "ONE tablet every other lunchtime",
+    "instructions": "ONE tablet every other lunchtime",
+    "medication_name": "ferrous fumarate [Ferrous Fumarate 210 MG Tablets]",
+    "dosage": "Ferrous Fumarate 210 MG Tablets",
+    "timing": "",
+    "route": ""
+  },
+  "c7d0f955034bf7be15cf79a0d8a55878": {
+    "text": "TWO tablets twice a day (8am and 2pm)",
+    "instructions": "TWO tablets twice a day (8am and 2pm)",
+    "medication_name": "furosemide [Furosemide 40 MG Tablet]",
+    "dosage": "Furosemide 40 MG Tablet",
+    "timing": "",
+    "route": ""
+  },
+  "de57481c1e28db90316440e466ad5a2f": {
+    "text": "Apply as required up to THREE times daily",
+    "instructions": "Apply as required up to THREE times daily",
+    "medication_name": "ibuprofen [Ibuprofen 5% Gel]",
+    "dosage": "Ibuprofen 5% Gel",
+    "timing": "",
+    "route": ""
+  },
+  "c34f21a6f1b31dda11a56c6b9067d6af": {
+    "text": "three times a day (8am, 12pm and 5pm)",
+    "instructions": "three times a day (8am, 12pm and 5pm)",
+    "medication_name": "insulin aspart [Insulin ASPART (NovoRAPID) Flexpen]",
+    "dosage": "Insulin ASPART (NovoRAPID) Flexpen",
+    "timing": "",
+    "route": ""
+  },
+  "cd60ff1ee17d4cdf3e847fd98b307008": {
+    "text": "once a day at 8am",
+    "instructions": "once a day at 8am",
+    "medication_name": "insulin glargine [Insulin GLARGINE (Lantus) Solostar Pen]",
+    "dosage": "Insulin GLARGINE (Lantus) Solostar Pen",
+    "timing": "",
+    "route": ""
+  },
+  "6e7114f175c5f7866f78aec739d8f74a": {
+    "text": "ONE capsule once a day at 8am",
+    "instructions": "ONE capsule once a day at 8am",
+    "medication_name": "lansoprazole [Lansoprazole 30 MG Capsule]",
+    "dosage": "Lansoprazole 30 MG Capsule",
+    "timing": "",
+    "route": ""
+  },
+  "def5127bfe2fb29e6fd847c50ad4fbfa": {
+    "text": "1.25 ml as required up to FOUR times daily",
+    "instructions": "1.25 ml as required up to FOUR times daily",
+    "medication_name": "oxycodone hydrochloride [OxyCODONE 5 MG/5 ML S/F Liquid]",
+    "dosage": "OxyCODONE 5 MG/5 ML S/F Liquid",
+    "timing": "",
+    "route": ""
+  },
+  "af1d6d57ea330993906c16af6240065f": {
+    "text": "ONE sachet as required up to THREE times daily",
+    "instructions": "ONE sachet as required up to THREE times daily",
+    "medication_name": "polyethylene glycol with elect [Macrogol Oral Powder Sachet]",
+    "dosage": "Macrogol Oral Powder Sachet",
+    "timing": "",
+    "route": ""
+  },
+  "22dd61e618de4ba463f096c3c16b39f4": {
+    "text": "ONE tablet every other morning",
+    "instructions": "ONE tablet every other morning",
+    "medication_name": "prednisolone [Prednisolone 5 MG Tablet]",
+    "dosage": "Prednisolone 5 MG Tablet",
+    "timing": "",
+    "route": ""
+  },
+  "3e5422abb4786716a44bce1db8dc1639": {
+    "text": "TWO tablets once a day at 10pm",
+    "instructions": "TWO tablets once a day at 10pm",
+    "medication_name": "senna [Senna (Calcium Sennosides) 7.5MG Tablets]",
+    "dosage": "Senna (Calcium Sennosides) 7.5MG Tablets",
+    "timing": "",
+    "route": ""
+  },
+  "45b5401990e00f9516220315c8d6a2ae": {
+    "text": "5 ml as required up to FOUR times daily",
+    "instructions": "5 ml as required up to FOUR times daily",
+    "medication_name": "sodium alginate with potassium [Gaviscon Advance Susp (500 ML)]",
+    "dosage": "Gaviscon Advance Susp (500 ML)",
+    "timing": "",
+    "route": ""
+  },
+  "879189ee15af95f35b5411d9048bf869": {
+    "text": "2.5 mg once a week (Wednesday) 8am",
+    "instructions": "2.5 mg once a week (Wednesday) 8am",
+    "medication_name": "tirzepatide [Tirzepatide (Mounjaro) 2.5 MG Kwikpen]",
+    "dosage": "Tirzepatide (Mounjaro) 2.5 MG Kwikpen",
+    "timing": "",
+    "route": ""
+  },
+  "f2998dba656dced3bc66a8dc2e58671a": {
+    "text": "7.5 mg once a week (Wednesday) 8am",
+    "instructions": "7.5 mg once a week (Wednesday) 8am",
+    "medication_name": "tirzepatide [Tirzepatide (Mounjaro) 7.5 MG Kwikpen]",
+    "dosage": "Tirzepatide (Mounjaro) 7.5 MG Kwikpen",
     "timing": "",
     "route": ""
   }
