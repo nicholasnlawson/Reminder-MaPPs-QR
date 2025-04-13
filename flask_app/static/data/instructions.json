@@ -454,5 +454,725 @@
     "dosage": "Tirzepatide (Mounjaro) 7.5 MG Kwikpen",
     "timing": "",
     "route": ""
+  },
+  "a9697eb937ad83afc9dd4386a3324bf9": {
+    "text": "Atorvastatin 20 MG Tablet: ONE tablet once a day at 10pm. Morning:",
+    "instructions": "Atorvastatin 20 MG Tablet: ONE tablet once a day at 10pm. Morning:",
+    "medication_name": "Atorvastatin 20 MG Tablet",
+    "dosage": "ONE  tablet once a day at 10pm",
+    "timing": "Morning:",
+    "route": ""
+  },
+  "a7c97f5995ce2393cd82fc5a081f4539": {
+    "text": "Calcium Carb 1.5G/Vit D3 10mcg Tablet: ONE tablet twice a day (8am & 5pm). Morning: \u2713 ONE tablet",
+    "instructions": "Calcium Carb 1.5G/Vit D3 10mcg Tablet: ONE tablet twice a day (8am & 5pm). Morning: \u2713 ONE tablet",
+    "medication_name": "Calcium Carb 1.5G/Vit D3 10mcg Tablet",
+    "dosage": "ONE  tablet twice a day (8am & 5pm)",
+    "timing": "Morning: \u2713 ONE  tablet",
+    "route": ""
+  },
+  "6e82e31835f780b8de050416a7f93dea": {
+    "text": "Acetic Acid 2% Ear Spray: ONE spray LEFT EAR three times a day (8am,2pm,10pm). Morning: \u2713 ONE spray LEFT EAR",
+    "instructions": "Acetic Acid 2% Ear Spray: ONE spray LEFT EAR three times a day (8am,2pm,10pm). Morning: \u2713 ONE spray LEFT EAR",
+    "medication_name": "Acetic Acid 2% Ear Spray",
+    "dosage": "ONE spray LEFT EAR three times a day (8am,2pm,10pm)",
+    "timing": "Morning: \u2713 ONE spray LEFT EAR",
+    "route": ""
+  },
+  "25bd6098da574399d947e2824d6cff01": {
+    "text": "Apixaban 5 MG Tablet: ONE tablet twice a day (8am and 8pm). Morning: \u2713 ONE tablet",
+    "instructions": "Apixaban 5 MG Tablet: ONE tablet twice a day (8am and 8pm). Morning: \u2713 ONE tablet",
+    "medication_name": "Apixaban 5 MG Tablet",
+    "dosage": "ONE  tablet twice a day (8am and 8pm)",
+    "timing": "Morning: \u2713 ONE  tablet",
+    "route": ""
+  },
+  "4825e25069bb25f7bcc3442181c421c6": {
+    "text": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: TWO puffs twice a day (8am and 6pm). Morning: \u2713 TWO puffs",
+    "instructions": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: TWO puffs twice a day (8am and 6pm). Morning: \u2713 TWO puffs",
+    "medication_name": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg",
+    "dosage": "TWO puffs twice a day (8am and 6pm)",
+    "timing": "Morning: \u2713 TWO puffs",
+    "route": ""
+  },
+  "98ab84fa16a02d255f68d007b3e1754f": {
+    "text": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml three times a day (8am,2pm,10pm). Morning: \u2713 0.1 ml",
+    "instructions": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml three times a day (8am,2pm,10pm). Morning: \u2713 0.1 ml",
+    "medication_name": "Iodine Aqueous 130 MG/ML Solution (Lugols)",
+    "dosage": "0.1 ml three times a day (8am,2pm,10pm)",
+    "timing": "Morning: \u2713 0.1 ml",
+    "route": ""
+  },
+  "6130af58808c3c4744af1ffcb5a3c914": {
+    "text": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: See dosing information below twice a day (8am & 5pm). Morning: \u2713 See dosing information below",
+    "instructions": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: See dosing information below twice a day (8am & 5pm). Morning: \u2713 See dosing information below",
+    "medication_name": "Insulin Mix 30/70 (NovoMIX 30) Flexpen",
+    "dosage": "See dosing information below twice a day (8am & 5pm)",
+    "timing": "Morning: \u2713 See dosing information below",
+    "route": ""
+  },
+  "0e905ed4a041562ab7b0ea4560d13fad": {
+    "text": "Co-careldopa 12.5/50 Tablet: ONE tablet FOUR times a day at 8am, 12pm, 4pm and 8pm. Morning: \u2713 ONE tablet (8am)",
+    "instructions": "Co-careldopa 12.5/50 Tablet: ONE tablet FOUR times a day at 8am, 12pm, 4pm and 8pm. Morning: \u2713 ONE tablet (8am)",
+    "medication_name": "Co-careldopa 12.5/50 Tablet",
+    "dosage": "ONE  tablet FOUR times a day at 8am, 12pm, 4pm and 8pm",
+    "timing": "Morning: \u2713 ONE  tablet (8am)",
+    "route": ""
+  },
+  "ea2fe7e844e522e90cefc1d5893a27dd": {
+    "text": "Nicotinell 14 MG Patch: ONE patch once a day at 8am. Morning: \u2713 ONE patch",
+    "instructions": "Nicotinell 14 MG Patch: ONE patch once a day at 8am. Morning: \u2713 ONE patch",
+    "medication_name": "Nicotinell 14 MG Patch",
+    "dosage": "ONE  patch once a day at 8am",
+    "timing": "Morning: \u2713 ONE  patch",
+    "route": ""
+  },
+  "0d93ded395dcaf69f36de722885505e5": {
+    "text": "Nystatin 100,000 Unit/ML 30 ML: 1 ml four times a day. Morning: \u2713 1 ml",
+    "instructions": "Nystatin 100,000 Unit/ML 30 ML: 1 ml four times a day. Morning: \u2713 1 ml",
+    "medication_name": "Nystatin 100,000 Unit/ML 30 ML",
+    "dosage": "1 ml four times a day",
+    "timing": "Morning: \u2713 1 ml",
+    "route": ""
+  },
+  "c675d5c6b13d8db98764d4f8fb0ee729": {
+    "text": "Pregabalin 50 MG Capsule: ONE capsule twice a day (8am and 8pm). Morning: \u2713 ONE capsule",
+    "instructions": "Pregabalin 50 MG Capsule: ONE capsule twice a day (8am and 8pm). Morning: \u2713 ONE capsule",
+    "medication_name": "Pregabalin \u00a050 MG Capsule",
+    "dosage": "ONE  capsule twice a day (8am and 8pm)",
+    "timing": "Morning: \u2713 ONE  capsule",
+    "route": ""
+  },
+  "98b9d09c73db4a0b531a9c85693fa66b": {
+    "text": "~Rabeprazole 20 MG Tablet: ONE tablet once a day at 8am. Morning: \u2713 ONE tablet",
+    "instructions": "~Rabeprazole 20 MG Tablet: ONE tablet once a day at 8am. Morning: \u2713 ONE tablet",
+    "medication_name": "~Rabeprazole 20 MG Tablet",
+    "dosage": "ONE  tablet once a day at 8am",
+    "timing": "Morning: \u2713 ONE  tablet",
+    "route": ""
+  },
+  "5b59f47a40228723e63a57c0ab1a4415": {
+    "text": "Calogen Extra Shots: ONE carton three times a day (8am, 12pm and 6pm). Morning: \u2713 ONE carton",
+    "instructions": "Calogen Extra Shots: ONE carton three times a day (8am, 12pm and 6pm). Morning: \u2713 ONE carton",
+    "medication_name": "Calogen Extra Shots",
+    "dosage": "ONE  carton three times a day (8am, 12pm and 6pm)",
+    "timing": "Morning: \u2713 ONE  carton",
+    "route": ""
+  },
+  "9a78ead1b8ed8af649bf1b87e572c97a": {
+    "text": "Fresubin Thickened Level 2 - from supplies: ONE carton twice a day (8am and 8pm). Morning: \u2713 ONE carton",
+    "instructions": "Fresubin Thickened Level 2 - from supplies: ONE carton twice a day (8am and 8pm). Morning: \u2713 ONE carton",
+    "medication_name": "Fresubin Thickened Level 2 - from supplies",
+    "dosage": "ONE  carton twice a day (8am and 8pm)",
+    "timing": "Morning: \u2713 ONE  carton",
+    "route": ""
+  },
+  "be42da9192c952246064af99023d0c06": {
+    "text": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml once a day at 8am. Morning: \u2713 200 ml",
+    "instructions": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml once a day at 8am. Morning: \u2713 200 ml",
+    "medication_name": "Nutriprem 2 Sip Feed 200 ML (from supplies)",
+    "dosage": "200 ml once a day at 8am",
+    "timing": "Morning: \u2713 200 ml",
+    "route": ""
+  },
+  "9a1a3a87fea56b5c212112a9f3bd4d16": {
+    "text": "Peptamen AF Feed 500 ML (From supplies): 500 ml once a day at 10pm. Morning:",
+    "instructions": "Peptamen AF Feed 500 ML (From supplies): 500 ml once a day at 10pm. Morning:",
+    "medication_name": "Peptamen AF Feed 500 ML (From supplies)",
+    "dosage": "500 ml once a day at 10pm",
+    "timing": "Morning:",
+    "route": ""
+  },
+  "7c8ad4f2859db46c8b97623d3feb3e19": {
+    "text": "Peptamen Vanilla Liquid 200 ML (from supplies: ONE carton twice a day at lunchtime and teatime. Morning:",
+    "instructions": "Peptamen Vanilla Liquid 200 ML (from supplies: ONE carton twice a day at lunchtime and teatime. Morning:",
+    "medication_name": "Peptamen Vanilla Liquid 200 ML (from supplies",
+    "dosage": "ONE  carton twice a day at lunchtime and teatime",
+    "timing": "Morning:",
+    "route": ""
+  },
+  "dc81a8ed2c49f02e0e8dc66f390e07a3": {
+    "text": "Pantoprazole 40mg Tablets: ONE tablet once a day at 8am. Morning: \u2713 ONE tablet",
+    "instructions": "Pantoprazole 40mg Tablets: ONE tablet once a day at 8am. Morning: \u2713 ONE tablet",
+    "medication_name": "Pantoprazole 40mg Tablets",
+    "dosage": "ONE  tablet once a day at 8am",
+    "timing": "Morning: \u2713 ONE  tablet",
+    "route": ""
+  },
+  "c517486c535e703a1cd3edaff1b12df0": {
+    "text": "Atorvastatin 20 MG comprim\u00e9: 1 comprim\u00e9 1 fois par jour \u00e0 10pm. Matin:",
+    "instructions": "Atorvastatin 20 MG comprim\u00e9: 1 comprim\u00e9 1 fois par jour \u00e0 10pm. Matin:",
+    "medication_name": "Atorvastatin 20 MG comprim\u00e9",
+    "dosage": "1  comprim\u00e9 1 fois par jour \u00e0 10pm",
+    "timing": "Matin:",
+    "route": ""
+  },
+  "2b6fa287845f3f464644894842afc22b": {
+    "text": "Calcium Carb 1.5G/Vit D3 10mcg comprim\u00e9: 1 comprim\u00e9 2 fois par jour (8am & 5pm). Matin: \u2713 1 comprim\u00e9",
+    "instructions": "Calcium Carb 1.5G/Vit D3 10mcg comprim\u00e9: 1 comprim\u00e9 2 fois par jour (8am & 5pm). Matin: \u2713 1 comprim\u00e9",
+    "medication_name": "Calcium Carb 1.5G/Vit D3 10mcg comprim\u00e9",
+    "dosage": "1  comprim\u00e9 2 fois par jour (8am & 5pm)",
+    "timing": "Matin: \u2713 1  comprim\u00e9",
+    "route": ""
+  },
+  "d98055c3d7ac17963436e25167f2b7f3": {
+    "text": "Acetic Acid 2% Ear pulv\u00e9risation: 1 pulv\u00e9risation LEFT EAR 3 fois par jour (8am,2pm,10pm). Matin: \u2713 1 pulv\u00e9risation LEFT EAR",
+    "instructions": "Acetic Acid 2% Ear pulv\u00e9risation: 1 pulv\u00e9risation LEFT EAR 3 fois par jour (8am,2pm,10pm). Matin: \u2713 1 pulv\u00e9risation LEFT EAR",
+    "medication_name": "Acetic Acid 2% Ear pulv\u00e9risation",
+    "dosage": "1 pulv\u00e9risation LEFT EAR 3 fois par jour (8am,2pm,10pm)",
+    "timing": "Matin: \u2713 1 pulv\u00e9risation LEFT EAR",
+    "route": ""
+  },
+  "97a9175495c461e7a8d5a432c3c3378b": {
+    "text": "Apixaban 5 MG comprim\u00e9: 1 comprim\u00e9 2 fois par jour (8am et 8pm). Matin: \u2713 1 comprim\u00e9",
+    "instructions": "Apixaban 5 MG comprim\u00e9: 1 comprim\u00e9 2 fois par jour (8am et 8pm). Matin: \u2713 1 comprim\u00e9",
+    "medication_name": "Apixaban 5 MG comprim\u00e9",
+    "dosage": "1  comprim\u00e9 2 fois par jour (8am et 8pm)",
+    "timing": "Matin: \u2713 1  comprim\u00e9",
+    "route": ""
+  },
+  "a2652818a74edff72d290f9cb15f3227": {
+    "text": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: 2 bouff\u00e9es 2 fois par jour (8am et 6pm). Matin: \u2713 2 bouff\u00e9es",
+    "instructions": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: 2 bouff\u00e9es 2 fois par jour (8am et 6pm). Matin: \u2713 2 bouff\u00e9es",
+    "medication_name": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg",
+    "dosage": "2 bouff\u00e9es 2 fois par jour (8am et 6pm)",
+    "timing": "Matin: \u2713 2 bouff\u00e9es",
+    "route": ""
+  },
+  "0d6dc203d127a847738eb04471cef245": {
+    "text": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml 3 fois par jour (8am,2pm,10pm). Matin: \u2713 0.1 ml",
+    "instructions": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml 3 fois par jour (8am,2pm,10pm). Matin: \u2713 0.1 ml",
+    "medication_name": "Iodine Aqueous 130 MG/ML Solution (Lugols)",
+    "dosage": "0.1 ml 3 fois par jour (8am,2pm,10pm)",
+    "timing": "Matin: \u2713 0.1 ml",
+    "route": ""
+  },
+  "b7a590eb20fc09bc1829f525caa83343": {
+    "text": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: voir les informations de dosage en bas (en anglais) 2 fois par jour (8am & 5pm). Matin: \u2713 voir les informations de dosage en bas (en anglais)",
+    "instructions": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: voir les informations de dosage en bas (en anglais) 2 fois par jour (8am & 5pm). Matin: \u2713 voir les informations de dosage en bas (en anglais)",
+    "medication_name": "Insulin Mix 30/70 (NovoMIX 30) Flexpen",
+    "dosage": "voir les informations de dosage en bas (en anglais) 2 fois par jour (8am & 5pm)",
+    "timing": "Matin: \u2713 voir les informations de dosage en bas (en anglais)",
+    "route": ""
+  },
+  "1905be6259279469cd55f4b52d5bd8bb": {
+    "text": "Co-careldopa 12.5/50 comprim\u00e9: 1 comprim\u00e9 4 fois par jour \u00e0 8am, 12pm, 4pm et 8pm. Matin: \u2713 1 comprim\u00e9 (8am)",
+    "instructions": "Co-careldopa 12.5/50 comprim\u00e9: 1 comprim\u00e9 4 fois par jour \u00e0 8am, 12pm, 4pm et 8pm. Matin: \u2713 1 comprim\u00e9 (8am)",
+    "medication_name": "Co-careldopa 12.5/50 comprim\u00e9",
+    "dosage": "1  comprim\u00e9 4 fois par jour \u00e0 8am, 12pm, 4pm et 8pm",
+    "timing": "Matin: \u2713 1  comprim\u00e9 (8am)",
+    "route": ""
+  },
+  "e8a501ded9ff8f016b2ef869639ed6aa": {
+    "text": "Nicotinell 14 MG patch: 1 patch 1 fois par jour \u00e0 8am. Matin: \u2713 1 patch",
+    "instructions": "Nicotinell 14 MG patch: 1 patch 1 fois par jour \u00e0 8am. Matin: \u2713 1 patch",
+    "medication_name": "Nicotinell 14 MG patch",
+    "dosage": "1  patch 1 fois par jour \u00e0 8am",
+    "timing": "Matin: \u2713 1  patch",
+    "route": ""
+  },
+  "7161477686a2f29d46d0e91fe0d18092": {
+    "text": "Nystatin 100,000 Unit/ML 30 ML: 1 ml 4 fois par jour. Matin: \u2713 1 ml",
+    "instructions": "Nystatin 100,000 Unit/ML 30 ML: 1 ml 4 fois par jour. Matin: \u2713 1 ml",
+    "medication_name": "Nystatin 100,000 Unit/ML 30 ML",
+    "dosage": "1 ml 4 fois par jour",
+    "timing": "Matin: \u2713 1 ml",
+    "route": ""
+  },
+  "6cc4b0b24e615ec2d81c9ea6597b4967": {
+    "text": "Pregabalin 50 MG g\u00e9lule: 1 g\u00e9lule 2 fois par jour (8am et 8pm). Matin: \u2713 1 g\u00e9lule",
+    "instructions": "Pregabalin 50 MG g\u00e9lule: 1 g\u00e9lule 2 fois par jour (8am et 8pm). Matin: \u2713 1 g\u00e9lule",
+    "medication_name": "Pregabalin \u00a050 MG g\u00e9lule",
+    "dosage": "1  g\u00e9lule 2 fois par jour (8am et 8pm)",
+    "timing": "Matin: \u2713 1  g\u00e9lule",
+    "route": ""
+  },
+  "a1ad7ad08bbcdc6f58d7f1541108f064": {
+    "text": "~Rabeprazole 20 MG comprim\u00e9: 1 comprim\u00e9 1 fois par jour \u00e0 8am. Matin: \u2713 1 comprim\u00e9",
+    "instructions": "~Rabeprazole 20 MG comprim\u00e9: 1 comprim\u00e9 1 fois par jour \u00e0 8am. Matin: \u2713 1 comprim\u00e9",
+    "medication_name": "~Rabeprazole 20 MG comprim\u00e9",
+    "dosage": "1  comprim\u00e9 1 fois par jour \u00e0 8am",
+    "timing": "Matin: \u2713 1  comprim\u00e9",
+    "route": ""
+  },
+  "e81f769f0ebce65979797e75c4e648d6": {
+    "text": "Calogen Extra Shots: 1 carton 3 fois par jour (8am, 12pm et 6pm). Matin: \u2713 1 carton",
+    "instructions": "Calogen Extra Shots: 1 carton 3 fois par jour (8am, 12pm et 6pm). Matin: \u2713 1 carton",
+    "medication_name": "Calogen Extra Shots",
+    "dosage": "1  carton 3 fois par jour (8am, 12pm et 6pm)",
+    "timing": "Matin: \u2713 1  carton",
+    "route": ""
+  },
+  "eeac62f590bdd26704310b33113297f3": {
+    "text": "Fresubin Thickened Level 2 - from supplies: 1 carton 2 fois par jour (8am et 8pm). Matin: \u2713 1 carton",
+    "instructions": "Fresubin Thickened Level 2 - from supplies: 1 carton 2 fois par jour (8am et 8pm). Matin: \u2713 1 carton",
+    "medication_name": "Fresubin Thickened Level 2 - from supplies",
+    "dosage": "1  carton 2 fois par jour (8am et 8pm)",
+    "timing": "Matin: \u2713 1  carton",
+    "route": ""
+  },
+  "353210cf2a9f3d0933e3e0ad32a888a0": {
+    "text": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml 1 fois par jour \u00e0 8am. Matin: \u2713 200 ml",
+    "instructions": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml 1 fois par jour \u00e0 8am. Matin: \u2713 200 ml",
+    "medication_name": "Nutriprem 2 Sip Feed 200 ML (from supplies)",
+    "dosage": "200 ml 1 fois par jour \u00e0 8am",
+    "timing": "Matin: \u2713 200 ml",
+    "route": ""
+  },
+  "051921be1f8ec479e6a9f6be19e9bfdf": {
+    "text": "Peptamen AF Feed 500 ML (From supplies): 500 ml 1 fois par jour \u00e0 10pm. Matin:",
+    "instructions": "Peptamen AF Feed 500 ML (From supplies): 500 ml 1 fois par jour \u00e0 10pm. Matin:",
+    "medication_name": "Peptamen AF Feed 500 ML (From supplies)",
+    "dosage": "500 ml 1 fois par jour \u00e0 10pm",
+    "timing": "Matin:",
+    "route": ""
+  },
+  "f0fa0646388fe60d94d747e8e30fc5e1": {
+    "text": "Peptamen Vanilla Liquid 200 ML (from supplies: 1 carton 2 fois par jour \u00e0 midi et Fin d'apr\u00e8s-midi (17h-19h). Matin:",
+    "instructions": "Peptamen Vanilla Liquid 200 ML (from supplies: 1 carton 2 fois par jour \u00e0 midi et Fin d'apr\u00e8s-midi (17h-19h). Matin:",
+    "medication_name": "Peptamen Vanilla Liquid 200 ML (from supplies",
+    "dosage": "1  carton 2 fois par jour \u00e0 midi et Fin d'apr\u00e8s-midi (17h-19h)",
+    "timing": "Matin:",
+    "route": ""
+  },
+  "d6165b730edc98ef782d4c96e8c7b052": {
+    "text": "Pantoprazole 40mg comprim\u00e9s: 1 comprim\u00e9 1 fois par jour \u00e0 8am. Matin: \u2713 1 comprim\u00e9",
+    "instructions": "Pantoprazole 40mg comprim\u00e9s: 1 comprim\u00e9 1 fois par jour \u00e0 8am. Matin: \u2713 1 comprim\u00e9",
+    "medication_name": "Pantoprazole 40mg comprim\u00e9s",
+    "dosage": "1  comprim\u00e9 1 fois par jour \u00e0 8am",
+    "timing": "Matin: \u2713 1  comprim\u00e9",
+    "route": ""
+  },
+  "c07dbe5d2fb280d752a850293641be4e": {
+    "text": "Atorvastatin 20 MG Tablet: ONE tablet once a day at 10pm",
+    "instructions": "Atorvastatin 20 MG Tablet: ONE tablet once a day at 10pm",
+    "medication_name": "Atorvastatin 20 MG Tablet",
+    "dosage": "ONE  tablet once a day at 10pm",
+    "timing": "",
+    "route": ""
+  },
+  "98afb27c54ff663e8591e50eccac7e32": {
+    "text": "Calcium Carb 1.5G/Vit D3 10mcg Tablet: ONE tablet twice a day (8am & 5pm)",
+    "instructions": "Calcium Carb 1.5G/Vit D3 10mcg Tablet: ONE tablet twice a day (8am & 5pm)",
+    "medication_name": "Calcium Carb 1.5G/Vit D3 10mcg Tablet",
+    "dosage": "ONE  tablet twice a day (8am & 5pm)",
+    "timing": "",
+    "route": ""
+  },
+  "bde57aec681f0b73e86d86e0e5ab7923": {
+    "text": "Acetic Acid 2% Ear Spray: ONE spray LEFT EAR three times a day (8am,2pm,10pm)",
+    "instructions": "Acetic Acid 2% Ear Spray: ONE spray LEFT EAR three times a day (8am,2pm,10pm)",
+    "medication_name": "Acetic Acid 2% Ear Spray",
+    "dosage": "ONE spray LEFT EAR three times a day (8am,2pm,10pm)",
+    "timing": "",
+    "route": ""
+  },
+  "3acd8f8162fd620b19858ea561933f97": {
+    "text": "Apixaban 5 MG Tablet: ONE tablet twice a day (8am and 8pm)",
+    "instructions": "Apixaban 5 MG Tablet: ONE tablet twice a day (8am and 8pm)",
+    "medication_name": "Apixaban 5 MG Tablet",
+    "dosage": "ONE  tablet twice a day (8am and 8pm)",
+    "timing": "",
+    "route": ""
+  },
+  "8e06f18b243e1bb415e4044f7cf610ca": {
+    "text": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: TWO puffs twice a day (8am and 6pm)",
+    "instructions": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: TWO puffs twice a day (8am and 6pm)",
+    "medication_name": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg",
+    "dosage": "TWO puffs twice a day (8am and 6pm)",
+    "timing": "",
+    "route": ""
+  },
+  "e19dbb88908895c1e36931fc08a792fe": {
+    "text": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml three times a day (8am,2pm,10pm)",
+    "instructions": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml three times a day (8am,2pm,10pm)",
+    "medication_name": "Iodine Aqueous 130 MG/ML Solution (Lugols)",
+    "dosage": "0.1 ml three times a day (8am,2pm,10pm)",
+    "timing": "",
+    "route": ""
+  },
+  "1040d6e9536ab34adf69b0b198024c61": {
+    "text": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: See dosing information below twice a day (8am & 5pm)",
+    "instructions": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: See dosing information below twice a day (8am & 5pm)",
+    "medication_name": "Insulin Mix 30/70 (NovoMIX 30) Flexpen",
+    "dosage": "See dosing information below twice a day (8am & 5pm)",
+    "timing": "",
+    "route": ""
+  },
+  "9a68bc62a3d403007209b52cec727062": {
+    "text": "Co-careldopa 12.5/50 Tablet: ONE tablet FOUR times a day at 8am, 12pm, 4pm and 8pm",
+    "instructions": "Co-careldopa 12.5/50 Tablet: ONE tablet FOUR times a day at 8am, 12pm, 4pm and 8pm",
+    "medication_name": "Co-careldopa 12.5/50 Tablet",
+    "dosage": "ONE  tablet FOUR times a day at 8am, 12pm, 4pm and 8pm",
+    "timing": "",
+    "route": ""
+  },
+  "0e51a9c562d081894f4c3983f1f21e4f": {
+    "text": "Nicotinell 14 MG Patch: ONE patch once a day at 8am",
+    "instructions": "Nicotinell 14 MG Patch: ONE patch once a day at 8am",
+    "medication_name": "Nicotinell 14 MG Patch",
+    "dosage": "ONE  patch once a day at 8am",
+    "timing": "",
+    "route": ""
+  },
+  "bf556e13a6034890981c0a71401a70e4": {
+    "text": "Nystatin 100,000 Unit/ML 30 ML: 1 ml four times a day",
+    "instructions": "Nystatin 100,000 Unit/ML 30 ML: 1 ml four times a day",
+    "medication_name": "Nystatin 100,000 Unit/ML 30 ML",
+    "dosage": "1 ml four times a day",
+    "timing": "",
+    "route": ""
+  },
+  "5d93538711428cfeb09cd7d283102c2b": {
+    "text": "Pregabalin 50 MG Capsule: ONE capsule twice a day (8am and 8pm)",
+    "instructions": "Pregabalin 50 MG Capsule: ONE capsule twice a day (8am and 8pm)",
+    "medication_name": "Pregabalin \u00a050 MG Capsule",
+    "dosage": "ONE  capsule twice a day (8am and 8pm)",
+    "timing": "",
+    "route": ""
+  },
+  "f1264bfb2af9d5aa7ce60103e00dfbc2": {
+    "text": "~Rabeprazole 20 MG Tablet: ONE tablet once a day at 8am",
+    "instructions": "~Rabeprazole 20 MG Tablet: ONE tablet once a day at 8am",
+    "medication_name": "~Rabeprazole 20 MG Tablet",
+    "dosage": "ONE  tablet once a day at 8am",
+    "timing": "",
+    "route": ""
+  },
+  "dc7b94e073855434b92617cfa0cbc08d": {
+    "text": "Calogen Extra Shots: ONE carton three times a day (8am, 12pm and 6pm)",
+    "instructions": "Calogen Extra Shots: ONE carton three times a day (8am, 12pm and 6pm)",
+    "medication_name": "Calogen Extra Shots",
+    "dosage": "ONE  carton three times a day (8am, 12pm and 6pm)",
+    "timing": "",
+    "route": ""
+  },
+  "589269f0d105cb03f2cd7eb9b4c513eb": {
+    "text": "Fresubin Thickened Level 2 - from supplies: ONE carton twice a day (8am and 8pm)",
+    "instructions": "Fresubin Thickened Level 2 - from supplies: ONE carton twice a day (8am and 8pm)",
+    "medication_name": "Fresubin Thickened Level 2 - from supplies",
+    "dosage": "ONE  carton twice a day (8am and 8pm)",
+    "timing": "",
+    "route": ""
+  },
+  "1fee9aa3a09b33bc6a990243d7120cae": {
+    "text": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml once a day at 8am",
+    "instructions": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml once a day at 8am",
+    "medication_name": "Nutriprem 2 Sip Feed 200 ML (from supplies)",
+    "dosage": "200 ml once a day at 8am",
+    "timing": "",
+    "route": ""
+  },
+  "d3056b1a0cc9b96cda512f34c619dcb5": {
+    "text": "Peptamen AF Feed 500 ML (From supplies): 500 ml once a day at 10pm",
+    "instructions": "Peptamen AF Feed 500 ML (From supplies): 500 ml once a day at 10pm",
+    "medication_name": "Peptamen AF Feed 500 ML (From supplies)",
+    "dosage": "500 ml once a day at 10pm",
+    "timing": "",
+    "route": ""
+  },
+  "f2b62fb9a24850fd7bee67b460e326a0": {
+    "text": "Peptamen Vanilla Liquid 200 ML (from supplies: ONE carton twice a day at lunchtime and teatime",
+    "instructions": "Peptamen Vanilla Liquid 200 ML (from supplies: ONE carton twice a day at lunchtime and teatime",
+    "medication_name": "Peptamen Vanilla Liquid 200 ML (from supplies",
+    "dosage": "ONE  carton twice a day at lunchtime and teatime",
+    "timing": "",
+    "route": ""
+  },
+  "037c0aadcfa2dca3450c9e5516f25fe1": {
+    "text": "Pantoprazole 40mg Tablets: ONE tablet once a day at 8am",
+    "instructions": "Pantoprazole 40mg Tablets: ONE tablet once a day at 8am",
+    "medication_name": "Pantoprazole 40mg Tablets",
+    "dosage": "ONE  tablet once a day at 8am",
+    "timing": "",
+    "route": ""
+  },
+  "ebcbdbb1edae6da3595e3b2fd4b29e5f": {
+    "text": "Atorvastatin 20 MG comprim\u00e9: 1 comprim\u00e9 1 fois par jour \u00e0 10pm",
+    "instructions": "Atorvastatin 20 MG comprim\u00e9: 1 comprim\u00e9 1 fois par jour \u00e0 10pm",
+    "medication_name": "Atorvastatin 20 MG comprim\u00e9",
+    "dosage": "1  comprim\u00e9 1 fois par jour \u00e0 10pm",
+    "timing": "",
+    "route": ""
+  },
+  "6daac7713ef7f00196f28dab7824f92c": {
+    "text": "Calcium Carb 1.5G/Vit D3 10mcg comprim\u00e9: 1 comprim\u00e9 2 fois par jour (8am & 5pm)",
+    "instructions": "Calcium Carb 1.5G/Vit D3 10mcg comprim\u00e9: 1 comprim\u00e9 2 fois par jour (8am & 5pm)",
+    "medication_name": "Calcium Carb 1.5G/Vit D3 10mcg comprim\u00e9",
+    "dosage": "1  comprim\u00e9 2 fois par jour (8am & 5pm)",
+    "timing": "",
+    "route": ""
+  },
+  "497054e1e899c4103f8f74020ef11894": {
+    "text": "Acetic Acid 2% Ear pulv\u00e9risation: 1 pulv\u00e9risation LEFT EAR 3 fois par jour (8am,2pm,10pm)",
+    "instructions": "Acetic Acid 2% Ear pulv\u00e9risation: 1 pulv\u00e9risation LEFT EAR 3 fois par jour (8am,2pm,10pm)",
+    "medication_name": "Acetic Acid 2% Ear pulv\u00e9risation",
+    "dosage": "1 pulv\u00e9risation LEFT EAR 3 fois par jour (8am,2pm,10pm)",
+    "timing": "",
+    "route": ""
+  },
+  "0ed95c1fe58d3b4f9ca3987cbcb34a78": {
+    "text": "Apixaban 5 MG comprim\u00e9: 1 comprim\u00e9 2 fois par jour (8am et 8pm)",
+    "instructions": "Apixaban 5 MG comprim\u00e9: 1 comprim\u00e9 2 fois par jour (8am et 8pm)",
+    "medication_name": "Apixaban 5 MG comprim\u00e9",
+    "dosage": "1  comprim\u00e9 2 fois par jour (8am et 8pm)",
+    "timing": "",
+    "route": ""
+  },
+  "49a481e920106ab545677137bdfd0d3d": {
+    "text": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: 2 bouff\u00e9es 2 fois par jour (8am et 6pm)",
+    "instructions": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: 2 bouff\u00e9es 2 fois par jour (8am et 6pm)",
+    "medication_name": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg",
+    "dosage": "2 bouff\u00e9es 2 fois par jour (8am et 6pm)",
+    "timing": "",
+    "route": ""
+  },
+  "d868825f969c9e39d60527aafff131aa": {
+    "text": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml 3 fois par jour (8am,2pm,10pm)",
+    "instructions": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml 3 fois par jour (8am,2pm,10pm)",
+    "medication_name": "Iodine Aqueous 130 MG/ML Solution (Lugols)",
+    "dosage": "0.1 ml 3 fois par jour (8am,2pm,10pm)",
+    "timing": "",
+    "route": ""
+  },
+  "797b4b02cf653cafc1d18cf955aafc71": {
+    "text": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: voir les informations de dosage en bas (en anglais) 2 fois par jour (8am & 5pm)",
+    "instructions": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: voir les informations de dosage en bas (en anglais) 2 fois par jour (8am & 5pm)",
+    "medication_name": "Insulin Mix 30/70 (NovoMIX 30) Flexpen",
+    "dosage": "voir les informations de dosage en bas (en anglais) 2 fois par jour (8am & 5pm)",
+    "timing": "",
+    "route": ""
+  },
+  "f6dd8742404ceb4fe90af66ee3f17e1e": {
+    "text": "Co-careldopa 12.5/50 comprim\u00e9: 1 comprim\u00e9 4 fois par jour \u00e0 8am, 12pm, 4pm et 8pm",
+    "instructions": "Co-careldopa 12.5/50 comprim\u00e9: 1 comprim\u00e9 4 fois par jour \u00e0 8am, 12pm, 4pm et 8pm",
+    "medication_name": "Co-careldopa 12.5/50 comprim\u00e9",
+    "dosage": "1  comprim\u00e9 4 fois par jour \u00e0 8am, 12pm, 4pm et 8pm",
+    "timing": "",
+    "route": ""
+  },
+  "461b6dcd5d787138f56d0470a4d2f21f": {
+    "text": "Nicotinell 14 MG patch: 1 patch 1 fois par jour \u00e0 8am",
+    "instructions": "Nicotinell 14 MG patch: 1 patch 1 fois par jour \u00e0 8am",
+    "medication_name": "Nicotinell 14 MG patch",
+    "dosage": "1  patch 1 fois par jour \u00e0 8am",
+    "timing": "",
+    "route": ""
+  },
+  "a9272bf2d18f055b7e40689eec9694b9": {
+    "text": "Nystatin 100,000 Unit/ML 30 ML: 1 ml 4 fois par jour",
+    "instructions": "Nystatin 100,000 Unit/ML 30 ML: 1 ml 4 fois par jour",
+    "medication_name": "Nystatin 100,000 Unit/ML 30 ML",
+    "dosage": "1 ml 4 fois par jour",
+    "timing": "",
+    "route": ""
+  },
+  "bdac59e1f9666d3fcb89a6e94ca41cc0": {
+    "text": "Pregabalin 50 MG g\u00e9lule: 1 g\u00e9lule 2 fois par jour (8am et 8pm)",
+    "instructions": "Pregabalin 50 MG g\u00e9lule: 1 g\u00e9lule 2 fois par jour (8am et 8pm)",
+    "medication_name": "Pregabalin \u00a050 MG g\u00e9lule",
+    "dosage": "1  g\u00e9lule 2 fois par jour (8am et 8pm)",
+    "timing": "",
+    "route": ""
+  },
+  "9eb128d5139dd8e2508885c09d159df9": {
+    "text": "~Rabeprazole 20 MG comprim\u00e9: 1 comprim\u00e9 1 fois par jour \u00e0 8am",
+    "instructions": "~Rabeprazole 20 MG comprim\u00e9: 1 comprim\u00e9 1 fois par jour \u00e0 8am",
+    "medication_name": "~Rabeprazole 20 MG comprim\u00e9",
+    "dosage": "1  comprim\u00e9 1 fois par jour \u00e0 8am",
+    "timing": "",
+    "route": ""
+  },
+  "cdc2da9adb859904dd44b91f3a627923": {
+    "text": "Calogen Extra Shots: 1 carton 3 fois par jour (8am, 12pm et 6pm)",
+    "instructions": "Calogen Extra Shots: 1 carton 3 fois par jour (8am, 12pm et 6pm)",
+    "medication_name": "Calogen Extra Shots",
+    "dosage": "1  carton 3 fois par jour (8am, 12pm et 6pm)",
+    "timing": "",
+    "route": ""
+  },
+  "a0f6e2861bf9735e7fdf27c49e9ce7d7": {
+    "text": "Fresubin Thickened Level 2 - from supplies: 1 carton 2 fois par jour (8am et 8pm)",
+    "instructions": "Fresubin Thickened Level 2 - from supplies: 1 carton 2 fois par jour (8am et 8pm)",
+    "medication_name": "Fresubin Thickened Level 2 - from supplies",
+    "dosage": "1  carton 2 fois par jour (8am et 8pm)",
+    "timing": "",
+    "route": ""
+  },
+  "f2b957f0293e97f7564dd026ae375b53": {
+    "text": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml 1 fois par jour \u00e0 8am",
+    "instructions": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml 1 fois par jour \u00e0 8am",
+    "medication_name": "Nutriprem 2 Sip Feed 200 ML (from supplies)",
+    "dosage": "200 ml 1 fois par jour \u00e0 8am",
+    "timing": "",
+    "route": ""
+  },
+  "f17e342ee07ab767d085e4f75659011b": {
+    "text": "Peptamen AF Feed 500 ML (From supplies): 500 ml 1 fois par jour \u00e0 10pm",
+    "instructions": "Peptamen AF Feed 500 ML (From supplies): 500 ml 1 fois par jour \u00e0 10pm",
+    "medication_name": "Peptamen AF Feed 500 ML (From supplies)",
+    "dosage": "500 ml 1 fois par jour \u00e0 10pm",
+    "timing": "",
+    "route": ""
+  },
+  "c3f8bfbac1e4d1e15221784302f485a7": {
+    "text": "Peptamen Vanilla Liquid 200 ML (from supplies: 1 carton 2 fois par jour \u00e0 midi et Fin d'apr\u00e8s-midi (17h-19h)",
+    "instructions": "Peptamen Vanilla Liquid 200 ML (from supplies: 1 carton 2 fois par jour \u00e0 midi et Fin d'apr\u00e8s-midi (17h-19h)",
+    "medication_name": "Peptamen Vanilla Liquid 200 ML (from supplies",
+    "dosage": "1  carton 2 fois par jour \u00e0 midi et Fin d'apr\u00e8s-midi (17h-19h)",
+    "timing": "",
+    "route": ""
+  },
+  "8427d1b7c06c7e28227cc4cbaaefed73": {
+    "text": "Pantoprazole 40mg comprim\u00e9s: 1 comprim\u00e9 1 fois par jour \u00e0 8am",
+    "instructions": "Pantoprazole 40mg comprim\u00e9s: 1 comprim\u00e9 1 fois par jour \u00e0 8am",
+    "medication_name": "Pantoprazole 40mg comprim\u00e9s",
+    "dosage": "1  comprim\u00e9 1 fois par jour \u00e0 8am",
+    "timing": "",
+    "route": ""
+  },
+  "14affc6710d2ffd4384efb6cc7480e02": {
+    "text": "Atorvastatin 20 MG comprimido: 1 comprimido 1 vez al d\u00eda a las 10pm",
+    "instructions": "Atorvastatin 20 MG comprimido: 1 comprimido 1 vez al d\u00eda a las 10pm",
+    "medication_name": "Atorvastatin 20 MG comprimido",
+    "dosage": "1  comprimido 1 vez al d\u00eda a las 10pm",
+    "timing": "",
+    "route": ""
+  },
+  "85b37858f356d7c1c46b4de1b519fc22": {
+    "text": "Calcium Carb 1.5G/Vit D3 10mcg comprimido: 1 comprimido 2 veces al d\u00eda (8am & 5pm)",
+    "instructions": "Calcium Carb 1.5G/Vit D3 10mcg comprimido: 1 comprimido 2 veces al d\u00eda (8am & 5pm)",
+    "medication_name": "Calcium Carb 1.5G/Vit D3 10mcg comprimido",
+    "dosage": "1  comprimido 2 veces al d\u00eda (8am & 5pm)",
+    "timing": "",
+    "route": ""
+  },
+  "4f25529d96641e1d68107b62ac815274": {
+    "text": "Acetic Acid 2% Ear pulverizaci\u00f3n: 1 pulverizaci\u00f3n LEFT EAR 3 veces al d\u00eda (8am,2pm,10pm)",
+    "instructions": "Acetic Acid 2% Ear pulverizaci\u00f3n: 1 pulverizaci\u00f3n LEFT EAR 3 veces al d\u00eda (8am,2pm,10pm)",
+    "medication_name": "Acetic Acid 2% Ear pulverizaci\u00f3n",
+    "dosage": "1 pulverizaci\u00f3n LEFT EAR 3 veces al d\u00eda (8am,2pm,10pm)",
+    "timing": "",
+    "route": ""
+  },
+  "35f8248b29c1188c15421994fc5f7b52": {
+    "text": "Apixaban 5 MG comprimido: 1 comprimido 2 veces al d\u00eda (8am y 8pm)",
+    "instructions": "Apixaban 5 MG comprimido: 1 comprimido 2 veces al d\u00eda (8am y 8pm)",
+    "medication_name": "Apixaban 5 MG comprimido",
+    "dosage": "1  comprimido 2 veces al d\u00eda (8am y 8pm)",
+    "timing": "",
+    "route": ""
+  },
+  "58a744186996b4dc723575c34aecee74": {
+    "text": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: 2 inhalaciones 2 veces al d\u00eda (8am y 6pm)",
+    "instructions": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg: 2 inhalaciones 2 veces al d\u00eda (8am y 6pm)",
+    "medication_name": "Glycopyrronium/Formoterol/Budes. 7.2/5/160mcg",
+    "dosage": "2 inhalaciones 2 veces al d\u00eda (8am y 6pm)",
+    "timing": "",
+    "route": ""
+  },
+  "b6ebacc021c3049885d843d2261081e2": {
+    "text": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml 3 veces al d\u00eda (8am,2pm,10pm)",
+    "instructions": "Iodine Aqueous 130 MG/ML Solution (Lugols): 0.1 ml 3 veces al d\u00eda (8am,2pm,10pm)",
+    "medication_name": "Iodine Aqueous 130 MG/ML Solution (Lugols)",
+    "dosage": "0.1 ml 3 veces al d\u00eda (8am,2pm,10pm)",
+    "timing": "",
+    "route": ""
+  },
+  "2d256d727fa25f723325805a66349e19": {
+    "text": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: ver informaci\u00f3n de dosificaci\u00f3n abajo (en ingl\u00e9s) 2 veces al d\u00eda (8am & 5pm)",
+    "instructions": "Insulin Mix 30/70 (NovoMIX 30) Flexpen: ver informaci\u00f3n de dosificaci\u00f3n abajo (en ingl\u00e9s) 2 veces al d\u00eda (8am & 5pm)",
+    "medication_name": "Insulin Mix 30/70 (NovoMIX 30) Flexpen",
+    "dosage": "ver informaci\u00f3n de dosificaci\u00f3n abajo (en ingl\u00e9s) 2 veces al d\u00eda (8am & 5pm)",
+    "timing": "",
+    "route": ""
+  },
+  "d3deebef389c9b1b79c8a81831b5f7f0": {
+    "text": "Co-careldopa 12.5/50 comprimido: 1 comprimido 4 veces al d\u00eda a las 8am, 12pm, 4pm y 8pm",
+    "instructions": "Co-careldopa 12.5/50 comprimido: 1 comprimido 4 veces al d\u00eda a las 8am, 12pm, 4pm y 8pm",
+    "medication_name": "Co-careldopa 12.5/50 comprimido",
+    "dosage": "1  comprimido 4 veces al d\u00eda a las 8am, 12pm, 4pm y 8pm",
+    "timing": "",
+    "route": ""
+  },
+  "8ba8b1b80a941f4e820bf83b999f7f01": {
+    "text": "Nicotinell 14 MG parche: 1 parche 1 vez al d\u00eda a las 8am",
+    "instructions": "Nicotinell 14 MG parche: 1 parche 1 vez al d\u00eda a las 8am",
+    "medication_name": "Nicotinell 14 MG parche",
+    "dosage": "1  parche 1 vez al d\u00eda a las 8am",
+    "timing": "",
+    "route": ""
+  },
+  "2166f4f69a873e1948947934890a4f59": {
+    "text": "Nystatin 100,000 Unit/ML 30 ML: 1 ml 4 veces al d\u00eda",
+    "instructions": "Nystatin 100,000 Unit/ML 30 ML: 1 ml 4 veces al d\u00eda",
+    "medication_name": "Nystatin 100,000 Unit/ML 30 ML",
+    "dosage": "1 ml 4 veces al d\u00eda",
+    "timing": "",
+    "route": ""
+  },
+  "81c391fc5a8acb74fa7a6eac39827983": {
+    "text": "Pregabalin 50 MG c\u00e1psula: 1 c\u00e1psula 2 veces al d\u00eda (8am y 8pm)",
+    "instructions": "Pregabalin 50 MG c\u00e1psula: 1 c\u00e1psula 2 veces al d\u00eda (8am y 8pm)",
+    "medication_name": "Pregabalin \u00a050 MG c\u00e1psula",
+    "dosage": "1  c\u00e1psula 2 veces al d\u00eda (8am y 8pm)",
+    "timing": "",
+    "route": ""
+  },
+  "4c21ab9c03d97a908e4805cbe5328e53": {
+    "text": "~Rabeprazole 20 MG comprimido: 1 comprimido 1 vez al d\u00eda a las 8am",
+    "instructions": "~Rabeprazole 20 MG comprimido: 1 comprimido 1 vez al d\u00eda a las 8am",
+    "medication_name": "~Rabeprazole 20 MG comprimido",
+    "dosage": "1  comprimido 1 vez al d\u00eda a las 8am",
+    "timing": "",
+    "route": ""
+  },
+  "d208124bbf9fef26c94d10b7d113dd85": {
+    "text": "Calogen Extra Shots: 1 cart\u00f3n 3 veces al d\u00eda (8am, 12pm y 6pm)",
+    "instructions": "Calogen Extra Shots: 1 cart\u00f3n 3 veces al d\u00eda (8am, 12pm y 6pm)",
+    "medication_name": "Calogen Extra Shots",
+    "dosage": "1  cart\u00f3n 3 veces al d\u00eda (8am, 12pm y 6pm)",
+    "timing": "",
+    "route": ""
+  },
+  "751a1bd85c52a89f5e6c7dea8bf2d94a": {
+    "text": "Fresubin Thickened Level 2 - from supplies: 1 cart\u00f3n 2 veces al d\u00eda (8am y 8pm)",
+    "instructions": "Fresubin Thickened Level 2 - from supplies: 1 cart\u00f3n 2 veces al d\u00eda (8am y 8pm)",
+    "medication_name": "Fresubin Thickened Level 2 - from supplies",
+    "dosage": "1  cart\u00f3n 2 veces al d\u00eda (8am y 8pm)",
+    "timing": "",
+    "route": ""
+  },
+  "685cd412e44a14685ad1157d09b800a5": {
+    "text": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml 1 vez al d\u00eda a las 8am",
+    "instructions": "Nutriprem 2 Sip Feed 200 ML (from supplies): 200 ml 1 vez al d\u00eda a las 8am",
+    "medication_name": "Nutriprem 2 Sip Feed 200 ML (from supplies)",
+    "dosage": "200 ml 1 vez al d\u00eda a las 8am",
+    "timing": "",
+    "route": ""
+  },
+  "c4fb206353ebfc2924109756171dc282": {
+    "text": "Peptamen AF Feed 500 ML (From supplies): 500 ml 1 vez al d\u00eda a las 10pm",
+    "instructions": "Peptamen AF Feed 500 ML (From supplies): 500 ml 1 vez al d\u00eda a las 10pm",
+    "medication_name": "Peptamen AF Feed 500 ML (From supplies)",
+    "dosage": "500 ml 1 vez al d\u00eda a las 10pm",
+    "timing": "",
+    "route": ""
+  },
+  "080db561298aaa63a15117ead98b7b7a": {
+    "text": "Peptamen Vanilla Liquid 200 ML (from supplies: 1 cart\u00f3n 2 veces al d\u00eda a las mediod\u00eda y Tarde (17:00-19:00)",
+    "instructions": "Peptamen Vanilla Liquid 200 ML (from supplies: 1 cart\u00f3n 2 veces al d\u00eda a las mediod\u00eda y Tarde (17:00-19:00)",
+    "medication_name": "Peptamen Vanilla Liquid 200 ML (from supplies",
+    "dosage": "1  cart\u00f3n 2 veces al d\u00eda a las mediod\u00eda y Tarde (17:00-19:00)",
+    "timing": "",
+    "route": ""
+  },
+  "dc29965ba44dedf31f0c35bd6ee2c0be": {
+    "text": "Pantoprazole 40mg comprimidos: 1 comprimido 1 vez al d\u00eda a las 8am",
+    "instructions": "Pantoprazole 40mg comprimidos: 1 comprimido 1 vez al d\u00eda a las 8am",
+    "medication_name": "Pantoprazole 40mg comprimidos",
+    "dosage": "1  comprimido 1 vez al d\u00eda a las 8am",
+    "timing": "",
+    "route": ""
   }
 }

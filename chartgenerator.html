@@ -6119,181 +6119,123 @@
       }
 
       function generateQRCodes() {
-        // Check if MAR chart has been generated
-        if (
-          !window.medications ||
-          window.medications.length === 0 ||
-          !window.convertedMedications
-        ) {
+        const marTable = document.querySelector(
+          "#mar-chart-table-container > div > table"
+        );
+        if (!marTable) {
           alert(
-            "Please generate a MAR chart first to extract medications. QR codes can only be generated based on MAR chart data."
+            "MAR chart table not found. Please generate a MAR chart first."
           );
           return;
         }
 
         const qrCodeContainer = document.getElementById("qr-code-container");
-        qrCodeContainer.innerHTML = "";
+        qrCodeContainer.innerHTML = ""; // Clear previous QR codes
+        window.qrCodeMedications = []; // Reset the array for QR codes
 
-        // Store medication data for QR code generation
-        window.qrCodeMedications = [];
+        // Get all rows in the table
+        const allRows = marTable.querySelectorAll("tbody > tr");
+        let medicationCount = 0;
 
-        window.medications.forEach((medication, index) => {
-          const qrCodeItem = document.createElement("div");
-          qrCodeItem.className = "qr-code-item";
+        // Process each row
+        for (let i = 0; i < allRows.length; i++) {
+          const row = allRows[i];
 
-          // Get formatted dose information directly from the MAR chart
-          let formattedDose = "";
+          // Check if this row contains a cell with rowspan attribute (medication name cell)
+          const medicationCell = row.querySelector("td[rowspan]");
 
-          // Use the same function that the MAR chart uses to format the dose
-          formattedDose = getDoseQuantity(
-            medication,
-            "", // No time filtering for QR codes
-            "", // No time filtering for QR codes
-            window.convertedMedications || [],
-            false // Don't convert to numerals
-          );
+          if (medicationCell) {
+            // Extract the medication name - usually in a <strong> tag
+            const nameElement = medicationCell.querySelector("strong");
+            if (!nameElement) continue; // Skip if no name found
 
-          // Remove the checkmark if present
-          formattedDose = formattedDose.replace("&check; ", "");
+            const medicationName = nameElement.textContent.trim();
+            if (!medicationName) continue; // Skip if empty name
 
-          // Remove "See Dosing Information Below" if present
-          if (formattedDose === "See dosing information below") {
-            formattedDose = "";
-          }
-
-          // Get patient-friendly instructions
-          let patientFriendlyInstructions = "";
-
-          // Format the instructions based on medication type
-          if (medication.isTaper && medication.taperInstructions) {
-            if (
-              medication.form === "cream" ||
-              medication.form === "ointment" ||
-              medication.form === "scalp application" ||
-              medication.form === "gel" ||
-              medication.form === "lotion"
-            ) {
-              patientFriendlyInstructions = formatCreamTaperInstructions(
-                medication.taperInstructions
-              );
-            } else if (
-              medication.form === "solution" ||
-              medication.form === "syrup" ||
-              medication.form === "suspension" ||
-              medication.form === "oral solution" ||
-              (medication.form === "liquid" &&
-                !medication.dosage.toLowerCase().includes("liquid gel")) ||
-              medication.form === "elixir" ||
-              medication.form === "linctus" ||
-              medication.form === "s/f oral soln." ||
-              medication.form === "oral soln." ||
-              medication.doseUnit === "ml"
-            ) {
-              patientFriendlyInstructions = formatLiquidTaperInstructions(
-                medication.taperInstructions,
-                medication,
-                window.convertedMedications || []
-              );
-            } else if (
-              medication.form === "tablet" ||
-              medication.form === "capsule" ||
-              medication.form === "tab" ||
-              medication.form === "cap"
-            ) {
-              patientFriendlyInstructions = formatTaperInstructions(
-                medication.taperInstructions,
-                medication.dosage
-              );
-            } else {
-              patientFriendlyInstructions =
-                formatMiscellaneousTaperInstructions(
-                  medication.taperInstructions,
-                  medication
-                );
+            // Extract the dosage information - right after medication name in same cell
+            let dosageInfo = "";
+            // Get the text content after the <br> tag
+            const brTag = medicationCell.querySelector("br");
+            if (brTag && brTag.nextSibling) {
+              dosageInfo = brTag.nextSibling.textContent.trim();
             }
-          } else {
-            // For non-taper medications, use the formatInstructions function
-            patientFriendlyInstructions = formatInstructions(
-              medication.instructions || ""
-            );
+
+            // REMOVED: Don't get timing info from next cell (which would be the Morning dose)
+            // Instead only use info from the medication cell itself
+
+            // Combine information for instructions - just medication name and dosage
+            let combinedInstructions = `${medicationName}: ${dosageInfo}`;
+            combinedInstructions =
+              cleanHtmlFromInstructions(combinedInstructions);
+
+            // Store medication data
+            const medicationData = {
+              id: `med-${medicationCount}`,
+              name: medicationName,
+              dosage: dosageInfo,
+              timing: "", // Removed the Morning cell info
+              route: "", // Extract if available
+              strength: "", // Parse from name if needed
+              form: "", // Parse from name if needed
+              combinedInstructions: combinedInstructions,
+              editedInstructions: combinedInstructions,
+            };
+
+            window.qrCodeMedications.push(medicationData);
+
+            // Create QR code card
+            const qrIndex = window.qrCodeMedications.length - 1;
+            const medicationCard = document.createElement("div");
+            medicationCard.className = "qr-code-edit-card";
+            medicationCard.innerHTML = `
+        <div class="medication-header">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong>${medicationName}</strong>
+            <label class="toggle-switch">
+              <input type="checkbox" id="qr-toggle-${qrIndex}" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="medication-instructions">
+          <textarea id="qr-instructions-${qrIndex}" rows="3" style="width: 100%">${combinedInstructions}</textarea>
+        </div>
+        <div class="medication-preview" id="qr-preview-${qrIndex}">
+          <!-- QR code will be inserted here -->
+        </div>
+      `;
+
+            // Add listener for the textarea
+            medicationCard
+              .querySelector(`#qr-instructions-${qrIndex}`)
+              .addEventListener("input", function (e) {
+                const newInstructions = e.target.value;
+                updateQRCode(qrIndex, newInstructions);
+              });
+
+            qrCodeContainer.appendChild(medicationCard);
+
+            // Generate initial QR code
+            updateQRCode(qrIndex, combinedInstructions);
+
+            medicationCount++;
           }
+        }
 
-          // Combine dose and instructions
-          let combinedInstructions = formattedDose
-            ? `${formattedDose} ${patientFriendlyInstructions}`
-            : patientFriendlyInstructions;
-
-          // Remove "See Dosing Information Below" from the combined instructions
-          combinedInstructions =
-            removeSeeDosingInformation(combinedInstructions);
-
-          // Automatically clean HTML tags from instructions
-          combinedInstructions =
-            cleanHtmlFromInstructions(combinedInstructions);
-
-          // Store medication data for QR code generation
-          window.qrCodeMedications.push({
-            id: index,
-            name: medication.name,
-            dosage: medication.dosage,
-            timing: medication.timing || medication.frequency || "",
-            route: medication.route || "",
-            strength: medication.strength || "",
-            form: medication.form || "",
-            formattedDose: formattedDose,
-            patientFriendlyInstructions: patientFriendlyInstructions,
-            combinedInstructions: combinedInstructions,
-            editedInstructions: combinedInstructions, // Initialize with default instructions
-          });
-
-          // Create editable medication card
-          const medicationCard = document.createElement("div");
-          medicationCard.className = "qr-code-edit-card";
-          medicationCard.innerHTML = `
-            <div class="medication-header">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <strong>${medication.name}</strong>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="qr-toggle-${index}" checked>
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-            </div>
-            <div class="medication-instructions">
-              <textarea id="qr-instructions-${index}" rows="3" style="width: 100%">${combinedInstructions}</textarea>
-            </div>
-            <div class="medication-preview" id="qr-preview-${index}">
-              <!-- QR code will be inserted here -->
-            </div>
-          `;
-
-          // Add event listener to update QR code when instructions change
-          medicationCard
-            .querySelector(`#qr-instructions-${index}`)
-            .addEventListener("input", function (e) {
-              const newInstructions = e.target.value;
-              updateQRCode(index, newInstructions);
-            });
-
-          qrCodeContainer.appendChild(medicationCard);
-
-          // Generate initial QR code
-          updateQRCode(index, combinedInstructions);
-        });
-
-        // HTML tags are now automatically cleaned, so no need for the manual button
+        // Validation check
+        if (medicationCount === 0) {
+          alert(
+            "No medications found in the MAR chart. QR codes cannot be generated."
+          );
+          qrCodeContainer.innerHTML =
+            "<p>No medications found in the MAR chart.</p>";
+          return;
+        }
 
         // Show the modal
         const modal = document.getElementById("qr-code-modal");
         modal.style.display = "block";
       }
-
-      // Function to remove "See Dosing Information Below" from instructions
-      function removeSeeDosingInformation(instructions) {
-        // Remove the phrase if it appears at the beginning of the instructions
-        return instructions.replace(/^See dosing information below\s*/i, "");
-      }
-
       function updateQRCode(index, newInstructions) {
         // Clean HTML tags from instructions
         let cleanedInstructions = cleanHtmlFromInstructions(newInstructions);
@@ -6354,60 +6296,64 @@
           return;
         }
 
-        // Get selected medications
-        const selectedMedications = window.qrCodeMedications.filter(
-          (medication, index) => {
-            const toggleElement = document.getElementById(`qr-toggle-${index}`);
-            return toggleElement && toggleElement.checked;
-          }
-        );
-
-        // Check if any medications are selected
-        if (selectedMedications.length === 0) {
-          alert("Please select at least one medication to print.");
+        // Create a new window for printing
+        const printWindow = window.open("", "_blank");
+        if (!printWindow) {
+          alert("Please allow pop-ups for this site to print QR codes.");
           return;
         }
 
-        // Create a print-friendly version of the QR codes
-        const printWindow = window.open("", "_blank");
-
-        // Get all the QR code images from the preview
+        // Collect QR code images and their corresponding medication data
         const qrCodeData = [];
 
-        selectedMedications.forEach((medication, index) => {
-          // Find the original QR code in the preview
-          const previewElement = document.getElementById(
-            `qr-preview-${medication.id}`
-          );
-          if (previewElement) {
-            const qrImg = previewElement.querySelector("img");
-            if (qrImg) {
-              // Store the QR code image source and medication data
-              qrCodeData.push({
-                medication: medication,
-                imgSrc: qrImg.src,
-              });
+        // Loop through each medication and collect its QR code image
+        window.qrCodeMedications.forEach((medication, index) => {
+          // Check if the medication's QR code is toggled on for printing
+          const toggleEl = document.getElementById(`qr-toggle-${index}`);
+          if (!toggleEl || toggleEl.checked) {
+            // Get the QR code image from the preview container
+            const qrPreviewEl = document.getElementById(`qr-preview-${index}`);
+            if (qrPreviewEl) {
+              // Get the first img tag within the preview
+              const imgEl = qrPreviewEl.querySelector("img");
+
+              if (imgEl) {
+                // Store the QR code image source and medication data
+                qrCodeData.push({
+                  medication: medication,
+                  imgSrc: imgEl.src,
+                });
+              }
             }
+
+            // Clean instructions again to ensure no HTML tags
+            const cleanedInstructions = cleanHtmlFromInstructions(
+              medication.editedInstructions
+            );
+
+            // Generate a unique ID for this instruction using MD5 hash
+            const instructionId = generateMD5Hash(cleanedInstructions);
+
+            // Send the medication data to the server to create the instruction page
+            createServerInstructionPage(
+              instructionId,
+              medication.name,
+              medication.dosage,
+              medication.timing || medication.frequency || "",
+              medication.route || "",
+              cleanedInstructions
+            );
           }
-
-          // Clean instructions again to ensure no HTML tags
-          const cleanedInstructions = cleanHtmlFromInstructions(
-            medication.editedInstructions
-          );
-
-          // Generate a unique ID for this instruction using MD5 hash
-          const instructionId = generateMD5Hash(cleanedInstructions);
-
-          // Send the medication data to the server to create the instruction page
-          createServerInstructionPage(
-            instructionId,
-            medication.name,
-            medication.dosage,
-            medication.timing || medication.frequency || "",
-            medication.route || "",
-            cleanedInstructions
-          );
         });
+
+        // If no QR codes are selected for printing, show an alert
+        if (qrCodeData.length === 0) {
+          printWindow.close();
+          alert(
+            "No QR codes selected for printing. Please check at least one medication."
+          );
+          return;
+        }
 
         // Write the HTML content to the print window
         printWindow.document.write(`
