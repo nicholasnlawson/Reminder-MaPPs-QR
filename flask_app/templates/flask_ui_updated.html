@@ -327,6 +327,28 @@
         font-size: 0.9em;
         color: #666;
       }
+
+      /* Language selector styles */
+      .language-selector {
+        padding: 8px 16px;
+        background-color: #004c97;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        height: 40px;
+      }
+
+      .language-selector option {
+        background-color: white;
+        color: #333;
+        padding: 8px;
+      }
+
+      .language-selector:hover {
+        background-color: #003d7c;
+      }
     </style>
     <!-- Include our medication extractor JavaScript -->
     <script src="/static/js/medication-extractor.js"></script>
@@ -471,6 +493,7 @@
             leafletBtn.style.padding = "10px 20px";
             leafletBtn.style.borderRadius = "4px";
             leafletBtn.style.cursor = "pointer";
+            leafletBtn.style.marginLeft = "10px"; // Add margin to create a gap
             leafletBtn.onclick = function (e) {
               e.preventDefault();
 
@@ -605,6 +628,7 @@
             pictorialBtn.style.padding = "10px 20px";
             pictorialBtn.style.borderRadius = "4px";
             pictorialBtn.style.cursor = "pointer";
+            pictorialBtn.style.marginLeft = "10px"; // Add margin to create a gap
             pictorialBtn.onclick = function (e) {
               e.preventDefault();
 
@@ -731,6 +755,38 @@
           }
         }, 500);
       };
+
+      // Wait for iframe to load, then modify language selector
+      document
+        .getElementById("chart-generator-iframe")
+        .addEventListener("load", function () {
+          const iframe = document.getElementById("chart-generator-iframe");
+          const iframeDoc =
+            iframe.contentDocument || iframe.contentWindow.document;
+
+          // Apply styling to language selector
+          const languageSelector =
+            iframeDoc.getElementById("language-selector");
+          if (languageSelector) {
+            languageSelector.style.padding = "8px 16px";
+            languageSelector.style.backgroundColor = "#004c97";
+            languageSelector.style.color = "white";
+            languageSelector.style.border = "none";
+            languageSelector.style.borderRadius = "4px";
+            languageSelector.style.cursor = "pointer";
+            languageSelector.style.fontSize = "16px";
+            languageSelector.style.height = "40px";
+
+            // Add hover effect
+            languageSelector.addEventListener("mouseover", function () {
+              this.style.backgroundColor = "#003d7c";
+            });
+
+            languageSelector.addEventListener("mouseout", function () {
+              this.style.backgroundColor = "#004c97";
+            });
+          }
+        });
 
       // Modal handling
       const closeLeaflet = document.getElementById("close-leaflet");
