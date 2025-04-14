@@ -6364,7 +6364,7 @@
               /* A4 print settings */
               @page {
                 size: A4;
-                margin: 1cm;
+                margin: 0;
               }
               body { 
                 font-family: Arial, sans-serif; 
@@ -6376,122 +6376,145 @@
                 margin-bottom: 20px;
                 font-size: 18px;
               }
-              .qr-code-item { 
-  border: 1px solid #ddd;
-  padding: 5px;
-  width: 3in; 
-  height: 1in; 
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  background-color: white;
-}
-              .qr-code-img {
-                width: 2.5cm;
-                height: 2.5cm;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              }
-              .qr-code-img img {
-                max-width: 100%;
-                max-height: 100%;
-              }
-              .qr-code-info { 
-                font-size: 11px; 
-                margin-left: 5px;
-                text-align: left;
-                width: 4.5cm;
-                overflow: hidden;
-                display: -webkit-box;
-                -webkit-line-clamp: 7;
-                -webkit-box-orient: vertical;
-                max-height: 2.8cm; /* Ensure text stays within the box */
-              }
-              .qr-note {
-                font-size: 9px;
-                color: #666;
-                margin-top: 3px;
-              }
+              
+              /* Screen display for preview */
               @media screen {
                 body {
                   padding: 20px;
                 }
-                .qr-code-container {
-                  display: flex;
-                  flex-wrap: wrap;
-                  justify-content: flex-start;
-                  gap: 10px;
-                  max-width: 21cm; /* A4 width */
+                .page-container {
+                  width: 210mm;
+                  min-height: 297mm;
+                  padding: 13mm 7mm 12mm 7mm; /* Top, Right, Bottom, Left margins */
+                  border: 1px solid #ccc;
                   margin: 0 auto;
+                  box-sizing: border-box;
+                  background-color: white;
                 }
-                .qr-code-item {
-                  margin: 5px;
+                .label-grid {
+                  display: grid;
+                  grid-template-columns: 63.5mm 63.5mm 63.5mm;
+                  grid-template-rows: repeat(8, 34mm);
+                  gap: 0 2.5mm; /* No vertical gap, 2.5mm horizontal gap */
+                  width: 100%;
+                  height: 100%;
+                }
+                .label-cell {
+                  border: 1px dashed #ccc;
+                  box-sizing: border-box;
+                  padding: 5px;
+                  overflow: hidden;
                 }
               }
+              
+              /* Print specific styles */
               @media print {
-  @page {
-  size: 1in 3in landscape;
-  margin: 0;
-}
-  body { margin: 0; padding: 0; }
-  h1 { display: none; }
-  .qr-code-container {
-    display: block;
-  }
-  .qr-code-item {
-  width: 3in;
-  height: 1in;
-  flex-direction: row;
-    page-break-after: always;
-    break-after: page;
-    break-inside: avoid;
-    margin: 0;
-    padding: 0.1in;
-    display: flex;
-    align-items: center;
-    border: none;
-  }
-  .qr-code-img {
-    height: 0.8in;
-    width: 0.8in;
-    margin-right: 0.2in;
-  }
-  .qr-code-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
+                body { margin: 0; padding: 0; }
+                h1 { display: none; }
+                
+                .page-container {
+                  width: 210mm;
+                  min-height: 297mm;
+                  padding: 13mm 7mm 12mm 7mm; /* Top, Right, Bottom, Left margins */
+                  box-sizing: border-box;
+                }
+                
+                .label-grid {
+                  display: grid;
+                  grid-template-columns: 63.5mm 63.5mm 63.5mm;
+                  grid-template-rows: repeat(8, 34mm);
+                  gap: 0 2.5mm; /* No vertical gap, 2.5mm horizontal gap */
+                  width: 100%;
+                  height: 100%;
+                }
+                
+                .label-cell {
+                  box-sizing: border-box;
+                  padding: 5px;
+                  overflow: hidden;
+                }
+              }
+              
+              /* QR code item styles (both print and screen) */
+              .qr-code-item {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+              }
+              
+              .qr-code-img {
+                width: 24mm;
+                height: 24mm;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+              
+              .qr-code-img img {
+                max-width: 100%;
+                max-height: 100%;
+              }
+              
+              .qr-code-info {
+                flex: 1;
+                margin-left: 3mm;
+                font-size: 10px;
+                overflow: hidden;
+              }
+              
+              .qr-code-info strong {
+                font-size: 12px;
+                display: block;
+                margin-bottom: 3px;
+              }
+              
+              .qr-note {
+                font-size: 8px;
+                color: #666;
+                margin-top: 3px;
+              }
             </style>
-          </head>
-          <body>
-            <h1>Medication QR Codes</h1>
-            <div class="qr-code-container">
-        `);
+         </head>
+  <body>
+    <h1>Medication QR Codes</h1>
+    <div class="page-container">
+      <div class="label-grid">
+`);
 
         // Add each selected medication with its QR code
+        let cellCount = 0;
+        const totalCells = 24; // 3 columns x 8 rows
+
         qrCodeData.forEach((item) => {
           printWindow.document.write(`
-            <div class="qr-code-item">
-              <div class="qr-code-img">
-                <img src="${item.imgSrc}" alt="QR Code">
-              </div>
-              <div class="qr-code-info">
-                <strong>${item.medication.name}</strong>
-                <div class="qr-note">Scan for instructions</div>
-              </div>
-            </div>
-          `);
+    <div class="label-cell">
+      <div class="qr-code-item">
+        <div class="qr-code-img">
+          <img src="${item.imgSrc}" alt="QR Code">
+        </div>
+        <div class="qr-code-info">
+          <strong>${item.medication.name}</strong>
+          <div class="qr-note">Scan for instructions</div>
+        </div>
+      </div>
+    </div>
+  `);
+          cellCount++;
         });
+
+        // Fill any remaining cells with empty cells to maintain the grid structure
+        for (let i = cellCount; i < totalCells; i++) {
+          printWindow.document.write(`<div class="label-cell"></div>`);
+        }
 
         // Close the HTML document
         printWindow.document.write(`
-            </div>
-          </body>
-          </html>
-        `);
+      </div>
+    </div>
+  </body>
+  </html>
+`);
 
         printWindow.document.close();
 

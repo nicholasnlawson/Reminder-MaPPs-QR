@@ -5,12 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medication Chart Generator</title>
     <!-- Favicon links -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon_io/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon_io/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon_io/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='favicon_io/site.webmanifest') }}">
-    <link rel="icon" href="{{ url_for('static', filename='favicon_io/favicon.ico') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ url_for('static', filename='favicon_io/apple-touch-icon.png') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='favicon_io/favicon-32x32.png') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ url_for('static', filename='favicon_io/favicon-16x16.png') }}"
+    />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='favicon_io/site.webmanifest') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favicon_io/favicon.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -105,14 +128,14 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         width: 200px;
       }
-      
+
       /* Toggle switch styles for QR codes */
       .qr-toggle-container {
         display: flex;
         justify-content: center;
         margin-bottom: 10px;
       }
-      
+
       .qr-toggle-label {
         font-size: 0.8em;
         margin-left: 5px;
@@ -324,37 +347,6 @@
         </p>
         <div id="qr-code-container" class="qr-code-container">
           <!-- QR codes will be added here -->
-        </div>
-        <div style="margin-bottom: 15px; margin-top: 20px;">
-          <label>
-            <input type="checkbox" id="use-thermal-printer"> Use thermal label printer
-          </label>
-        </div>
-        
-        <!-- Thermal Printer Settings -->
-        <div id="thermal-print-settings" style="margin-top: 20px; display: none;">
-          <h3>Thermal Printer Settings</h3>
-          <div class="form-group">
-            <label for="printer-name">Printer Name:</label>
-            <input type="text" id="printer-name" class="form-control" placeholder="Enter printer name (e.g., Honeywell_M-Class)">
-          </div>
-          <div class="form-group">
-            <label for="label-width">Label Width (inches):</label>
-            <select id="label-width" class="form-control">
-              <option value="2">2"</option>
-              <option value="3">3"</option>
-              <option value="4">4"</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="label-height">Label Height (inches):</label>
-            <select id="label-height" class="form-control">
-              <option value="1">1"</option>
-              <option value="2">2"</option>
-              <option value="3">3"</option>
-            </select>
-          </div>
-          <button id="print-thermal-btn" class="submit-button">Print to Thermal Printer</button>
         </div>
         <div class="form-actions">
           <button id="print-qr-codes-btn" class="submit-button">
@@ -807,7 +799,7 @@
       function generateQRCodesForMedications(medications) {
         // Debug logging
         console.log("Generating QR codes for medications:", medications);
-        
+
         // Show loading indicator
         const qrCodeContainer = document.getElementById("qr-code-container");
         qrCodeContainer.innerHTML = "<p>Generating QR codes...</p>";
@@ -815,7 +807,7 @@
         // Make API call to generate QR codes
         const requestData = { medications: medications };
         console.log("Sending request data:", requestData);
-        
+
         fetch("/generate_qr_codes_for_medications", {
           method: "POST",
           headers: {
@@ -839,28 +831,28 @@
                 // Create toggle switch container
                 const toggleContainer = document.createElement("div");
                 toggleContainer.className = "qr-toggle-container";
-                
+
                 // Create toggle switch
                 const toggleLabel = document.createElement("label");
                 toggleLabel.className = "switch";
-                
+
                 const toggleInput = document.createElement("input");
                 toggleInput.type = "checkbox";
                 toggleInput.checked = true; // Default to checked
                 toggleInput.dataset.medicationName = result.medication_name;
                 toggleInput.dataset.instructionId = result.instruction_id;
-                
+
                 const toggleSlider = document.createElement("span");
                 toggleSlider.className = "slider";
-                
+
                 toggleLabel.appendChild(toggleInput);
                 toggleLabel.appendChild(toggleSlider);
-                
+
                 // Add label for toggle
                 const toggleText = document.createElement("span");
                 toggleText.className = "qr-toggle-label";
                 toggleText.textContent = "Include";
-                
+
                 // Add toggle elements to container
                 toggleContainer.appendChild(toggleLabel);
                 toggleContainer.appendChild(toggleText);
@@ -871,7 +863,7 @@
                 qrCodeImage.alt = "QR Code for " + result.medication_name;
                 qrCodeImage.className = "qr-code-image";
 
-                // Create medication title 
+                // Create medication title
                 const titleElement = document.createElement("div");
                 titleElement.className = "qr-code-title";
                 titleElement.textContent = result.medication_name;
@@ -899,7 +891,9 @@
           })
           .catch((error) => {
             console.error("Error generating QR codes:", error);
-            alert("Error generating QR codes. Please try again. Check browser console for details.");
+            alert(
+              "Error generating QR codes. Please try again. Check browser console for details."
+            );
           });
       }
 
@@ -1188,209 +1182,6 @@
         });
 
       // Generate pictorials for selected medications
-      /* Removing the extra QR codes button from pictorial modal
-      // Add QR code generation button to the medication chart generator
-      const generateQRCodesBtn = document.createElement("button");
-      generateQRCodesBtn.id = "generate-qr-codes-btn";
-      generateQRCodesBtn.className = "submit-button";
-      generateQRCodesBtn.style.marginLeft = "10px";
-      generateQRCodesBtn.textContent = "Generate QR Codes";
-
-      // Add the button after the generate-pictorial-btn
-      const generatePictorialBtn = document.getElementById(
-        "generate-pictorial-btn"
-      );
-      generatePictorialBtn.parentNode.insertBefore(
-        generateQRCodesBtn,
-        generatePictorialBtn.nextSibling
-      );
-
-      // Add event listener for QR code generation
-      generateQRCodesBtn.addEventListener("click", function () {
-        // Get medications from the iframe
-        const iframe = document.getElementById("chart-generator-iframe");
-        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-        
-        // Get the discharge letter text
-        const dischargeText = iframeDoc.getElementById("discharge-letter").value;
-        
-        // Extract medications using our extractor function
-        const medications = extractMedicationsFromDischargeLetter(dischargeText);
-        
-        console.log("Extracted medications for QR codes:", medications);
-        
-        // Check if medications are available
-        if (medications && medications.length > 0) {
-          // Generate QR codes for these medications
-          generateQRCodesForMedications(medications);
-        } else {
-          alert(
-            "No medications found. Please extract medications from a discharge letter first."
-          );
-        }
-      });
-      */
-      // Print QR codes button
-      document
-        .getElementById("print-qr-codes-btn")
-        .addEventListener("click", function () {
-          const qrCodeContainer = document.getElementById("qr-code-container");
-          if (qrCodeContainer.children.length > 0) {
-            // Get all QR code items
-            const qrItems = qrCodeContainer.querySelectorAll('.qr-code-item');
-            const instructionIds = [];
-            const selectedItems = [];
-            
-            // Extract instruction IDs from selected QR code items only
-            qrItems.forEach(item => {
-              const toggleInput = item.querySelector('input[type="checkbox"]');
-              
-              // Only include selected items
-              if (toggleInput && toggleInput.checked) {
-                selectedItems.push(item);
-                const instructionId = item.dataset.instructionId;
-                if (instructionId) {
-                  instructionIds.push(instructionId);
-                }
-              }
-            });
-            
-            // Check if any QR codes are selected
-            if (selectedItems.length === 0) {
-              alert("Please select at least one QR code to print.");
-              return;
-            }
-            
-            // Ensure all instruction subpages are created
-            if (instructionIds.length > 0) {
-              fetch("/ensure_instruction_pages", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ instruction_ids: instructionIds }),
-              })
-                .then((response) => response.json())
-                .then((data) => {
-                  if (data.status === "success") {
-                    // Now create the print window with only selected items
-                    createPrintWindow(selectedItems);
-                  } else {
-                    alert("Error ensuring instruction pages: " + data.message);
-                  }
-                })
-                .catch((error) => {
-                  console.error("Error:", error);
-                  alert("Error ensuring instruction pages. Proceeding with print anyway.");
-                  createPrintWindow(selectedItems);
-                });
-            } else {
-              createPrintWindow(selectedItems);
-            }
-          } else {
-            alert("No QR codes to print.");
-          }
-        });
-        
-      // Function to create print window
-      function createPrintWindow(selectedItems) {
-        // Create a new window for printing
-        const printWindow = window.open("", "_blank");
-        printWindow.document.write(
-          "<html><head><title>QR Codes for Medication Instructions</title>"
-        );
-        printWindow.document.write("<style>");
-        printWindow.document.write(
-          "body { font-family: Arial, sans-serif; margin: 0; padding: 0; }"
-        );
-        // Complete CSS reset of print styles
-        printWindow.document.write(`
-          @page {
-            size: 3in 1in;
-            margin: 0;
-          }
-          * {
-            box-sizing: border-box;
-          }
-          body {
-            margin: 0;
-            padding: 0;
-          }
-          .page-container {
-            width: 3in;
-            height: 1in;
-            page-break-after: always;
-            page-break-inside: avoid;
-            break-after: page;
-            break-inside: avoid;
-            position: relative;
-            padding: 0.1in;
-            margin: 0;
-            overflow: hidden;
-          }
-          .qr-code-item {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-          }
-          .qr-code-image {
-            height: 0.8in;
-            width: 0.8in;
-            margin-right: 0.2in;
-            object-fit: contain;
-          }
-          .qr-code-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex: 1;
-          }
-          .qr-code-title {
-            font-size: 10pt;
-            font-weight: bold;
-            margin-bottom: 0.05in;
-            line-height: 1.2;
-            max-height: 0.6in;
-            overflow: hidden;
-          }
-          .qr-scan-text {
-            font-size: 8pt;
-            color: #555;
-          }
-        `);
-        printWindow.document.write("</style>");
-        printWindow.document.write("</head><body>");
-
-        // Add selected items to print window
-        selectedItems.forEach((item) => {
-          printWindow.document.write('<div class="page-container">');
-          printWindow.document.write('<div class="qr-code-item">');
-          printWindow.document.write(
-            `<img src="${item.querySelector('img').src}" class="qr-code-image" alt="${item.querySelector('.qr-code-title').textContent}">`
-          );
-          printWindow.document.write('<div class="qr-code-info">');
-          printWindow.document.write(
-            `<div class="qr-code-title">${item.querySelector('.qr-code-title').textContent}</div>`
-          );
-          printWindow.document.write(
-            '<div class="qr-scan-text">Scan for instructions</div>'
-          );
-          printWindow.document.write("</div>"); // close qr-code-info
-          printWindow.document.write("</div>"); // close qr-code-item
-          printWindow.document.write("</div>"); // close page-container
-        });
-
-        printWindow.document.write("</body></html>");
-        printWindow.document.close();
-        // Wait for images to load before printing
-        printWindow.onload = function() {
-          printWindow.focus();
-          printWindow.print();
-        };
-      }
-
-      // Generate pictorials for selected medications
       document
         .getElementById("generate-pictorial-btn")
         .addEventListener("click", function () {
@@ -1478,80 +1269,175 @@
           pictorialModal.style.display = "none";
         });
     </script>
-    
-    <script>
-      // Show/hide thermal printer settings based on checkbox
-      document.getElementById('use-thermal-printer').addEventListener('change', function() {
-        document.getElementById('thermal-print-settings').style.display = 
-          this.checked ? 'block' : 'none';
-      });
 
-      // Print to thermal printer button handler
-      document.getElementById('print-thermal-btn').addEventListener('click', function() {
-        const qrCodeContainer = document.getElementById("qr-code-container");
-        if (qrCodeContainer.children.length > 0) {
-          // Get all QR code items
-          const qrItems = qrCodeContainer.querySelectorAll('.qr-code-item');
-          const instructionIds = [];
-          
-          // Extract instruction IDs from selected QR code items only
-          qrItems.forEach(item => {
-            const toggleInput = item.querySelector('input[type="checkbox"]');
-            
-            // Only include selected items
-            if (toggleInput && toggleInput.checked) {
-              const instructionId = item.dataset.instructionId;
-              if (instructionId) {
-                instructionIds.push(instructionId);
+    <script>
+      // Print QR codes button
+      document
+        .getElementById("print-qr-codes-btn")
+        .addEventListener("click", function () {
+          const qrCodeContainer = document.getElementById("qr-code-container");
+          if (qrCodeContainer.children.length > 0) {
+            // Get all QR code items
+            const qrItems = qrCodeContainer.querySelectorAll(".qr-code-item");
+            const instructionIds = [];
+            const selectedItems = [];
+
+            // Extract instruction IDs from selected QR code items only
+            qrItems.forEach((item) => {
+              const toggleInput = item.querySelector('input[type="checkbox"]');
+
+              // Only include selected items
+              if (toggleInput && toggleInput.checked) {
+                selectedItems.push(item);
+                const instructionId = item.dataset.instructionId;
+                if (instructionId) {
+                  instructionIds.push(instructionId);
+                }
               }
+            });
+
+            // Check if any QR codes are selected
+            if (selectedItems.length === 0) {
+              alert("Please select at least one QR code to print.");
+              return;
             }
-          });
-          
-          // Check if any QR codes are selected
-          if (instructionIds.length === 0) {
-            alert("Please select at least one QR code to print.");
-            return;
-          }
-          
-          // Get printer settings
-          const printerName = document.getElementById('printer-name').value;
-          const labelWidth = document.getElementById('label-width').value;
-          const labelHeight = document.getElementById('label-height').value;
-          
-          if (!printerName) {
-            alert("Please enter a printer name.");
-            return;
-          }
-          
-          // Send print job to server
-          fetch("/print_qr_labels_thermal", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              instruction_ids: instructionIds,
-              printer_name: printerName,
-              label_width: parseFloat(labelWidth),
-              label_height: parseFloat(labelHeight)
-            }),
-          })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.status === "success") {
-              alert("Labels sent to printer successfully!");
+
+            // Ensure all instruction subpages are created
+            if (instructionIds.length > 0) {
+              fetch("/ensure_instruction_pages", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ instruction_ids: instructionIds }),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data.status === "success") {
+                    // Now create the print window with only selected items
+                    createPrintWindow(selectedItems);
+                  } else {
+                    alert("Error ensuring instruction pages: " + data.message);
+                  }
+                })
+                .catch((error) => {
+                  console.error("Error:", error);
+                  alert(
+                    "Error ensuring instruction pages. Proceeding with print anyway."
+                  );
+                  createPrintWindow(selectedItems);
+                });
             } else {
-              alert("Error printing labels: " + data.message);
+              createPrintWindow(selectedItems);
             }
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            alert("Error printing labels. Check browser console for details.");
-          });
-        } else {
-          alert("No QR codes to print.");
-        }
-      });
+          } else {
+            alert("No QR codes to print.");
+          }
+        });
+
+      // Function to create print window
+      function createPrintWindow(selectedItems) {
+        // Create a new window for printing
+        const printWindow = window.open("", "_blank");
+        printWindow.document.write(
+          "<html><head><title>QR Codes for Medication Instructions</title>"
+        );
+        printWindow.document.write("<style>");
+        printWindow.document.write(
+          "body { font-family: Arial, sans-serif; margin: 0; padding: 0; }"
+        );
+        // Complete CSS reset of print styles
+        printWindow.document.write(`
+          @page {
+            size: 3in 1in;
+            margin: 0;
+          }
+          * {
+            box-sizing: border-box;
+          }
+          body {
+            margin: 0;
+            padding: 0;
+          }
+          .page-container {
+            width: 3in;
+            height: 1in;
+            page-break-after: always;
+            page-break-inside: avoid;
+            break-after: page;
+            break-inside: avoid;
+            position: relative;
+            padding: 0.1in;
+            margin: 0;
+            overflow: hidden;
+          }
+          .qr-code-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+          }
+          .qr-code-image {
+            height: 0.8in;
+            width: 0.8in;
+            margin-right: 0.2in;
+            object-fit: contain;
+          }
+          .qr-code-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+          }
+          .qr-code-title {
+            font-size: 10pt;
+            font-weight: bold;
+            margin-bottom: 0.05in;
+            line-height: 1.2;
+            max-height: 0.6in;
+            overflow: hidden;
+          }
+          .qr-scan-text {
+            font-size: 8pt;
+            color: #555;
+          }
+        `);
+        printWindow.document.write("</style>");
+        printWindow.document.write("</head><body>");
+
+        // Add selected items to print window
+        selectedItems.forEach((item) => {
+          printWindow.document.write('<div class="page-container">');
+          printWindow.document.write('<div class="qr-code-item">');
+          printWindow.document.write(
+            `<img src="${
+              item.querySelector("img").src
+            }" class="qr-code-image" alt="${
+              item.querySelector(".qr-code-title").textContent
+            }">`
+          );
+          printWindow.document.write('<div class="qr-code-info">');
+          printWindow.document.write(
+            `<div class="qr-code-title">${
+              item.querySelector(".qr-code-title").textContent
+            }</div>`
+          );
+          printWindow.document.write(
+            '<div class="qr-scan-text">Scan for instructions</div>'
+          );
+          printWindow.document.write("</div>"); // close qr-code-info
+          printWindow.document.write("</div>"); // close qr-code-item
+          printWindow.document.write("</div>"); // close page-container
+        });
+
+        printWindow.document.write("</body></html>");
+        printWindow.document.close();
+        // Wait for images to load before printing
+        printWindow.onload = function () {
+          printWindow.focus();
+          printWindow.print();
+        };
+      }
     </script>
   </body>
 </html>

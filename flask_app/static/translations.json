@@ -20,11 +20,6 @@
     "es": "Tabla de Recordatorio de Medicamentos",
     "fr": "Tableau de Rappel de Médicaments"
   },
-  "Medication QR Codes": {
-    "en": "Medication QR Codes",
-    "es": "Códigos QR de Medicamentos",
-    "fr": "Codes QR des Médicaments"
-  },
   "Scan for instructions": {
     "en": "Scan for instructions",
     "es": "Escanear para instrucciones",
@@ -824,31 +819,40 @@
 
   "// EYE AND EAR ROUTES": {},
   "both eyes": {
-    "en": "both eyes",
-    "es": "ambos ojos",
-    "fr": "les deux yeux"
+    "en": "BOTH EYES",
+    "es": "AMBOS OJOS",
+    "fr": "LES DEUX YEUX"
   },
   "each eye": {
-    "en": "each eye",
-    "es": "ambos ojos", 
-    "fr": "les deux yeux"
+    "en": "EACH EYE",
+    "es": "AMBOS OJOS", 
+    "fr": "LES DEUX YEUX"
   },
-  "left eye": {
-    "en": "left eye",
-    "es": "ojo izquierdo",
-    "fr": "œil gauche"
+  "LEFT EYE": {
+    "en": "LEFT EYE",
+    "es": "OJO IZQUIERDO",
+    "fr": "ŒIL GAUCHE"
   },
-  "right eye": {
-    "en": "right eye",
-    "es": "ojo derecho",
-    "fr": "œil droit"
+  "RIGHT EYE": {
+    "en": "RIGHT EYE",
+    "es": "OJO DERECHO",
+    "fr": "ŒIL DROIT"
   },
   "both ears": {
-    "en": "both ears",
-    "es": "ambos oídos",
-    "fr": "les deux oreilles"
+    "en": "BOTH EARS",
+    "es": "AMBOS OÍDOS",
+    "fr": "LES DEUX OREILLES"
   },
-
+  "LEFT EAR": {
+    "en": "LEFT EAR",
+    "es": "OÍDO IZQUIERDO",
+    "fr": "OREILLE GAUCHE"
+  },
+  "RIGHT EAR": {
+    "en": "RIGHT EAR",
+    "es": "OÍDO DERECHO",
+    "fr": "OREILLE DROITE"
+  },
   "// GENERAL USAGE TERMS": {},
   "day": {
     "en": "day",
