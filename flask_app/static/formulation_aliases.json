@@ -1,0 +1,273 @@
+{
+  "formulations": {
+    "inhaled": {
+      "dry_powder_inhalers": [
+        "Ellipta", "Ellipta Inhaler", 
+        "turbohaler", "turbuhaler", "turbo inhaler", "turbo haler", 
+        "diskus", "accuhaler", 
+        "easyhaler", "easy haler", "easy-haler", 
+        "Nexthaler", "next haler", "next-haler", 
+        "spiromax", "spiro max", "spiro-max", 
+        "genuair", "genu air", "genu-air", 
+        "breezhaler", "breeze haler", "breeze-haler", 
+        "handihaler", "handi haler", "handi-haler", 
+        "clickhaler", "click haler", "click-haler", 
+        "novolizer", "novo lizer", "novo-lizer",
+        "dpi", "d.p.i.", "d/p/i", "dry powder inhaler", 
+        "inhalation powder", "powder for inhalation", "pwd for inhal", 
+        "inhal powder", "powder inhaler", "pwd inhaler", 
+        "dry powder for inhalation", "dry pwd for inhal"
+      ],
+      "aerosol_inhalers": [
+        "mdi", "m.d.i.", "m/d/i", "pmdi", "p.m.d.i.", "p/m/d/i", 
+        "pressurized inhaler", "pressurised inhaler", "metered dose inhaler", 
+        "aerosol inhaler", "pressurized metered dose inhaler", "pressurised metered dose inhaler", 
+        "evohaler", "pressurized inhalation solution", 
+        "pressurised inhalation solution", "press inhal soln",
+        "inhalation aerosol", "inhal aerosol", "aerosol for inhalation", 
+        "CFC free", "cfc-free", "cfc free inhaler", "cfc-free inhaler"
+      ],
+      "soft_mist_inhalers": [
+        "respimat", "spiolto", "soft mist inhaler", "soft-mist inhaler",
+        "soft mist", "soft-mist", "smi", "s.m.i.", "s/m/i",
+        "inhalation solution cartridge with device"
+      ],
+      "nebulizers": [
+        "nebulizer solution", "nebuliser solution", "nebuliser liquid", 
+        "nebulizer liquid", "neb solution", "nebulization solution", 
+        "nebulisation solution", "respules", "solution for nebulisation", 
+        "soln for nebulization", "nebulizer soln", "nebuliser soln", 
+        "solution for nebulizer", "soln for nebuliser", "powder for nebulizer solution", 
+        "powder for nebuliser solution", "pwd for neb soln", "nebuliser powder", 
+        "nebulizer powder", "neb powder", "powder for nebulization", 
+        "pwd for nebulisation", "neb", "nebs", "nebules", "nebule"
+      ],
+      "generic_inhaler_terms": [
+        "inhaler", "inhaled", "puffer", "inhaler device"
+      ]
+    },
+    
+    "oral": {
+      "liquid": {
+        "standard_liquids": [
+          "concentrated oral solution", "concentrate for oral solution", 
+          "oral concentrate", "conc oral soln", "concentrated soln", 
+          "conc soln", "oral solution", "oral soln", "oral soln.", "solution for oral use", 
+          "oral suspension", "oral susp", "powder for oral suspension", 
+          "powder for susp", "pwd for oral susp", "granules for oral suspension", 
+          "granules for susp", "gran for oral susp", "suspension for oral use", 
+          "oral suspension sugar free", "oral susp sf", "suspension sf", 
+          "susp sugar free", "oral syrup", "syrup bp", "syrup sugar free", 
+          "syr sf", "oral emulsion", "oral emuls", "emulsion oral", 
+          "oral liquid emulsion", "emulsion for oral use", "solution", 
+          "soln", "elixir", "liquid", "mixture", "mixt", "oral liquid", 
+          "liquid oral", "suspension", "susp", "syrup", "syr", "emulsion", 
+          "liquid emulsion", "emuls"
+        ],
+        "drops": [
+          "oral drops", "oral liquid drops", "drops for oral use", 
+          "oral use drops", "concentrate drops", "oral drops emulsion", 
+          "drops", "liquid drops", "dropper bottle", "drop", "oral drop"
+        ]
+      },
+      "solid": {
+        "standard_tablets": [
+          "tablet", "tab", "tabs", "tablets", "caplet", "caplets",
+          "film coated tablet", "film-coated tablet", "film coated tablets", 
+          "film-coated tablets", "fc tablet", "f/c tablet", "f.c. tablet", 
+          "f c tablet", "filmed coated", "fc", "f/c", "f.c.", "f c"
+        ],
+        "dispersible_tablets": [
+          "effervescent tablet", "effervescent tablets", "eff tab", "eff tabs", "eff. tablet", "eff. tablets", "dispersible tablet", "disp tablet", "soluble tablet", 
+          "orodispersible tablet", "orodispersible tablets", "orodisp tablet", 
+          "orodisp. tablet", "orodisp tablets", "orodisp. tablets", 
+          "dispersible tablets", "soluble tablets", "oral dispersible tablet"
+        ],
+        "sublingual_tablets": [
+          "sublingual tablet", "sl tablet", "s/l tablet", "s.l. tablet", "s l tablet"
+        ],
+        "buccal_tablets": [
+          "buccal tablet"
+        ],
+        "chewable_tablets": [
+          "chewable tablet", "chew tablet", "chew tab", "chew tabs",
+          "chewable tablets", "10mcg Tablet"
+        ],
+        "enteric_coated": [
+          "enteric coated tablet", "enteric-coated tablet", "e/c tablet", "ec tablet",
+          "e.c. tablet", "e c tablet", "enteric coated", "enteric-coated", "e/c", "ec", 
+          "e.c.", "e c", "gastro-resistant tablet", "gastro resistant tablet", 
+          "g/r tablet", "gr tablet", "g.r. tablet", "g r tablet", 
+          "gastro-resistant", "gastro resistant", "g/r", "gr", "g.r.", "g r",
+          "delayed-release tablet", "delayed release tablet", "dr tablet"
+        ],
+        "modified_release": [
+          "modified-release tablet", "modified release tablet", "m/r tablet", "mr tablet", 
+          "m.r. tablet", "m r tablet", "modified-release", "modified release", "m/r", "mr", 
+          "m.r.", "m r", "prolonged-release tablet", "prolonged release tablet", "p/r tablet", 
+          "pr tablet", "p.r. tablet", "p r tablet", "prolonged-release", "prolonged release", 
+          "p/r", "pr", "p.r.", "p r", "extended-release tablet", "extended release tablet", 
+          "extended-release", "extended release", "er tablet", "er", "e/r", "e.r.", "e r", 
+          "sustained-release tablet", "sustained release tablet", "s/r tablet", "sr tablet", 
+          "s.r. tablet", "s r tablet", "sustained-release", "sustained release", "s/r", "sr", 
+          "s.r.", "s r", "controlled-release tablet", "controlled release tablet", "c/r tablet", 
+          "cr tablet", "c.r. tablet", "c r tablet", "controlled-release", "controlled release", 
+          "c/r", "cr", "c.r.", "c r", "slow-release tablet", "slow release tablet", 
+          "slow-release", "slow release", "xl tablet", "xl", "la tablet", "la", "retard"
+        ],
+        "capsules": {
+          "standard_capsules": [
+            "capsule", "cap", "caps", "capsules",
+            "hard capsule", "hard cap", "hard caps", "hard gelatin capsule", 
+            "hard gel capsule", "hgc", "soft capsule", "soft cap", "soft caps", 
+            "soft gelatin capsule", "soft gel capsule", "sgc"
+          ],
+          "enteric_coated_capsules": [
+            "enteric coated capsule", "enteric-coated capsule", "e/c capsule", "ec capsule",
+            "e.c. capsule", "e c capsule", "gastro-resistant capsule", "gastro resistant capsule", 
+            "g/r capsule", "gr capsule", "g.r. capsule", "g r capsule",
+            "delayed-release capsule", "delayed release capsule", "dr capsule"
+          ],
+          "modified_release_capsules": [
+            "modified-release capsule", "modified release capsule", "m/r capsule", "mr capsule", 
+            "m.r. capsule", "m r capsule", "prolonged-release capsule", "prolonged release capsule", 
+            "p/r capsule", "pr capsule", "p.r. capsule", "p r capsule", "extended-release capsule", 
+            "extended release capsule", "er capsule", "sustained-release capsule", 
+            "sustained release capsule", "s/r capsule", "sr capsule", "s.r. capsule", "s r capsule", 
+            "controlled-release capsule", "controlled release capsule", "c/r capsule", "cr capsule", 
+            "c.r. capsule", "c r capsule", "slow-release capsule", "slow release capsule", 
+            "xl capsule", "la capsule", "retard capsule", "spansule"
+          ]
+        },
+        "other_solids": [
+          "chewing gum", "chewing-gum",
+          "oral powder", "powder for oral solution", "oral granules", 
+          "effervescent granules", "oral powder sachet", "sachet", "sach", 
+          "sachets", "powder for solution", "granules", "gran", "gran sachet",
+          "sublingual film", "buccal film", "oral film", "orodispersible film"
+        ]
+      },
+      "sprays": [
+        "sublingual spray", "s/l spray", "sl spray", "sub-lingual spray", 
+        "oral spray for sublingual use", "spray for sublingual use", 
+        "sublingual oral spray", "under tongue spray", 
+        "mouth spray", "oral spray", "oromucosal spray"
+      ]
+    },
+    
+    "parenteral": {
+      "injection": [
+        "injection", "injectable solution", "inj", "injectable",
+        "injection solution", "solution for injection", "soln for injection", 
+        "concentrate for solution for injection", "conc for soln for inj", 
+        "concentrate for injection", "conc for inj", "solution concentrate", 
+        "soln conc", "solution for inj", "sterile solution",
+        "powder for injection", "powder for reconstitution", 
+        "powder for solution", "lyophilised powder", "lyophilized powder", 
+        "dry powder for injection", "powder and solvent", 
+        "powder for concentrate", "powder for concentrate for solution", 
+        "sterile powder", "powder for solution for injection",
+        "suspension for injection", "injectable suspension", 
+        "suspension injection", "sterile suspension", "suspension injectable",
+        "depot injection", "long-acting injection", "long acting injection", 
+        "subcutaneous implant", "implantation matrix", "matrix implant"
+      ],
+      "injection_containers": [
+        "Flexpen", "Flex Pen", "Flex-Pen", "Flexpens", "Flex Pens", "Flex-Pens",
+        "Flextouch", "Flex Touch", "Flex-Touch",
+        "Solostar", "Solo Star", "Solo-Star",
+        "Doublestar", "Double Star", "Double-Star",
+        "KwikPen", "Kwik Pen", "Kwik-Pen",
+        "Innolet",
+        "cartridges", "cartridge", "cart", "carts", "pre-filled cartridge", 
+        "prefilled cartridge", "pre filled cartridge",
+        "pre-filled pen", "prefilled pen", "pre filled pen", "pens", "pen",
+        "autoinjector", "auto-injector", "auto injector",
+        "ampoule", "ampoules", "amp", "amps", "vial", "vials", "syringe", "syr"
+      ],
+      "infusion": [
+        "infusion", "concentrate for infusion", "iv infusion", "i/v infusion", 
+        "i.v. infusion", "intravenous infusion", "solution for infusion", 
+        "soln for inf", "concentrate for solution for infusion", 
+        "sterile concentrate for infusion",
+        "powder for infusion", "powder for solution for infusion", 
+        "powder for concentrate", "powder for iv infusion", 
+        "sterile powder for infusion",
+        "infusion bag", "iv bag", "i/v bag", "i.v. bag", "intravenous bag", 
+        "infusion container", "flexible bag", "plastic infusion bag"
+      ]
+    },
+    
+    "topical": {
+      "skin": [
+        "cream", "crm", "sudocrem",
+        "ointment", "oint",
+        "lotion", "lot",
+        "gel",
+        "cutaneous solution", "topical solution", "top soln", 
+        "liquid application", "cutaneous suspension", "skin solution", 
+        "solution for topical use", "soln for topical use", "cutaneous soln", "topical soln",
+        "scalp application",
+        "powder", "pwd", "dusting powder", "topical powder", "top powder", 
+        "cutaneous powder", "cutaneous spray powder", "powder for topical use", "pwd for topical use",
+        "patch", "patches", "transdermal patch", "td patch", "t/d patch", 
+        "t.d. patch", "plaster", "medicated plaster", "transdermal system", 
+        "tds", "t.d.s.", "t/d/s", "skin patch", "matrix patch", "therapeutic patch",
+        "foam", "cutaneous foam", "topical foam", "top foam", 
+        "foam for topical use", "skin foam",
+        "spray", "cutaneous spray", "topical spray", "top spray", 
+        "spray for topical use", "skin spray"
+      ],
+      "eye": [
+        "eye drops", "eyedrops", "ophthalmic drops", "opth drops", 
+        "collyrium", "eye drop", "preservative-free eye drops", 
+        "pf eye drops", "p/f eye drops", "p.f. eye drops", 
+        "eye drops emulsion", "eye drop emulsion", "drops for eye use", 
+        "ophthalmic solution", "opth soln",
+        "unit dose drops", "unit dose eye drops", "unit dose eye-drops", 
+        "unit-dose drops", "unit-dose eye",
+        "eye ointment", "ophthalmic ointment", "opth ointment", 
+        "eye oint", "ophthalmic oint", "ointment for eye",
+        "ophthalmic gel", "eye gel", "opth gel", "gel for eye use",
+        "intravitreal injection", "intraocular injection", "ivt injection", 
+        "i.v.t. injection", "i/v/t injection", "injection for eye"
+      ],
+      "ear": [
+        "ear drops", "otic drops", "ear drop", "drops for ear use", 
+        "otic solution", "aural drops",
+        "ear spray", "otic spray", "aural spray", "spray for ear use"
+      ],
+      "nasal": [
+        "nasal spray", "nasal drops", "intranasal spray", 
+        "spray for nasal use", "nose spray", "spray for nose",
+        "nasal solution", "nasal soln", "solution for nasal use", 
+        "nose drops solution",
+        "nasal ointment", "nasal oint", "ointment for nasal use", "nose ointment"
+      ]
+    },
+    
+    "rectal": [
+      "suppository", "supp", "supps", "rectal suppository", 
+      "rect supp", "suppositories", "supp for rectal use", 
+      "rectal supp", "suppository for rectal use",
+      "enema", "rectal solution", "rect soln", "retention enema", 
+      "ret enema", "rectal suspension", "rect susp", 
+      "solution for rectal use", "suspension for rectal use",
+      "rectal foam", "rect foam", "foam for rectal use", 
+      "rectal foam spray", "rect foam spray",
+      "rectal ointment", "rect oint", "rectal cream", 
+      "rect cream", "anal cream", "anal ointment", 
+      "ointment for rectal use", "cream for rectal use", "anal oint"
+    ],
+    
+    "vaginal": [
+      "vaginal tablet", "vag tab", "pessary", "vaginal pessary", 
+      "vag pessary", "pess", "tablet for vaginal use", 
+      "pessary tablet", "vaginal insert",
+      "vaginal cream", "vag cream", "vag crm", "cream for vaginal use", "vaginal crm",
+      "vaginal ring", "vag ring", "ring for vaginal use", 
+      "contraceptive ring", "vaginal delivery system",
+      "vaginal gel", "vag gel", "gel for vaginal use", "vaginal application"
+    ]
+  }
+}
