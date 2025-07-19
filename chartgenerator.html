@@ -2168,7 +2168,10 @@
             );
 
             const medicationInfo = medication.name.includes("[")
-              ? medication.name.match(/\[(.*?)\]/)[1]
+              ? (() => {
+                  const match = medication.name.match(/\[(.*?)\]/);
+                  return match ? match[1] : medication.dosage;
+                })()
               : medication.dosage;
 
             if (medication.isTaper) {
@@ -2848,6 +2851,14 @@
             /once every TWO week \(0800\)/i,
             "once every TWO weeks at 8am"
           )
+          .replace(/0800/i, "at 8am")
+          .replace(/1200/i, "at 12pm")
+          .replace(/1400/i, "at 2pm")
+          .replace(/1600/i, "at 4pm")
+          .replace(/1700/i, "at 5pm")
+          .replace(/1800/i, "at 6pm")
+          .replace(/2000/i, "at 8pm")
+          .replace(/2200/i, "at 10pm")
           // Generic alternate pattern comes last
           .replace(alternateRegex, "every other")
           .replace(sixhrRegex, "SIX hours")
@@ -2879,15 +2890,17 @@
             (match, day) =>
               `(${capitalizeDayName(day)}) ${match.split(")")[1].trim()}`
           )
-          .replace(/\b(mon|monday)\b/gi, "Monday")
-          .replace(/\b(tue(s)?|tuesday)\b/gi, "Tuesday")
-          .replace(/\b(wed|wednesday)\b/gi, "Wednesday")
-          .replace(/\b(thu(rs)?|thursday)\b/gi, "Thursday")
-          .replace(/\b(fri(d)?|friday)\b/gi, "Friday")
-          .replace(/\b(sat|saturday)\b/gi, "Saturday")
-          .replace(/\b(sun|sunday)\b/gi, "Sunday")
+          .replace(/\b(mo|mon|monday)\b/gi, "Monday")
+          .replace(/\b(tu|tue|tues|tuesday)\b/gi, "Tuesday")
+          .replace(/\b(we|wed|wednesday)\b/gi, "Wednesday")
+          .replace(/\b(th|thu|thur|thurs|thursday)\b/gi, "Thursday")
+          .replace(/\b(fr|fri|fri|friday)\b/gi, "Friday")
+          .replace(/\b(sa|sat|saturday)\b/gi, "Saturday")
+          .replace(/\b(su|sun|sunday)\b/gi, "Sunday")
           .replace(/once only one/i, "to be taken as a single dose ONCE only")
           .replace("as directed (no specific times", "as directed")
+          // Replace + between day names with ' and '
+          .replace(/\((\w+)\+(\w+)\)/gi, "($1 and $2)")
           .trim();
 
         // Final cleanup for specific time patterns that might remain
